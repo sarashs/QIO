@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="lfsr.h" path="C:\Users\User\PYNQ-HLS\QIO\QIO\lfsr.h"/>
+    <originFiles name="QIO_accel.cpp" path="C:\Users\User\PYNQ-HLS\QIO\QIO\QIO_accel.cpp"/>
+    <originFiles name="QIO.h" path="C:\Users\User\PYNQ-HLS\QIO\QIO\QIO.h"/>
+  </source>
+  <testbench>
+    <originFiles name="OIO_accel_tb.cpp" path="C:\Users\User\PYNQ-HLS\QIO\QIO\OIO_accel_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

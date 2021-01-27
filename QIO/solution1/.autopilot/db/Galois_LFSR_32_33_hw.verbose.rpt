@@ -1,0 +1,483 @@
+
+
+================================================================
+== Vivado HLS Report for 'Galois_LFSR_32_33_hw'
+================================================================
+* Date:           Wed Jan 27 11:20:27 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        QIO
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 1.799 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|     99|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|      -|    -|
+|Register         |        -|      -|      34|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|      34|     99|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |select_ln12_fu_22_p3  |  select  |      0|  0|  33|           1|          33|
+    |select_ln21_fu_54_p3  |  select  |      0|  0|  33|           1|          33|
+    |xor_ln719_fu_48_p2    |    xor   |      0|  0|  33|          33|          32|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      0|  0|  99|          35|          98|
+    +----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    +----------------------+----+----+-----+-----------+
+    |         Name         | FF | LUT| Bits| Const Bits|
+    +----------------------+----+----+-----+-----------+
+    |ap_CS_fsm             |   1|   0|    1|          0|
+    |guard_variable_for_G  |   0|   0|    1|          1|
+    |lfsr33_V              |  33|   0|   33|          0|
+    +----------------------+----+----+-----+-----------+
+    |Total                 |  34|   0|   35|          1|
+    +----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------+-----+-----+------------+----------------------+--------------+
+| RTL Ports| Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++----------+-----+-----+------------+----------------------+--------------+
+|ap_clk    |  in |    1| ap_ctrl_hs | Galois_LFSR_32_33_hw | return value |
+|ap_rst    |  in |    1| ap_ctrl_hs | Galois_LFSR_32_33_hw | return value |
+|ap_start  |  in |    1| ap_ctrl_hs | Galois_LFSR_32_33_hw | return value |
+|ap_done   | out |    1| ap_ctrl_hs | Galois_LFSR_32_33_hw | return value |
+|ap_idle   | out |    1| ap_ctrl_hs | Galois_LFSR_32_33_hw | return value |
+|ap_ready  | out |    1| ap_ctrl_hs | Galois_LFSR_32_33_hw | return value |
++----------+-----+-----+------------+----------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.79>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%guard_variable_for_G_1 = load i1* @guard_variable_for_G, align 1" [QIO/LFSR.h:12]   --->   Operation 2 'load' 'guard_variable_for_G_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%lfsr33_V_load = load i33* @lfsr33_V, align 8" [QIO/LFSR.h:16]   --->   Operation 3 'load' 'lfsr33_V_load' <Predicate = (guard_variable_for_G_1)> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.80ns)   --->   "%select_ln12 = select i1 %guard_variable_for_G_1, i33 %lfsr33_V_load, i33 61680" [QIO/LFSR.h:12]   --->   Operation 4 'select' 'select_ln12' <Predicate = true> <Delay = 0.80> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 5 [1/1] (0.00ns) (grouped into LUT with out node select_ln21)   --->   "%lsb33_V = trunc i33 %select_ln12 to i1" [QIO/LFSR.h:16]   --->   Operation 5 'trunc' 'lsb33_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%lshr_ln = call i32 @_ssdm_op_PartSelect.i32.i33.i32.i32(i33 %select_ln12, i32 1, i32 32)" [QIO/LFSR.h:20]   --->   Operation 6 'partselect' 'lshr_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%zext_ln858 = zext i32 %lshr_ln to i33" [QIO/LFSR.h:20]   --->   Operation 7 'zext' 'zext_ln858' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node select_ln21)   --->   "%xor_ln719 = xor i33 %zext_ln858, -1811939328" [QIO/LFSR.h:22]   --->   Operation 8 'xor' 'xor_ln719' <Predicate = (lsb33_V)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.99ns) (out node of the LUT)   --->   "%select_ln21 = select i1 %lsb33_V, i33 %xor_ln719, i33 %zext_ln858" [QIO/LFSR.h:21]   --->   Operation 9 'select' 'select_ln21' <Predicate = true> <Delay = 0.99> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "store i33 %select_ln21, i33* @lfsr33_V, align 8" [QIO/LFSR.h:12]   --->   Operation 10 'store' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "ret void" [QIO/LFSR.h:24]   --->   Operation 11 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 1
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ guard_variable_for_G]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=0; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_none:ce=0
+Port [ lfsr33_V]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+guard_variable_for_G_1 (load      ) [ 01]
+lfsr33_V_load          (load      ) [ 00]
+select_ln12            (select    ) [ 00]
+lsb33_V                (trunc     ) [ 01]
+lshr_ln                (partselect) [ 00]
+zext_ln858             (zext      ) [ 00]
+xor_ln719              (xor       ) [ 00]
+select_ln21            (select    ) [ 00]
+store_ln12             (store     ) [ 00]
+ret_ln24               (ret       ) [ 00]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="guard_variable_for_G">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="guard_variable_for_G"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="lfsr33_V">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lfsr33_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1001" name="const_4">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1001" name="const_6">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i32.i33.i32.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1001" name="const_8">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1001" name="const_10">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1001" name="const_12">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1004" name="guard_variable_for_G_1_load_fu_14">
+<pin_list>
+<pin id="15" dir="0" index="0" bw="1" slack="0"/>
+<pin id="16" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="guard_variable_for_G_1/1 "/>
+</bind>
+</comp>
+
+<comp id="18" class="1004" name="lfsr33_V_load_load_fu_18">
+<pin_list>
+<pin id="19" dir="0" index="0" bw="33" slack="0"/>
+<pin id="20" dir="1" index="1" bw="33" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="lfsr33_V_load/1 "/>
+</bind>
+</comp>
+
+<comp id="22" class="1004" name="select_ln12_fu_22">
+<pin_list>
+<pin id="23" dir="0" index="0" bw="1" slack="0"/>
+<pin id="24" dir="0" index="1" bw="33" slack="0"/>
+<pin id="25" dir="0" index="2" bw="33" slack="0"/>
+<pin id="26" dir="1" index="3" bw="33" slack="0"/>
+</pin_list>
+<bind>
+<opcode="select(49) " fcode="select"/>
+<opset="select_ln12/1 "/>
+</bind>
+</comp>
+
+<comp id="30" class="1004" name="lsb33_V_fu_30">
+<pin_list>
+<pin id="31" dir="0" index="0" bw="33" slack="0"/>
+<pin id="32" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="lsb33_V/1 "/>
+</bind>
+</comp>
+
+<comp id="34" class="1004" name="lshr_ln_fu_34">
+<pin_list>
+<pin id="35" dir="0" index="0" bw="32" slack="0"/>
+<pin id="36" dir="0" index="1" bw="33" slack="0"/>
+<pin id="37" dir="0" index="2" bw="1" slack="0"/>
+<pin id="38" dir="0" index="3" bw="7" slack="0"/>
+<pin id="39" dir="1" index="4" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="lshr_ln/1 "/>
+</bind>
+</comp>
+
+<comp id="44" class="1004" name="zext_ln858_fu_44">
+<pin_list>
+<pin id="45" dir="0" index="0" bw="32" slack="0"/>
+<pin id="46" dir="1" index="1" bw="33" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln858/1 "/>
+</bind>
+</comp>
+
+<comp id="48" class="1004" name="xor_ln719_fu_48">
+<pin_list>
+<pin id="49" dir="0" index="0" bw="33" slack="0"/>
+<pin id="50" dir="0" index="1" bw="33" slack="0"/>
+<pin id="51" dir="1" index="2" bw="33" slack="0"/>
+</pin_list>
+<bind>
+<opcode="xor(25) " fcode="xor"/>
+<opset="xor_ln719/1 "/>
+</bind>
+</comp>
+
+<comp id="54" class="1004" name="select_ln21_fu_54">
+<pin_list>
+<pin id="55" dir="0" index="0" bw="1" slack="0"/>
+<pin id="56" dir="0" index="1" bw="33" slack="0"/>
+<pin id="57" dir="0" index="2" bw="33" slack="0"/>
+<pin id="58" dir="1" index="3" bw="33" slack="0"/>
+</pin_list>
+<bind>
+<opcode="select(49) " fcode="select"/>
+<opset="select_ln21/1 "/>
+</bind>
+</comp>
+
+<comp id="62" class="1004" name="store_ln12_store_fu_62">
+<pin_list>
+<pin id="63" dir="0" index="0" bw="33" slack="0"/>
+<pin id="64" dir="0" index="1" bw="33" slack="0"/>
+<pin id="65" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln12/1 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="17"><net_src comp="0" pin="0"/><net_sink comp="14" pin=0"/></net>
+
+<net id="21"><net_src comp="2" pin="0"/><net_sink comp="18" pin=0"/></net>
+
+<net id="27"><net_src comp="14" pin="1"/><net_sink comp="22" pin=0"/></net>
+
+<net id="28"><net_src comp="18" pin="1"/><net_sink comp="22" pin=1"/></net>
+
+<net id="29"><net_src comp="4" pin="0"/><net_sink comp="22" pin=2"/></net>
+
+<net id="33"><net_src comp="22" pin="3"/><net_sink comp="30" pin=0"/></net>
+
+<net id="40"><net_src comp="6" pin="0"/><net_sink comp="34" pin=0"/></net>
+
+<net id="41"><net_src comp="22" pin="3"/><net_sink comp="34" pin=1"/></net>
+
+<net id="42"><net_src comp="8" pin="0"/><net_sink comp="34" pin=2"/></net>
+
+<net id="43"><net_src comp="10" pin="0"/><net_sink comp="34" pin=3"/></net>
+
+<net id="47"><net_src comp="34" pin="4"/><net_sink comp="44" pin=0"/></net>
+
+<net id="52"><net_src comp="44" pin="1"/><net_sink comp="48" pin=0"/></net>
+
+<net id="53"><net_src comp="12" pin="0"/><net_sink comp="48" pin=1"/></net>
+
+<net id="59"><net_src comp="30" pin="1"/><net_sink comp="54" pin=0"/></net>
+
+<net id="60"><net_src comp="48" pin="2"/><net_sink comp="54" pin=1"/></net>
+
+<net id="61"><net_src comp="44" pin="1"/><net_sink comp="54" pin=2"/></net>
+
+<net id="66"><net_src comp="54" pin="3"/><net_sink comp="62" pin=0"/></net>
+
+<net id="67"><net_src comp="2" pin="0"/><net_sink comp="62" pin=1"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: guard_variable_for_G | {}
+	Port: lfsr33_V | {1 }
+ - Input state : 
+	Port: Galois_LFSR_32_33_hw : guard_variable_for_G | {1 }
+	Port: Galois_LFSR_32_33_hw : lfsr33_V | {1 }
+  - Chain level:
+	State 1
+		select_ln12 : 1
+		lsb33_V : 2
+		lshr_ln : 2
+		zext_ln858 : 3
+		xor_ln719 : 4
+		select_ln21 : 4
+		store_ln12 : 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-------------------|---------|---------|
+| Operation|  Functional Unit  |    FF   |   LUT   |
+|----------|-------------------|---------|---------|
+|  select  | select_ln12_fu_22 |    0    |    33   |
+|          | select_ln21_fu_54 |    0    |    33   |
+|----------|-------------------|---------|---------|
+|    xor   |  xor_ln719_fu_48  |    0    |    33   |
+|----------|-------------------|---------|---------|
+|   trunc  |   lsb33_V_fu_30   |    0    |    0    |
+|----------|-------------------|---------|---------|
+|partselect|   lshr_ln_fu_34   |    0    |    0    |
+|----------|-------------------|---------|---------|
+|   zext   |  zext_ln858_fu_44 |    0    |    0    |
+|----------|-------------------|---------|---------|
+|   Total  |                   |    0    |    99   |
+|----------|-------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
+N/A
+
+* Multiplexer (MUX) list: 
+|--------|------|------|------|--------|
+|  Comp  |  Pin | Size |  BW  | S x BW |
+|--------|------|------|------|--------|
+|  Total |      |      |      |    0   |
+|--------|------|------|------|--------|
+
+
+
+* Summary:
++-----------+--------+--------+
+|           |   FF   |   LUT  |
++-----------+--------+--------+
+|  Function |    0   |   99   |
+|   Memory  |    -   |    -   |
+|Multiplexer|    -   |    -   |
+|  Register |    -   |    -   |
++-----------+--------+--------+
+|   Total   |    0   |   99   |
++-----------+--------+--------+
