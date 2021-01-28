@@ -25466,11 +25466,11 @@ namespace hls {
 # 4 "QIO/LFSR.h" 2
 
 
-void Galois_LFSR_32_33_hw(unsigned int input, ap_uint<33> seed,unsigned int out);
-void uniform0_1_hw(unsigned int input, float random);
-template <typename T> void pick_rnd_hw(T num_variables, unsigned int input, unsigned int random);
+template <typename T> void Galois_LFSR_32_33_hw(unsigned int input, ap_uint<33> seed,T *out);
+template <typename T> void uniform0_1_hw(unsigned int input, T *random);
+template <typename T> void pick_rnd_hw(T num_variables, unsigned int input, T *random);
 
-void Galois_LFSR_32_33_hw(unsigned int input, ap_uint<33> seed,unsigned int out){
+template <typename T> void Galois_LFSR_32_33_hw(unsigned int input, ap_uint<33> seed,T *out){
  ap_uint<32> lfsr32 = (ap_uint<32>)input;
  static ap_uint<33> lfsr33 = seed;
  ap_uint<1> lsb32, lsb33;
@@ -25483,14 +25483,14 @@ void Galois_LFSR_32_33_hw(unsigned int input, ap_uint<33> seed,unsigned int out)
  lfsr33 >>= 1;
  if(lsb33)
   lfsr33 ^= 0x194000000;
- out = (unsigned int)(lfsr32 ^ lfsr33);
+ *out = (T)(lfsr32 ^ lfsr33);
 }
-void uniform0_1_hw(unsigned int input, float random){
-random = (float) ((double)input / (2147483647 *2U +1U));
+template <typename T> void uniform0_1_hw(unsigned int input, T *random){
+*random = (T) ((double)input / (2147483647 *2U +1U));
 }
 
-template <typename T> void pick_rnd_hw(T num_variables, unsigned int input, unsigned int random){
-random = (T) (num_variables * (double)input / (2147483647 *2U +1U));
+template <typename T> void pick_rnd_hw(T num_variables, unsigned int input, T *random){
+*random = (T) (num_variables * (double)input / (2147483647 *2U +1U));
 }
 # 6 "QIO/QIO.h" 2
 
@@ -25507,62 +25507,10 @@ struct axis_t {
 
 template <typename T> void axis2type(axis_t *input, T init_val[64], float coef_list[64][64]);
 template <typename T> void type2axis(T C[64], axis_t *output);
-template <typename T> void QIO(T current_val[64],float coef_list[64][64], float cost_new);
+template <typename T> void QIO(T current_val[64],float coef_list[64][64], float *cost_new);
 template <typename T> void QIO_accel_hw(T init_val[64],float coef_list[64][64], T final_val[64]);
 
-template <typename T> void QIO_accel_hw(T init_val[64],float coef_list[64][64], T final_val[64]){_ssdm_SpecArrayDimSize(init_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);_ssdm_SpecArrayDimSize(final_val, 64);
- T current_val[64];
- T new_val[64];
- float cost_new = 1000000000;
- float cost_old = cost_new;
- float random = 1;
- unsigned int rnd_input = 14;
- unsigned int rnd_out;
- unsigned int variable_pick = 0;
- unsigned int delta = 5;
- T move;
- int plus_or_minus;
- ap_uint<33> seed = 0xF0F0;
-QIO_hw_loop1:
- for(int i=0; i<64; i++){
-  current_val[i] = init_val[i];
-  new_val[i] = init_val[i];
- }
-QIO_hw_loop2:
- for(int i=0; i < 10; i++){
-
-  Galois_LFSR_32_33_hw(rnd_input, seed, rnd_out);
-  pick_rnd_hw<T>(64, rnd_out, variable_pick);
-  rnd_input = rnd_out;
-
-  Galois_LFSR_32_33_hw(rnd_input, seed, rnd_out);
-  pick_rnd_hw<T>(delta, rnd_out, move);
-  rnd_input = rnd_out;
-  Galois_LFSR_32_33_hw(rnd_input, seed, rnd_out);
-  pick_rnd_hw<T>(2, rnd_out, plus_or_minus);
-  rnd_input = rnd_out;
-  if (plus_or_minus == 0){
-   new_val[variable_pick] = current_val[variable_pick] + move;
-  }
-  else{
-   new_val[variable_pick] = current_val[variable_pick] - move;
-  }
-
-  QIO<T>(new_val, coef_list, cost_new);
-  Galois_LFSR_32_33_hw(rnd_input, seed, rnd_out);
-  uniform0_1_hw(rnd_out, random);
-  rnd_input = rnd_out;
-  if (random <= (cost_new/cost_old)){
-   cost_old = cost_new;
-   current_val[variable_pick] = new_val[variable_pick];
-  }
- }
-QIO_hw_loop3:
- for(int i=0; i<64; i++){
-  final_val[i] = current_val[i];
- }
-}
-template <typename T> void QIO(T current_val[64],float coef_list[64][64], float cost_new){_ssdm_SpecArrayDimSize(current_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);
+template <typename T> void QIO(T current_val[64],float coef_list[64][64], float *cost_new){_ssdm_SpecArrayDimSize(current_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);
  float sum = 0;
  T current_val2[64];
 QIO_loop1:
@@ -25574,12 +25522,12 @@ QIO_loop2:
  for(int i=0; i<64; i++){
   sum += (float)current_val[i]*coef_list[i][i];
 QIO_loop3:
-  for(int j=i; j<64; j++){
+  for(int j=i+1; j<64; j++){
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  sum += (float)current_val[i]*(float)current_val2[j]*coef_list[i][j];
   }
  }
- cost_new = sum;
+ *cost_new = sum;
 }
 
 template <typename T> void axis2type(axis_t *input, T init_val[64], float coef_list[64][64]){_ssdm_SpecArrayDimSize(init_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);
@@ -25631,6 +25579,58 @@ _ssdm_SpecLoopFlatten(1, "");
 }
 # 2 "QIO/QIO_accel.cpp" 2
 
+template <typename T> void QIO_accel_hw(T init_val[64],float coef_list[64][64], T final_val[64]){_ssdm_SpecArrayDimSize(init_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);_ssdm_SpecArrayDimSize(final_val, 64);
+ T current_val[64];
+ T new_val[64];
+ float cost_new = 1000000000;
+ float cost_old = cost_new;
+ float random = 1;
+ unsigned int rnd_input = 14;
+ unsigned int rnd_out;
+ unsigned int variable_pick = 0;
+ T delta = 5;
+ unsigned int move;
+ unsigned int plus_or_minus;
+ ap_uint<33> seed = 0xF0F0;
+QIO_hw_loop1:
+ for(int i=0; i<64; i++){
+  current_val[i] = init_val[i];
+  new_val[i] = init_val[i];
+ }
+QIO_hw_loop2:
+ for(int i=0; i < 10; i++){
+
+  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
+  pick_rnd_hw<unsigned int >((unsigned int)64, rnd_out, &variable_pick);
+  rnd_input = rnd_out;
+
+  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
+  pick_rnd_hw<unsigned int >(delta, rnd_out, &move);
+  rnd_input = rnd_out;
+  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
+  pick_rnd_hw<unsigned int >((unsigned int)2, rnd_out, &plus_or_minus);
+  rnd_input = rnd_out;
+  if (plus_or_minus == 0){
+   new_val[variable_pick] = current_val[variable_pick] + move;
+  }
+  else{
+   new_val[variable_pick] = current_val[variable_pick] - move;
+  }
+
+  QIO<T>(new_val, coef_list, &cost_new);
+  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
+  uniform0_1_hw<float>(rnd_out, &random);
+  rnd_input = rnd_out;
+  if (random <= (cost_new/cost_old)){
+   cost_old = cost_new;
+   current_val[variable_pick] = new_val[variable_pick];
+  }
+ }
+QIO_hw_loop3:
+ for(int i=0; i<64; i++){
+  final_val[i] = current_val[i];
+ }
+}
 void QIO_accel(axis_t input[64 + (64 + 1)*64/2], axis_t output[64]){_ssdm_SpecArrayDimSize(input, 2144);_ssdm_SpecArrayDimSize(output, 64);
 _ssdm_op_SpecInterface(output, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(input, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");

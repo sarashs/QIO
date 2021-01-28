@@ -12,13 +12,15 @@ set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
 set C_modelName {Galois_LFSR_32_33_hw}
-set C_modelType { void 0 }
+set C_modelType { int 32 }
 set C_modelArgList {
+	{ input_r int 32 regular  }
 }
 set C_modelArgMapList {[ 
-]}
+	{ "Name" : "input_r", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 32} ]}
 # RTL Port declarations: 
-set portNum 6
+set portNum 8
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -26,6 +28,8 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ input_r sc_in sc_lv 32 signal 0 } 
+	{ ap_return sc_out sc_lv 32 signal -1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -33,7 +37,9 @@ set NewPortList {[
  	{ "name": "ap_start", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "start", "bundle":{"name": "ap_start", "role": "default" }} , 
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
- 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }}  ]}
+ 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "input_r", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "input_r", "role": "default" }} , 
+ 	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
@@ -50,13 +56,15 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
-			{"Name" : "guard_variable_for_G", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_r", "Type" : "None", "Direction" : "I"},
+			{"Name" : "guard_variable_for_v", "Type" : "None", "Direction" : "I"},
 			{"Name" : "lfsr33_V", "Type" : "OVld", "Direction" : "IO"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	Galois_LFSR_32_33_hw {
-		guard_variable_for_G {Type I LastRead -1 FirstWrite -1}
+		input_r {Type I LastRead 0 FirstWrite -1}
+		guard_variable_for_v {Type I LastRead -1 FirstWrite -1}
 		lfsr33_V {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
@@ -70,4 +78,5 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
+	input_r { ap_none {  { input_r in_data 0 32 } } }
 }

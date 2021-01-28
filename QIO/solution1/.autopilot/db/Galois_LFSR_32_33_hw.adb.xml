@@ -17,58 +17,58 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="5" bw="1" op_0_bw="1">
+<Node id="6" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:0  %guard_variable_for_G_1 = load i1* @guard_variable_for_G, align 1
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:0  %input_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_r)
 
 ]]></Node>
-<StgValue><ssdm name="guard_variable_for_G_1"/></StgValue>
+<StgValue><ssdm name="input_read"/></StgValue>
 </operation>
 
 <operation id="3" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="guard_variable_for_G_1" val="1"/>
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="1" op_0_bw="1">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:1  %guard_variable_for_v_1 = load i1* @guard_variable_for_v, align 1
+
+]]></Node>
+<StgValue><ssdm name="guard_variable_for_v_1"/></StgValue>
+</operation>
+
+<operation id="4" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="guard_variable_for_v_1" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="6" bw="33" op_0_bw="33">
+<Node id="8" bw="33" op_0_bw="33">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:1  %lfsr33_V_load = load i33* @lfsr33_V, align 8
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:2  %lfsr33_V_load = load i33* @lfsr33_V, align 8
 
 ]]></Node>
 <StgValue><ssdm name="lfsr33_V_load"/></StgValue>
 </operation>
 
-<operation id="4" st_id="1" stage="1" lat="1">
+<operation id="5" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="7" bw="33" op_0_bw="1" op_1_bw="33" op_2_bw="33">
+<Node id="9" bw="33" op_0_bw="1" op_1_bw="33" op_2_bw="33">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:2  %select_ln12 = select i1 %guard_variable_for_G_1, i33 %lfsr33_V_load, i33 61680
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:3  %select_ln12 = select i1 %guard_variable_for_v_1, i33 %lfsr33_V_load, i33 61680
 
 ]]></Node>
 <StgValue><ssdm name="select_ln12"/></StgValue>
-</operation>
-
-<operation id="5" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="8" bw="1" op_0_bw="33">
-<![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:3  %lsb33_V = trunc i33 %select_ln12 to i1
-
-]]></Node>
-<StgValue><ssdm name="lsb33_V"/></StgValue>
 </operation>
 
 <operation id="6" st_id="1" stage="1" lat="1">
@@ -78,12 +78,12 @@ _ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:3  %lsb33_V = trunc i33 %selec
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="9" bw="32" op_0_bw="32" op_1_bw="33" op_2_bw="32" op_3_bw="32">
+<Node id="10" bw="1" op_0_bw="32">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:4  %lshr_ln = call i32 @_ssdm_op_PartSelect.i32.i33.i32.i32(i33 %select_ln12, i32 1, i32 32)
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:4  %lsb32_V = trunc i32 %input_read to i1
 
 ]]></Node>
-<StgValue><ssdm name="lshr_ln"/></StgValue>
+<StgValue><ssdm name="lsb32_V"/></StgValue>
 </operation>
 
 <operation id="7" st_id="1" stage="1" lat="1">
@@ -93,15 +93,106 @@ _ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:4  %lshr_ln = call i32 @_ssdm_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="10" bw="33" op_0_bw="32">
+<Node id="11" bw="1" op_0_bw="33">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:5  %zext_ln858 = zext i32 %lshr_ln to i33
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:5  %lsb33_V = trunc i33 %select_ln12 to i1
+
+]]></Node>
+<StgValue><ssdm name="lsb33_V"/></StgValue>
+</operation>
+
+<operation id="8" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="12" bw="31" op_0_bw="31" op_1_bw="32" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:6  %lfsr32_V = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %input_read, i32 1, i32 31)
+
+]]></Node>
+<StgValue><ssdm name="lfsr32_V"/></StgValue>
+</operation>
+
+<operation id="9" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="32" op_0_bw="31">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:7  %lfsr32_V_1 = zext i31 %lfsr32_V to i32
+
+]]></Node>
+<StgValue><ssdm name="lfsr32_V_1"/></StgValue>
+</operation>
+
+<operation id="10" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="lsb32_V" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:8  %lfsr32_V_2 = xor i32 %lfsr32_V_1, -1560281088
+
+]]></Node>
+<StgValue><ssdm name="lfsr32_V_2"/></StgValue>
+</operation>
+
+<operation id="11" st_id="1" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="15" bw="32" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:9  %lfsr32_V_3 = select i1 %lsb32_V, i32 %lfsr32_V_2, i32 %lfsr32_V_1
+
+]]></Node>
+<StgValue><ssdm name="lfsr32_V_3"/></StgValue>
+</operation>
+
+<operation id="12" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="16" bw="32" op_0_bw="32" op_1_bw="33" op_2_bw="32" op_3_bw="32">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:10  %lshr_ln = call i32 @_ssdm_op_PartSelect.i32.i33.i32.i32(i33 %select_ln12, i32 1, i32 32)
+
+]]></Node>
+<StgValue><ssdm name="lshr_ln"/></StgValue>
+</operation>
+
+<operation id="13" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="17" bw="33" op_0_bw="32">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:11  %zext_ln858 = zext i32 %lshr_ln to i33
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln858"/></StgValue>
 </operation>
 
-<operation id="8" st_id="1" stage="1" lat="1">
+<operation id="14" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -109,54 +200,84 @@ _ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:5  %zext_ln858 = zext i32 %lsh
 </and_exp></or_exp>
 </condition>
 
-<Node id="11" bw="33" op_0_bw="33" op_1_bw="33">
+<Node id="18" bw="33" op_0_bw="33" op_1_bw="33">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:6  %xor_ln719 = xor i33 %zext_ln858, -1811939328
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:12  %xor_ln719 = xor i33 %zext_ln858, -1811939328
 
 ]]></Node>
 <StgValue><ssdm name="xor_ln719"/></StgValue>
 </operation>
 
-<operation id="9" st_id="1" stage="1" lat="1">
+<operation id="15" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="12" bw="33" op_0_bw="1" op_1_bw="33" op_2_bw="33">
+<Node id="19" bw="33" op_0_bw="1" op_1_bw="33" op_2_bw="33">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:7  %select_ln21 = select i1 %lsb33_V, i33 %xor_ln719, i33 %zext_ln858
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:13  %rhs_V = select i1 %lsb33_V, i33 %xor_ln719, i33 %zext_ln858
 
 ]]></Node>
-<StgValue><ssdm name="select_ln21"/></StgValue>
+<StgValue><ssdm name="rhs_V"/></StgValue>
 </operation>
 
-<operation id="10" st_id="1" stage="1" lat="1">
+<operation id="16" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="13" bw="0" op_0_bw="33" op_1_bw="33" op_2_bw="33">
+<Node id="20" bw="32" op_0_bw="33">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:8  store i33 %select_ln21, i33* @lfsr33_V, align 8
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:14  %trunc_ln1357 = trunc i33 %rhs_V to i32
+
+]]></Node>
+<StgValue><ssdm name="trunc_ln1357"/></StgValue>
+</operation>
+
+<operation id="17" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="21" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:15  %xor_ln23 = xor i32 %trunc_ln1357, %lfsr32_V_3
+
+]]></Node>
+<StgValue><ssdm name="xor_ln23"/></StgValue>
+</operation>
+
+<operation id="18" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="22" bw="0" op_0_bw="33" op_1_bw="33" op_2_bw="33">
+<![CDATA[
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:16  store i33 %rhs_V, i33* @lfsr33_V, align 8
 
 ]]></Node>
 <StgValue><ssdm name="store_ln12"/></StgValue>
 </operation>
 
-<operation id="11" st_id="1" stage="1" lat="1">
+<operation id="19" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="14" bw="0">
+<Node id="23" bw="0" op_0_bw="32">
 <![CDATA[
-_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:9  ret void
+_ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:17  ret i32 %xor_ln23
 
 ]]></Node>
 <StgValue><ssdm name="ret_ln24"/></StgValue>
@@ -166,55 +287,94 @@ _ZrSILi32ELb0EER11ap_int_baseIXT_EXT0_EES2_i.exit:9  ret void
 
 
 <ports>
-<port id="12" name="guard_variable_for_G" dir="0" iftype="0">
-<core>NULL</core><StgValue><ssdm name="guard_variable_for_G"/></StgValue>
+<port id="20" name="input_r" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="input_r"/></StgValue>
 </port>
-<port id="13" name="lfsr33_V" dir="2" iftype="0">
+<port id="21" name="guard_variable_for_v" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="guard_variable_for_v"/></StgValue>
+</port>
+<port id="22" name="lfsr33_V" dir="2" iftype="0">
 <core>NULL</core><StgValue><ssdm name="lfsr33_V"/></StgValue>
 </port>
 </ports>
 
 
 <dataflows>
-<dataflow id="14" from="guard_variable_for_G" to="guard_variable_for_G_1" fromId="12" toId="2">
+<dataflow id="24" from="_ssdm_op_Read.ap_auto.i32" to="input_read" fromId="23" toId="2">
 </dataflow>
-<dataflow id="15" from="lfsr33_V" to="lfsr33_V_load" fromId="13" toId="3">
+<dataflow id="25" from="input_r" to="input_read" fromId="20" toId="2">
 </dataflow>
-<dataflow id="16" from="guard_variable_for_G_1" to="select_ln12" fromId="2" toId="4">
+<dataflow id="26" from="guard_variable_for_v" to="guard_variable_for_v_1" fromId="21" toId="3">
 </dataflow>
-<dataflow id="17" from="lfsr33_V_load" to="select_ln12" fromId="3" toId="4">
+<dataflow id="27" from="lfsr33_V" to="lfsr33_V_load" fromId="22" toId="4">
 </dataflow>
-<dataflow id="19" from="StgValue_18" to="select_ln12" fromId="18" toId="4">
+<dataflow id="28" from="guard_variable_for_v_1" to="select_ln12" fromId="3" toId="5">
 </dataflow>
-<dataflow id="20" from="select_ln12" to="lsb33_V" fromId="4" toId="5">
+<dataflow id="29" from="lfsr33_V_load" to="select_ln12" fromId="4" toId="5">
 </dataflow>
-<dataflow id="22" from="_ssdm_op_PartSelect.i32.i33.i32.i32" to="lshr_ln" fromId="21" toId="6">
+<dataflow id="31" from="StgValue_30" to="select_ln12" fromId="30" toId="5">
 </dataflow>
-<dataflow id="23" from="select_ln12" to="lshr_ln" fromId="4" toId="6">
+<dataflow id="32" from="input_read" to="lsb32_V" fromId="2" toId="6">
 </dataflow>
-<dataflow id="25" from="StgValue_24" to="lshr_ln" fromId="24" toId="6">
+<dataflow id="33" from="select_ln12" to="lsb33_V" fromId="5" toId="7">
 </dataflow>
-<dataflow id="27" from="StgValue_26" to="lshr_ln" fromId="26" toId="6">
+<dataflow id="35" from="_ssdm_op_PartSelect.i31.i32.i32.i32" to="lfsr32_V" fromId="34" toId="8">
 </dataflow>
-<dataflow id="28" from="lshr_ln" to="zext_ln858" fromId="6" toId="7">
+<dataflow id="36" from="input_read" to="lfsr32_V" fromId="2" toId="8">
 </dataflow>
-<dataflow id="29" from="zext_ln858" to="xor_ln719" fromId="7" toId="8">
+<dataflow id="38" from="StgValue_37" to="lfsr32_V" fromId="37" toId="8">
 </dataflow>
-<dataflow id="31" from="StgValue_30" to="xor_ln719" fromId="30" toId="8">
+<dataflow id="40" from="StgValue_39" to="lfsr32_V" fromId="39" toId="8">
 </dataflow>
-<dataflow id="32" from="lsb33_V" to="select_ln21" fromId="5" toId="9">
+<dataflow id="41" from="lfsr32_V" to="lfsr32_V_1" fromId="8" toId="9">
 </dataflow>
-<dataflow id="33" from="xor_ln719" to="select_ln21" fromId="8" toId="9">
+<dataflow id="42" from="lfsr32_V_1" to="lfsr32_V_2" fromId="9" toId="10">
 </dataflow>
-<dataflow id="34" from="zext_ln858" to="select_ln21" fromId="7" toId="9">
+<dataflow id="44" from="StgValue_43" to="lfsr32_V_2" fromId="43" toId="10">
 </dataflow>
-<dataflow id="35" from="select_ln21" to="store_ln12" fromId="9" toId="10">
+<dataflow id="45" from="lsb32_V" to="lfsr32_V_3" fromId="6" toId="11">
 </dataflow>
-<dataflow id="36" from="lfsr33_V" to="store_ln12" fromId="13" toId="10">
+<dataflow id="46" from="lfsr32_V_2" to="lfsr32_V_3" fromId="10" toId="11">
 </dataflow>
-<dataflow id="37" from="guard_variable_for_G_1" to="StgValue_1" fromId="2" toId="1">
+<dataflow id="47" from="lfsr32_V_1" to="lfsr32_V_3" fromId="9" toId="11">
 </dataflow>
-<dataflow id="38" from="lsb33_V" to="StgValue_1" fromId="5" toId="1">
+<dataflow id="49" from="_ssdm_op_PartSelect.i32.i33.i32.i32" to="lshr_ln" fromId="48" toId="12">
+</dataflow>
+<dataflow id="50" from="select_ln12" to="lshr_ln" fromId="5" toId="12">
+</dataflow>
+<dataflow id="51" from="StgValue_37" to="lshr_ln" fromId="37" toId="12">
+</dataflow>
+<dataflow id="53" from="StgValue_52" to="lshr_ln" fromId="52" toId="12">
+</dataflow>
+<dataflow id="54" from="lshr_ln" to="zext_ln858" fromId="12" toId="13">
+</dataflow>
+<dataflow id="55" from="zext_ln858" to="xor_ln719" fromId="13" toId="14">
+</dataflow>
+<dataflow id="57" from="StgValue_56" to="xor_ln719" fromId="56" toId="14">
+</dataflow>
+<dataflow id="58" from="lsb33_V" to="rhs_V" fromId="7" toId="15">
+</dataflow>
+<dataflow id="59" from="xor_ln719" to="rhs_V" fromId="14" toId="15">
+</dataflow>
+<dataflow id="60" from="zext_ln858" to="rhs_V" fromId="13" toId="15">
+</dataflow>
+<dataflow id="61" from="rhs_V" to="trunc_ln1357" fromId="15" toId="16">
+</dataflow>
+<dataflow id="62" from="trunc_ln1357" to="xor_ln23" fromId="16" toId="17">
+</dataflow>
+<dataflow id="63" from="lfsr32_V_3" to="xor_ln23" fromId="11" toId="17">
+</dataflow>
+<dataflow id="64" from="rhs_V" to="store_ln12" fromId="15" toId="18">
+</dataflow>
+<dataflow id="65" from="lfsr33_V" to="store_ln12" fromId="22" toId="18">
+</dataflow>
+<dataflow id="66" from="xor_ln23" to="ret_ln24" fromId="17" toId="19">
+</dataflow>
+<dataflow id="67" from="guard_variable_for_v_1" to="StgValue_1" fromId="3" toId="1">
+</dataflow>
+<dataflow id="68" from="lsb32_V" to="StgValue_1" fromId="6" toId="1">
+</dataflow>
+<dataflow id="69" from="lsb33_V" to="StgValue_1" fromId="7" toId="1">
 </dataflow>
 </dataflows>
 

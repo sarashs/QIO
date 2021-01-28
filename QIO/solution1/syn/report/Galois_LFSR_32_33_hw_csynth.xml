@@ -17,7 +17,7 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>1.799</EstimatedClockPeriod>
+<EstimatedClockPeriod>2.792</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -34,8 +34,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>34</FF>
-<LUT>99</LUT>
+<FF>66</FF>
+<LUT>204</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 <URAM>0</URAM>
@@ -115,6 +115,28 @@
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_return</name>
+<Object>Galois_LFSR_32_33_hw</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>32</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>input_r</name>
+<Object>input_r</Object>
+<Type>scalar</Type>
+<Scope></Scope>
+<IOProtocol>ap_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>32</Bits>
+<Attribute>data</Attribute>
 </RtlPorts>
 </InterfaceSummary>
 

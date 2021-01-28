@@ -13,7 +13,9 @@ module Galois_LFSR_32_33_hw (
         ap_start,
         ap_done,
         ap_idle,
-        ap_ready
+        ap_ready,
+        input_r,
+        ap_return
 );
 
 parameter    ap_ST_fsm_state1 = 1'd1;
@@ -24,28 +26,40 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
+input  [31:0] input_r;
+output  [31:0] ap_return;
 
 reg ap_done;
 reg ap_idle;
 reg ap_ready;
+reg[31:0] ap_return;
 
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [0:0] guard_variable_for_G;
+reg   [0:0] guard_variable_for_v;
 reg   [32:0] lfsr33_V;
-wire   [32:0] select_ln21_fu_54_p3;
-wire   [32:0] select_ln12_fu_22_p3;
-wire   [31:0] lshr_ln_fu_34_p4;
-wire   [32:0] zext_ln858_fu_44_p1;
-wire   [0:0] lsb33_V_fu_30_p1;
-wire   [32:0] xor_ln719_fu_48_p2;
+wire   [32:0] rhs_V_fu_102_p3;
+wire   [32:0] select_ln12_fu_38_p3;
+wire   [30:0] lfsr32_V_fu_54_p4;
+wire   [31:0] lfsr32_V_1_fu_64_p1;
+wire   [0:0] lsb32_V_fu_46_p1;
+wire   [31:0] lfsr32_V_2_fu_68_p2;
+wire   [31:0] lshr_ln_fu_82_p4;
+wire   [32:0] zext_ln858_fu_92_p1;
+wire   [0:0] lsb33_V_fu_50_p1;
+wire   [32:0] xor_ln719_fu_96_p2;
+wire   [31:0] trunc_ln1357_fu_110_p1;
+wire   [31:0] lfsr32_V_3_fu_74_p3;
+wire   [31:0] xor_ln23_fu_114_p2;
+reg   [31:0] ap_return_preg;
 reg   [0:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
 #0 ap_CS_fsm = 1'd1;
-#0 guard_variable_for_G = 1'd0;
+#0 guard_variable_for_v = 1'd0;
 #0 lfsr33_V = 33'd0;
+#0 ap_return_preg = 32'd0;
 end
 
 always @ (posedge ap_clk) begin
@@ -57,8 +71,18 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        ap_return_preg <= 32'd0;
+    end else begin
+        if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+            ap_return_preg <= xor_ln23_fu_114_p2;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        lfsr33_V <= select_ln21_fu_54_p3;
+        lfsr33_V <= rhs_V_fu_102_p3;
     end
 end
 
@@ -87,6 +111,14 @@ always @ (*) begin
 end
 
 always @ (*) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        ap_return = xor_ln23_fu_114_p2;
+    end else begin
+        ap_return = ap_return_preg;
+    end
+end
+
+always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
             ap_NS_fsm = ap_ST_fsm_state1;
@@ -99,16 +131,30 @@ end
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
-assign lsb33_V_fu_30_p1 = select_ln12_fu_22_p3[0:0];
+assign lfsr32_V_1_fu_64_p1 = lfsr32_V_fu_54_p4;
 
-assign lshr_ln_fu_34_p4 = {{select_ln12_fu_22_p3[32:1]}};
+assign lfsr32_V_2_fu_68_p2 = (lfsr32_V_1_fu_64_p1 ^ 32'd2734686208);
 
-assign select_ln12_fu_22_p3 = ((guard_variable_for_G[0:0] === 1'b1) ? lfsr33_V : 33'd61680);
+assign lfsr32_V_3_fu_74_p3 = ((lsb32_V_fu_46_p1[0:0] === 1'b1) ? lfsr32_V_2_fu_68_p2 : lfsr32_V_1_fu_64_p1);
 
-assign select_ln21_fu_54_p3 = ((lsb33_V_fu_30_p1[0:0] === 1'b1) ? xor_ln719_fu_48_p2 : zext_ln858_fu_44_p1);
+assign lfsr32_V_fu_54_p4 = {{input_r[31:1]}};
 
-assign xor_ln719_fu_48_p2 = (zext_ln858_fu_44_p1 ^ 33'd6777995264);
+assign lsb32_V_fu_46_p1 = input_r[0:0];
 
-assign zext_ln858_fu_44_p1 = lshr_ln_fu_34_p4;
+assign lsb33_V_fu_50_p1 = select_ln12_fu_38_p3[0:0];
+
+assign lshr_ln_fu_82_p4 = {{select_ln12_fu_38_p3[32:1]}};
+
+assign rhs_V_fu_102_p3 = ((lsb33_V_fu_50_p1[0:0] === 1'b1) ? xor_ln719_fu_96_p2 : zext_ln858_fu_92_p1);
+
+assign select_ln12_fu_38_p3 = ((guard_variable_for_v[0:0] === 1'b1) ? lfsr33_V : 33'd61680);
+
+assign trunc_ln1357_fu_110_p1 = rhs_V_fu_102_p3[31:0];
+
+assign xor_ln23_fu_114_p2 = (trunc_ln1357_fu_110_p1 ^ lfsr32_V_3_fu_74_p3);
+
+assign xor_ln719_fu_96_p2 = (zext_ln858_fu_92_p1 ^ 33'd6777995264);
+
+assign zext_ln858_fu_92_p1 = lshr_ln_fu_82_p4;
 
 endmodule //Galois_LFSR_32_33_hw

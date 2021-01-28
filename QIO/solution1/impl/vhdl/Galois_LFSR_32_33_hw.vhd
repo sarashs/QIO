@@ -16,7 +16,9 @@ port (
     ap_start : IN STD_LOGIC;
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
-    ap_ready : OUT STD_LOGIC );
+    ap_ready : OUT STD_LOGIC;
+    input_r : IN STD_LOGIC_VECTOR (31 downto 0);
+    ap_return : OUT STD_LOGIC_VECTOR (31 downto 0) );
 end;
 
 
@@ -27,6 +29,8 @@ architecture behav of Galois_LFSR_32_33_hw is
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv33_F0F0 : STD_LOGIC_VECTOR (32 downto 0) := "000000000000000001111000011110000";
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
+    constant ap_const_lv32_1F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011111";
+    constant ap_const_lv32_A3000000 : STD_LOGIC_VECTOR (31 downto 0) := "10100011000000000000000000000000";
     constant ap_const_lv32_20 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000100000";
     constant ap_const_lv33_194000000 : STD_LOGIC_VECTOR (32 downto 0) := "110010100000000000000000000000000";
     constant ap_const_boolean_1 : BOOLEAN := true;
@@ -36,14 +40,22 @@ architecture behav of Galois_LFSR_32_33_hw is
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal guard_variable_for_G : STD_LOGIC_VECTOR (0 downto 0) := "0";
+    signal guard_variable_for_v : STD_LOGIC_VECTOR (0 downto 0) := "0";
     signal lfsr33_V : STD_LOGIC_VECTOR (32 downto 0) := "000000000000000000000000000000000";
-    signal select_ln21_fu_54_p3 : STD_LOGIC_VECTOR (32 downto 0);
-    signal select_ln12_fu_22_p3 : STD_LOGIC_VECTOR (32 downto 0);
-    signal lshr_ln_fu_34_p4 : STD_LOGIC_VECTOR (31 downto 0);
-    signal zext_ln858_fu_44_p1 : STD_LOGIC_VECTOR (32 downto 0);
-    signal lsb33_V_fu_30_p1 : STD_LOGIC_VECTOR (0 downto 0);
-    signal xor_ln719_fu_48_p2 : STD_LOGIC_VECTOR (32 downto 0);
+    signal rhs_V_fu_102_p3 : STD_LOGIC_VECTOR (32 downto 0);
+    signal select_ln12_fu_38_p3 : STD_LOGIC_VECTOR (32 downto 0);
+    signal lfsr32_V_fu_54_p4 : STD_LOGIC_VECTOR (30 downto 0);
+    signal lfsr32_V_1_fu_64_p1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal lsb32_V_fu_46_p1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal lfsr32_V_2_fu_68_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal lshr_ln_fu_82_p4 : STD_LOGIC_VECTOR (31 downto 0);
+    signal zext_ln858_fu_92_p1 : STD_LOGIC_VECTOR (32 downto 0);
+    signal lsb33_V_fu_50_p1 : STD_LOGIC_VECTOR (0 downto 0);
+    signal xor_ln719_fu_96_p2 : STD_LOGIC_VECTOR (32 downto 0);
+    signal trunc_ln1357_fu_110_p1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal lfsr32_V_3_fu_74_p3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal xor_ln23_fu_114_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal ap_return_preg : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     signal ap_NS_fsm : STD_LOGIC_VECTOR (0 downto 0);
 
 
@@ -64,7 +76,21 @@ begin
     end process;
 
 
-    guard_variable_for_G_assign_proc : process (ap_clk)
+    ap_return_preg_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst = '1') then
+                ap_return_preg <= ap_const_lv32_0;
+            else
+                if (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+                    ap_return_preg <= xor_ln23_fu_114_p2;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+
+    guard_variable_for_v_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
         end if;
@@ -73,7 +99,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
-                lfsr33_V <= select_ln21_fu_54_p3;
+                lfsr33_V <= rhs_V_fu_102_p3;
             end if;
         end if;
     end process;
@@ -118,14 +144,33 @@ begin
         end if; 
     end process;
 
-    lsb33_V_fu_30_p1 <= select_ln12_fu_22_p3(1 - 1 downto 0);
-    lshr_ln_fu_34_p4 <= select_ln12_fu_22_p3(32 downto 1);
-    select_ln12_fu_22_p3 <= 
-        lfsr33_V when (guard_variable_for_G(0) = '1') else 
+
+    ap_return_assign_proc : process(ap_start, ap_CS_fsm_state1, xor_ln23_fu_114_p2, ap_return_preg)
+    begin
+        if (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
+            ap_return <= xor_ln23_fu_114_p2;
+        else 
+            ap_return <= ap_return_preg;
+        end if; 
+    end process;
+
+    lfsr32_V_1_fu_64_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(lfsr32_V_fu_54_p4),32));
+    lfsr32_V_2_fu_68_p2 <= (lfsr32_V_1_fu_64_p1 xor ap_const_lv32_A3000000);
+    lfsr32_V_3_fu_74_p3 <= 
+        lfsr32_V_2_fu_68_p2 when (lsb32_V_fu_46_p1(0) = '1') else 
+        lfsr32_V_1_fu_64_p1;
+    lfsr32_V_fu_54_p4 <= input_r(31 downto 1);
+    lsb32_V_fu_46_p1 <= input_r(1 - 1 downto 0);
+    lsb33_V_fu_50_p1 <= select_ln12_fu_38_p3(1 - 1 downto 0);
+    lshr_ln_fu_82_p4 <= select_ln12_fu_38_p3(32 downto 1);
+    rhs_V_fu_102_p3 <= 
+        xor_ln719_fu_96_p2 when (lsb33_V_fu_50_p1(0) = '1') else 
+        zext_ln858_fu_92_p1;
+    select_ln12_fu_38_p3 <= 
+        lfsr33_V when (guard_variable_for_v(0) = '1') else 
         ap_const_lv33_F0F0;
-    select_ln21_fu_54_p3 <= 
-        xor_ln719_fu_48_p2 when (lsb33_V_fu_30_p1(0) = '1') else 
-        zext_ln858_fu_44_p1;
-    xor_ln719_fu_48_p2 <= (zext_ln858_fu_44_p1 xor ap_const_lv33_194000000);
-    zext_ln858_fu_44_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(lshr_ln_fu_34_p4),33));
+    trunc_ln1357_fu_110_p1 <= rhs_V_fu_102_p3(32 - 1 downto 0);
+    xor_ln23_fu_114_p2 <= (trunc_ln1357_fu_110_p1 xor lfsr32_V_3_fu_74_p3);
+    xor_ln719_fu_96_p2 <= (zext_ln858_fu_92_p1 xor ap_const_lv33_194000000);
+    zext_ln858_fu_92_p1 <= std_logic_vector(IEEE.numeric_std.resize(unsigned(lshr_ln_fu_82_p4),33));
 end behav;

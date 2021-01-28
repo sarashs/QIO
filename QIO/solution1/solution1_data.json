@@ -81,7 +81,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "4542",
+    "Latency": "18871",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -101,16 +101,38 @@
     "Vhdl": [
       "impl\/vhdl\/Galois_LFSR_32_33_hw.vhd",
       "impl\/vhdl\/QIO_accel_AXILiteS_s_axi.vhd",
-      "impl\/vhdl\/QIO_accel_hw_int_bkb.vhd",
+      "impl\/vhdl\/QIO_accel_coef_list.vhd",
+      "impl\/vhdl\/QIO_accel_ddiv_64lbW.vhd",
+      "impl\/vhdl\/QIO_accel_dmul_64kbM.vhd",
+      "impl\/vhdl\/QIO_accel_fadd_32cud.vhd",
+      "impl\/vhdl\/QIO_accel_fcmp_32jbC.vhd",
+      "impl\/vhdl\/QIO_accel_fdiv_32hbi.vhd",
+      "impl\/vhdl\/QIO_accel_fmul_32dEe.vhd",
+      "impl\/vhdl\/QIO_accel_fptruncibs.vhd",
       "impl\/vhdl\/QIO_accel_hw_int_s.vhd",
+      "impl\/vhdl\/QIO_accel_sitofp_eOg.vhd",
+      "impl\/vhdl\/QIO_accel_uitodp_mb6.vhd",
+      "impl\/vhdl\/QIO_int_s.vhd",
+      "impl\/vhdl\/QIO_int_s_currentbkb.vhd",
       "impl\/vhdl\/regslice_core.vhd",
       "impl\/vhdl\/QIO_accel.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/Galois_LFSR_32_33_hw.v",
       "impl\/verilog\/QIO_accel_AXILiteS_s_axi.v",
-      "impl\/verilog\/QIO_accel_hw_int_bkb.v",
+      "impl\/verilog\/QIO_accel_coef_list.v",
+      "impl\/verilog\/QIO_accel_ddiv_64lbW.v",
+      "impl\/verilog\/QIO_accel_dmul_64kbM.v",
+      "impl\/verilog\/QIO_accel_fadd_32cud.v",
+      "impl\/verilog\/QIO_accel_fcmp_32jbC.v",
+      "impl\/verilog\/QIO_accel_fdiv_32hbi.v",
+      "impl\/verilog\/QIO_accel_fmul_32dEe.v",
+      "impl\/verilog\/QIO_accel_fptruncibs.v",
       "impl\/verilog\/QIO_accel_hw_int_s.v",
+      "impl\/verilog\/QIO_accel_sitofp_eOg.v",
+      "impl\/verilog\/QIO_accel_uitodp_mb6.v",
+      "impl\/verilog\/QIO_int_s.v",
+      "impl\/verilog\/QIO_int_s_currentbkb.v",
       "impl\/verilog\/regslice_core.v",
       "impl\/verilog\/QIO_accel.v"
     ],
@@ -125,6 +147,17 @@
       "impl\/misc\/drivers\/QIO_accel_v1_0\/src\/xqio_accel_sinit.c"
     ],
     "Misc": ["impl\/misc\/logo.png"],
+    "Subcore": [
+      "impl\/misc\/QIO_accel_ap_ddiv_29_no_dsp_64_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_dmul_4_max_dsp_64_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_fadd_3_full_dsp_32_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_fcmp_0_no_dsp_32_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_fdiv_14_no_dsp_32_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_fmul_2_max_dsp_32_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_fptrunc_0_no_dsp_64_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_sitofp_4_no_dsp_32_ip.tcl",
+      "impl\/misc\/QIO_accel_ap_uitodp_4_no_dsp_32_ip.tcl"
+    ],
     "DesignXml": "C:\/Users\/User\/PYNQ-HLS\/QIO\/QIO\/solution1\/.autopilot\/db\/QIO_accel.design.xml",
     "DebugDir": "C:\/Users\/User\/PYNQ-HLS\/QIO\/QIO\/solution1\/.debug",
     "ProtoInst": ["C:\/Users\/User\/PYNQ-HLS\/QIO\/QIO\/solution1\/.debug\/QIO_accel.protoinst"]
@@ -132,7 +165,53 @@
   "SubcoreInfo": {
     "HasXpmMemory": false,
     "HasClockedDsp": false,
-    "IP": []
+    "IP": [
+      {
+        "name": "QIO_accel_ap_ddiv_29_no_dsp_64",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 29 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name QIO_accel_ap_ddiv_29_no_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_dmul_4_max_dsp_64",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name QIO_accel_ap_dmul_4_max_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_fadd_3_full_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Add CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name QIO_accel_ap_fadd_3_full_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_fcmp_0_no_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 1 CONFIG.c_result_fraction_width 0 CONFIG.component_name QIO_accel_ap_fcmp_0_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Compare CONFIG.result_precision_type Custom CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_fdiv_14_no_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 14 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name QIO_accel_ap_fdiv_14_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Divide CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_fmul_2_max_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 2 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name QIO_accel_ap_fmul_2_max_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_fptrunc_0_no_dsp_64",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name QIO_accel_ap_fptrunc_0_no_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_sitofp_4_no_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 32 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name QIO_accel_ap_sitofp_4_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "name": "QIO_accel_ap_uitodp_4_no_dsp_32",
+        "vlnv": "xilinx.com:ip:floating_point:7.1",
+        "params": "CONFIG.a_precision_type Custom CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 64 CONFIG.c_a_fraction_width 0 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name QIO_accel_ap_uitodp_4_no_dsp_32 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Fixed_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+      }
+    ]
   },
   "Interfaces": {
     "ap_clk": {
@@ -537,11 +616,17 @@
       "ModuleName": "QIO_accel",
       "Instances": [{
           "ModuleName": "QIO_accel_hw_int_s",
-          "InstanceName": "grp_QIO_accel_hw_int_s_fu_164",
-          "Instances": [{
+          "InstanceName": "grp_QIO_accel_hw_int_s_fu_206",
+          "Instances": [
+            {
+              "ModuleName": "QIO_int_s",
+              "InstanceName": "grp_QIO_int_s_fu_244"
+            },
+            {
               "ModuleName": "Galois_LFSR_32_33_hw",
-              "InstanceName": "grp_Galois_LFSR_32_33_hw_fu_156"
-            }]
+              "InstanceName": "grp_Galois_LFSR_32_33_hw_fu_251"
+            }
+          ]
         }]
     },
     "Info": {
@@ -551,6 +636,13 @@
         "isPipelined": "0",
         "isCombinational": "0",
         "isOneStateSeq": "1"
+      },
+      "QIO_int_s": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
       },
       "QIO_accel_hw_int_s": {
         "FunctionProtocol": "ap_ctrl_hs",
@@ -580,29 +672,84 @@
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "1.799"
+          "Estimate": "2.792"
         },
         "Area": {
-          "FF": "34",
-          "LUT": "99",
+          "FF": "66",
+          "LUT": "204",
           "BRAM_18K": "0",
           "DSP48E": "0",
           "URAM": "0"
         }
       },
-      "QIO_accel_hw_int_s": {
+      "QIO_int_s": {
         "Latency": {
-          "LatencyBest": "310",
-          "LatencyAvg": "310",
-          "LatencyWorst": "310",
-          "PipelineII": "310",
+          "LatencyBest": "1347",
+          "LatencyAvg": "",
+          "LatencyWorst": "22531",
+          "PipelineIIMin": "1347",
+          "PipelineIIMax": "22531",
+          "PipelineII": "1347 ~ 22531",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "6.508"
+          "Estimate": "7.256"
+        },
+        "Loops": [
+          {
+            "Name": "QIO_loop1",
+            "TripCount": "64",
+            "Latency": "64",
+            "PipelineII": "1",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "QIO_loop2",
+            "TripCount": "64",
+            "LatencyMin": "1280",
+            "LatencyMax": "22464",
+            "Latency": "1280 ~ 22464",
+            "PipelineII": "",
+            "PipelineDepthMin": "20",
+            "PipelineDepthMax": "351",
+            "PipelineDepth": "20 ~ 351",
+            "Loops": [{
+                "Name": "QIO_loop3",
+                "TripCount": "",
+                "LatencyMin": "0",
+                "LatencyMax": "331",
+                "Latency": "0 ~ 331",
+                "PipelineII": "5",
+                "PipelineDepth": "22"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "1",
+          "DSP48E": "5",
+          "FF": "1203",
+          "LUT": "1777",
+          "URAM": "0"
+        }
+      },
+      "QIO_accel_hw_int_s": {
+        "Latency": {
+          "LatencyBest": "14639",
+          "LatencyAvg": "",
+          "LatencyWorst": "226479",
+          "PipelineIIMin": "14639",
+          "PipelineIIMax": "226479",
+          "PipelineII": "14639 ~ 226479",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.621"
         },
         "Loops": [
           {
@@ -615,9 +762,13 @@
           {
             "Name": "QIO_hw_loop2",
             "TripCount": "10",
-            "Latency": "50",
+            "LatencyMin": "14380",
+            "LatencyMax": "226220",
+            "Latency": "14380 ~ 226220",
             "PipelineII": "",
-            "PipelineDepth": "5"
+            "PipelineDepthMin": "1438",
+            "PipelineDepthMax": "22622",
+            "PipelineDepth": "1438 ~ 22622"
           },
           {
             "Name": "QIO_hw_loop3",
@@ -628,26 +779,28 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "2",
-          "FF": "127",
-          "LUT": "304",
-          "URAM": "0",
-          "DSP48E": "0"
+          "BRAM_18K": "3",
+          "DSP48E": "27",
+          "FF": "11284",
+          "LUT": "16282",
+          "URAM": "0"
         }
       },
       "QIO_accel": {
         "Latency": {
-          "LatencyBest": "4542",
-          "LatencyAvg": "4542",
-          "LatencyWorst": "4542",
-          "PipelineII": "4543",
+          "LatencyBest": "18871",
+          "LatencyAvg": "",
+          "LatencyWorst": "230711",
+          "PipelineIIMin": "18872",
+          "PipelineIIMax": "230712",
+          "PipelineII": "18872 ~ 230712",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "6.508"
+          "Estimate": "8.621"
         },
         "Loops": [
           {
@@ -673,11 +826,11 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "4",
-          "FF": "205",
-          "LUT": "627",
-          "URAM": "0",
-          "DSP48E": "0"
+          "BRAM_18K": "13",
+          "DSP48E": "27",
+          "FF": "11376",
+          "LUT": "16727",
+          "URAM": "0"
         }
       }
     }
@@ -692,7 +845,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-01-27 11:20:29 -0800",
+    "Time": "2021-01-28 09:59:33 -0800",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

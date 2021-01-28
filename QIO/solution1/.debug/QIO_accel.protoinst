@@ -13,7 +13,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_QIO_accel_hw_int_s_fu_164/grp_Galois_LFSR_32_33_hw_fu_156/grp_Galois_LFSR_32_33_hw_fu_156_activity": {
+				"grp_QIO_accel_hw_int_s_fu_206/grp_Galois_LFSR_32_33_hw_fu_251/grp_Galois_LFSR_32_33_hw_fu_251_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -23,7 +23,17 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_QIO_accel_hw_int_s_fu_164/grp_QIO_accel_hw_int_s_fu_164_activity": {
+				"grp_QIO_accel_hw_int_s_fu_206/grp_QIO_accel_hw_int_s_fu_206_activity": {
+					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
+					"ports": {
+						"AP_CLK": { "actual": "ap_clk"},
+						"AP_DONE": { "actual": "ap_done"},
+						"AP_READY": { "actual": "ap_ready"},
+						"AP_RESET": { "actual": "ap_rst"},
+						"AP_START": { "actual": "ap_start"}
+					}
+				},
+				"grp_QIO_accel_hw_int_s_fu_206/grp_QIO_int_s_fu_244/grp_QIO_int_s_fu_244_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

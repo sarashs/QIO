@@ -2,58 +2,98 @@
 <Messages>
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_631" tag="SCHEDULE" content="Option &apos;relax_ii_for_timing&apos; is enabled, will increase II to preserve clock frequency constraints."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;QIO/QIO_accel.cpp&apos; ..."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:18 . Memory (MB): peak = 887.980 ; gain = 794.211"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:18 . Memory (MB): peak = 887.980 ; gain = 794.211"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 888.148 ; gain = 795.246"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:20 . Memory (MB): peak = 888.148 ; gain = 795.246"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
-	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;axis2type&lt;int&gt;&apos; into &apos;QIO_accel&apos; (QIO/QIO_accel.cpp:12)."/>
-	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;type2axis&lt;int&gt;&apos; into &apos;QIO_accel&apos; (QIO/QIO_accel.cpp:14)."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:06 ; elapsed = 00:00:23 . Memory (MB): peak = 887.980 ; gain = 794.211"/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;axis2type&lt;int&gt;&apos; into &apos;QIO_accel&apos; (QIO/QIO_accel.cpp:64)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;type2axis&lt;int&gt;&apos; into &apos;QIO_accel&apos; (QIO/QIO_accel.cpp:66)."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:22 . Memory (MB): peak = 888.148 ; gain = 795.246"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::mantissa&apos; into &apos;generic_cast_IEEE754&lt;int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:15) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::expv&apos; into &apos;generic_cast_IEEE754&lt;int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:18) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::__signbit&apos; into &apos;generic_cast_IEEE754&lt;int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:59) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;generic_cast_IEEE754&lt;int, (ap_q_mode)6, double&gt;&apos; into &apos;generic_cast_IEEE754&lt;int, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;generic_cast_IEEE754&lt;int, double&gt;&apos; into &apos;__hls_fptosi_double_i32&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:55) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;__hls_fptosi_double_i32&apos; into &apos;pick_rnd_hw&lt;int&gt;&apos; (QIO/LFSR.h:30) automatically."/>
-	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;uniform0_1_hw&apos; into &apos;QIO_accel_hw&lt;int&gt;&apos; (QIO/QIO.h:62) automatically."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:09 ; elapsed = 00:00:26 . Memory (MB): peak = 887.980 ; gain = 794.211"/>
-	<Message severity="WARNING" prefix="[XFORM 203-1103]" key="XFORM_DATA_PACK_INVALID_346" tag="" content="Ignored data pack directive on non-struct variable &apos;output.data.V&apos; (QIO/QIO_accel.cpp:3)."/>
-	<Message severity="WARNING" prefix="[XFORM 203-1103]" key="XFORM_DATA_PACK_INVALID_346" tag="" content="Ignored data pack directive on non-struct variable &apos;input.data.V&apos; (QIO/QIO_accel.cpp:3)."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:12 ; elapsed = 00:00:30 . Memory (MB): peak = 887.980 ; gain = 794.211"/>
-	<Message severity="INFO" prefix="[XFORM 203-541]" key="XFORM_LOOPFLAT_STATUS_218" tag="" content="Flattening a loop nest &apos;axis2type_loop2&apos; (QIO/QIO.h:111:33) in function &apos;QIO_accel&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;current_val&apos; (QIO/QIO.h:37:3)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;new_val&apos; (QIO/QIO.h:38:3)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;current_val&apos; (QIO/QIO.h:66:4)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;final_val&apos; (QIO/QIO.h:71:3)"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;init_val&apos; (QIO/QIO.h:108:4)"/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 887.980 ; gain = 794.211"/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::mantissa&apos; into &apos;generic_cast_IEEE754&lt;unsigned int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::expv&apos; into &apos;generic_cast_IEEE754&lt;unsigned int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::__signbit&apos; into &apos;generic_cast_IEEE754&lt;unsigned int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:91) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;generic_cast_IEEE754&lt;unsigned int, (ap_q_mode)6, double&gt;&apos; into &apos;generic_cast_IEEE754&lt;unsigned int, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;generic_cast_IEEE754&lt;unsigned int, double&gt;&apos; into &apos;__hls_fptoui_double_i32&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;__hls_fptoui_double_i32&apos; into &apos;pick_rnd_hw&lt;unsigned int&gt;&apos; (QIO/LFSR.h:30) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;uniform0_1_hw&lt;float&gt;&apos; into &apos;QIO_accel_hw&lt;int&gt;&apos; (QIO/QIO_accel.cpp:43) automatically."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:05 ; elapsed = 00:00:24 . Memory (MB): peak = 888.148 ; gain = 795.246"/>
+	<Message severity="WARNING" prefix="[XFORM 203-1103]" key="XFORM_DATA_PACK_INVALID_346" tag="" content="Ignored data pack directive on non-struct variable &apos;output.data.V&apos; (QIO/QIO_accel.cpp:55)."/>
+	<Message severity="WARNING" prefix="[XFORM 203-1103]" key="XFORM_DATA_PACK_INVALID_346" tag="" content="Ignored data pack directive on non-struct variable &apos;input.data.V&apos; (QIO/QIO_accel.cpp:55)."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::mantissa&apos; into &apos;generic_cast_IEEE754&lt;unsigned int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;fp_struct&lt;double&gt;::expv&apos; into &apos;generic_cast_IEEE754&lt;unsigned int, (ap_q_mode)6, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;generic_cast_IEEE754&lt;unsigned int, (ap_q_mode)6, double&gt;&apos; into &apos;generic_cast_IEEE754&lt;unsigned int, double&gt;&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;generic_cast_IEEE754&lt;unsigned int, double&gt;&apos; into &apos;__hls_fptoui_double_i32&apos; (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;__hls_fptoui_double_i32&apos; into &apos;pick_rnd_hw&lt;unsigned int&gt;&apos; (QIO/LFSR.h:30) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;pick_rnd_hw&lt;unsigned int&gt;&apos; into &apos;QIO_accel_hw&lt;int&gt;&apos; (QIO/QIO_accel.cpp:25) automatically."/>
+	<Message severity="INFO" prefix="[XFORM 203-602]" key="XFORM_AUTO_INLINE_STATUS_223" tag="" content="Inlining function &apos;uniform0_1_hw&lt;float&gt;&apos; into &apos;QIO_accel_hw&lt;int&gt;&apos; (QIO/QIO_accel.cpp:43) automatically."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:26 . Memory (MB): peak = 888.148 ; gain = 795.246"/>
+	<Message severity="INFO" prefix="[XFORM 203-541]" key="XFORM_LOOPFLAT_STATUS_218" tag="" content="Flattening a loop nest &apos;axis2type_loop2&apos; (QIO/QIO.h:59:33) in function &apos;QIO_accel&apos;."/>
+	<Message severity="WARNING" prefix="[XFORM 203-542]" key="XFORM_LOOPFLAT_INVALID_219" tag="LOOP,SDX_LOOP" content="Cannot flatten a loop nest &apos;QIO_loop2&apos; (QIO/QIO.h:31:26) in function &apos;QIO&lt;int&gt;&apos; : 
+
+the outer loop is not a perfect loop."/>
+	<Message severity="WARNING" prefix="[XFORM 203-631]" key="XFORM_FRN_STATUS_336" tag="" content="Renaming function &apos;Galois_LFSR_32_33_hw&lt;unsigned int&gt;&apos; to &apos;Galois_LFSR_32_33_hw&apos; (QIO/LFSR.h:12:34)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;current_val&apos; (QIO/QIO_accel.cpp:18:3)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;new_val&apos; (QIO/QIO_accel.cpp:19:3)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;new_val&apos; (QIO/QIO_accel.cpp:35:4)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;new_val&apos; (QIO/QIO_accel.cpp:38:4)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;current_val&apos; (QIO/QIO_accel.cpp:47:4)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;final_val&apos; (QIO/QIO_accel.cpp:52:3)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;init_val&apos; (QIO/QIO.h:56:4)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;coef_list&apos; (QIO/QIO.h:65:7)"/>
+	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;current_val2&apos; (QIO/QIO.h:28:2)"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:08 ; elapsed = 00:00:27 . Memory (MB): peak = 888.148 ; gain = 795.246"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;QIO_accel&apos; ..."/>
+	<Message severity="WARNING" prefix="[SYN 201-103]" key="SYN_MODULE_NAME_ILLEGAL_445" tag="" content="Legalizing function name &apos;QIO&lt;int&gt;&apos; to &apos;QIO_int_s&apos;."/>
 	<Message severity="WARNING" prefix="[SYN 201-103]" key="SYN_MODULE_NAME_ILLEGAL_445" tag="" content="Legalizing function name &apos;QIO_accel_hw&lt;int&gt;&apos; to &apos;QIO_accel_hw_int_s&apos;."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;Galois_LFSR_32_33_hw&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 30.757 seconds; current allocated memory: 273.270 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 27.211 seconds; current allocated memory: 321.458 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.104 seconds; current allocated memory: 273.334 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.122 seconds; current allocated memory: 321.548 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;QIO_int_s&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;QIO_loop1&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;QIO_loop3&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;QIO_int_s&apos; (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)
+   between &apos;store&apos; operation (&apos;cost_new_write_assig_write_ln34&apos;, QIO/QIO.h:34) of variable &apos;sum&apos;, QIO/QIO.h:36 on local variable &apos;cost_new&apos; and &apos;load&apos; operation (&apos;cost_new_write_assig_2&apos;, QIO/QIO.h:36) on local variable &apos;cost_new&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;QIO_int_s&apos; (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0)
+   between &apos;store&apos; operation (&apos;cost_new_write_assig_write_ln34&apos;, QIO/QIO.h:34) of variable &apos;sum&apos;, QIO/QIO.h:36 on local variable &apos;cost_new&apos; and &apos;load&apos; operation (&apos;cost_new_write_assig_2&apos;, QIO/QIO.h:36) on local variable &apos;cost_new&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;QIO_int_s&apos; (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0)
+   between &apos;store&apos; operation (&apos;cost_new_write_assig_write_ln34&apos;, QIO/QIO.h:34) of variable &apos;sum&apos;, QIO/QIO.h:36 on local variable &apos;cost_new&apos; and &apos;load&apos; operation (&apos;cost_new_write_assig_2&apos;, QIO/QIO.h:36) on local variable &apos;cost_new&apos;."/>
+	<Message severity="WARNING" prefix="[SCHED 204-68]" key="SCHED_CARRIED_CONSTRAINT_NOT_MET_32" tag="LOOP,SDX_LOOP,SCHEDULE" content="The II Violation in module &apos;QIO_int_s&apos; (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0)
+   between &apos;store&apos; operation (&apos;cost_new_write_assig_write_ln34&apos;, QIO/QIO.h:34) of variable &apos;sum&apos;, QIO/QIO.h:36 on local variable &apos;cost_new&apos; and &apos;load&apos; operation (&apos;cost_new_write_assig_2&apos;, QIO/QIO.h:36) on local variable &apos;cost_new&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 5, Depth = 22."/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.231 seconds; current allocated memory: 321.918 MB."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.157 seconds; current allocated memory: 322.210 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;QIO_accel_hw_int_s&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.126 seconds; current allocated memory: 273.562 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.281 seconds; current allocated memory: 322.915 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.123 seconds; current allocated memory: 273.720 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.441 seconds; current allocated memory: 323.724 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;QIO_accel&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
@@ -65,27 +105,51 @@
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;type2axis_loop1&apos;."/>
 	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.191 seconds; current allocated memory: 273.877 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.567 seconds; current allocated memory: 324.083 MB."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.15 seconds; current allocated memory: 274.061 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.186 seconds; current allocated memory: 324.352 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;Galois_LFSR_32_33_hw&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;guard_variable_for_G&apos; is power-on initialization."/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;guard_variable_for_v&apos; is power-on initialization."/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_861" tag="" content="Register &apos;lfsr33_V&apos; is power-on initialization."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;Galois_LFSR_32_33_hw&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.236 seconds; current allocated memory: 274.229 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.278 seconds; current allocated memory: 324.611 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;QIO_int_s&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_int_s_current_val2&apos; to &apos;QIO_int_s_currentbkb&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_fadd_32ns_32ns_32_5_full_dsp_1&apos; to &apos;QIO_accel_fadd_32cud&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_fmul_32ns_32ns_32_4_max_dsp_1&apos; to &apos;QIO_accel_fmul_32dEe&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_sitofp_32ns_32_6_1&apos; to &apos;QIO_accel_sitofp_eOg&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_fadd_32cud&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_fmul_32dEe&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_sitofp_eOg&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;QIO_int_s&apos;."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.277 seconds; current allocated memory: 325.583 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;QIO_accel_hw_int_s&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_hw_int_s_current_val&apos; to &apos;QIO_accel_hw_int_bkb&apos; due to the length limit 20"/>
-	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_hw_int_s_new_val&apos; to &apos;QIO_accel_hw_int_cud&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_hw_int_s_current_val&apos; to &apos;QIO_accel_hw_int_fYi&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_hw_int_s_new_val&apos; to &apos;QIO_accel_hw_int_g8j&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_fdiv_32ns_32ns_32_16_1&apos; to &apos;QIO_accel_fdiv_32hbi&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_fptrunc_64ns_32_2_1&apos; to &apos;QIO_accel_fptruncibs&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_fcmp_32ns_32ns_1_2_1&apos; to &apos;QIO_accel_fcmp_32jbC&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_dmul_64ns_64ns_64_6_max_dsp_1&apos; to &apos;QIO_accel_dmul_64kbM&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_ddiv_64ns_64ns_64_31_1&apos; to &apos;QIO_accel_ddiv_64lbW&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;QIO_accel_uitodp_32ns_64_6_1&apos; to &apos;QIO_accel_uitodp_mb6&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_ddiv_64lbW&apos;: 2 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_dmul_64kbM&apos;: 2 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_fcmp_32jbC&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_fdiv_32hbi&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_fptruncibs&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;QIO_accel_uitodp_mb6&apos;: 2 instance(s)."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;QIO_accel_hw_int_s&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.271 seconds; current allocated memory: 274.777 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.483 seconds; current allocated memory: 328.296 MB."/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;QIO_accel&apos;"/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
@@ -96,11 +160,12 @@
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;QIO_accel&apos; to &apos;s_axilite &amp; ap_ctrl_hs&apos;."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;return&apos; to AXI-Lite port AXILiteS."/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;QIO_accel&apos;."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.329 seconds; current allocated memory: 275.936 MB."/>
-	<Message severity="INFO" prefix="[HLS 200-790]" key="HLS 200-790" tag="LOOP,SDX_LOOP" content="**** Loop Constraint Status: All loop constraints were satisfied."/>
-	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 153.66 MHz"/>
-	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;QIO_accel_hw_int_bkb_ram (RAM)&apos; using block RAMs."/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:15 ; elapsed = 00:00:34 . Memory (MB): peak = 887.980 ; gain = 794.211"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 0.903 seconds; current allocated memory: 331.504 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-790]" key="HLS 200-790" tag="LOOP,SDX_LOOP" content="**** Loop Constraint Status: All loop constraints were NOT satisfied."/>
+	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,SDX_KERNEL" content="**** Estimated Fmax: 116.00 MHz"/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;QIO_int_s_currentbkb_ram (RAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;QIO_accel_coef_list_ram (RAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:12 ; elapsed = 00:00:34 . Memory (MB): peak = 888.148 ; gain = 795.246"/>
 	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for QIO_accel."/>
 	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for QIO_accel."/>
 </Messages>

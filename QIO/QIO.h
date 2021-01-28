@@ -6,7 +6,7 @@
 
 #include "ap_int.h"
 
-#define problem_size 64
+#define problem_size 256
 #define coefficient_size (problem_size + 1)*problem_size/2
 
 struct axis_t {
@@ -16,10 +16,10 @@ struct axis_t {
 
 template <typename T> void axis2type(axis_t *input, T init_val[problem_size], float coef_list[problem_size][problem_size]);
 template <typename T> void type2axis(T C[problem_size], axis_t *output);
-template <typename T> void QIO(T current_val[problem_size],float coef_list[problem_size][problem_size], float cost_new);
-template <typename T> void QIO_accel_hw(T init_val[problem_size],float coef_list[problem_size][problem_size], T final_val[problem_size]);
+template <typename T> void QIO(T current_val[problem_size],float coef_list[problem_size][problem_size], float *cost_new);
+template <typename T> void QIO_accel_hw(T init_val[problem_size],float coef_list[problem_size][problem_size], unsigned int num_iteration,unsigned int seed, T final_val[problem_size]);
 
-template <typename T> void QIO(T current_val[problem_size],float coef_list[problem_size][problem_size], float cost_new){
+template <typename T> void QIO(T current_val[problem_size],float coef_list[problem_size][problem_size], float *cost_new){
 	float sum = 0;
 	T current_val2[problem_size];
 QIO_loop1:
@@ -31,12 +31,11 @@ QIO_loop2:
 	for(int i=0; i<problem_size; i++){
 		sum += (float)current_val[i]*coef_list[i][i];
 QIO_loop3:
-		for(int j=i; j<problem_size; j++){
-#pragma HLS PIPELINE
+		for(int j=i+1; j<problem_size; j++){
 			sum += (float)current_val[i]*(float)current_val2[j]*coef_list[i][j];
 		}
 	}
-	cost_new = sum;
+	*cost_new = sum;
 }
 
 template <typename T> void axis2type(axis_t *input, T init_val[problem_size], float coef_list[problem_size][problem_size]){

@@ -15,13 +15,15 @@
 namespace ap_rtl {
 
 struct Galois_LFSR_32_33_hw : public sc_module {
-    // Port declarations 6
+    // Port declarations 8
     sc_in_clk ap_clk;
     sc_in< sc_logic > ap_rst;
     sc_in< sc_logic > ap_start;
     sc_out< sc_logic > ap_done;
     sc_out< sc_logic > ap_idle;
     sc_out< sc_logic > ap_ready;
+    sc_in< sc_lv<32> > input_r;
+    sc_out< sc_lv<32> > ap_return;
 
 
     // Module declarations
@@ -34,14 +36,22 @@ struct Galois_LFSR_32_33_hw : public sc_module {
 
     sc_signal< sc_lv<1> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
-    sc_signal< sc_lv<1> > guard_variable_for_G;
+    sc_signal< sc_lv<1> > guard_variable_for_v;
     sc_signal< sc_lv<33> > lfsr33_V;
-    sc_signal< sc_lv<33> > select_ln21_fu_54_p3;
-    sc_signal< sc_lv<33> > select_ln12_fu_22_p3;
-    sc_signal< sc_lv<32> > lshr_ln_fu_34_p4;
-    sc_signal< sc_lv<33> > zext_ln858_fu_44_p1;
-    sc_signal< sc_lv<1> > lsb33_V_fu_30_p1;
-    sc_signal< sc_lv<33> > xor_ln719_fu_48_p2;
+    sc_signal< sc_lv<33> > rhs_V_fu_102_p3;
+    sc_signal< sc_lv<33> > select_ln12_fu_38_p3;
+    sc_signal< sc_lv<31> > lfsr32_V_fu_54_p4;
+    sc_signal< sc_lv<32> > lfsr32_V_1_fu_64_p1;
+    sc_signal< sc_lv<1> > lsb32_V_fu_46_p1;
+    sc_signal< sc_lv<32> > lfsr32_V_2_fu_68_p2;
+    sc_signal< sc_lv<32> > lshr_ln_fu_82_p4;
+    sc_signal< sc_lv<33> > zext_ln858_fu_92_p1;
+    sc_signal< sc_lv<1> > lsb33_V_fu_50_p1;
+    sc_signal< sc_lv<33> > xor_ln719_fu_96_p2;
+    sc_signal< sc_lv<32> > trunc_ln1357_fu_110_p1;
+    sc_signal< sc_lv<32> > lfsr32_V_3_fu_74_p3;
+    sc_signal< sc_lv<32> > xor_ln23_fu_114_p2;
+    sc_signal< sc_lv<32> > ap_return_preg;
     sc_signal< sc_lv<1> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -49,6 +59,8 @@ struct Galois_LFSR_32_33_hw : public sc_module {
     static const sc_lv<32> ap_const_lv32_0;
     static const sc_lv<33> ap_const_lv33_F0F0;
     static const sc_lv<32> ap_const_lv32_1;
+    static const sc_lv<32> ap_const_lv32_1F;
+    static const sc_lv<32> ap_const_lv32_A3000000;
     static const sc_lv<32> ap_const_lv32_20;
     static const sc_lv<33> ap_const_lv33_194000000;
     static const bool ap_const_boolean_1;
@@ -58,12 +70,20 @@ struct Galois_LFSR_32_33_hw : public sc_module {
     void thread_ap_done();
     void thread_ap_idle();
     void thread_ap_ready();
-    void thread_lsb33_V_fu_30_p1();
-    void thread_lshr_ln_fu_34_p4();
-    void thread_select_ln12_fu_22_p3();
-    void thread_select_ln21_fu_54_p3();
-    void thread_xor_ln719_fu_48_p2();
-    void thread_zext_ln858_fu_44_p1();
+    void thread_ap_return();
+    void thread_lfsr32_V_1_fu_64_p1();
+    void thread_lfsr32_V_2_fu_68_p2();
+    void thread_lfsr32_V_3_fu_74_p3();
+    void thread_lfsr32_V_fu_54_p4();
+    void thread_lsb32_V_fu_46_p1();
+    void thread_lsb33_V_fu_50_p1();
+    void thread_lshr_ln_fu_82_p4();
+    void thread_rhs_V_fu_102_p3();
+    void thread_select_ln12_fu_38_p3();
+    void thread_trunc_ln1357_fu_110_p1();
+    void thread_xor_ln23_fu_114_p2();
+    void thread_xor_ln719_fu_96_p2();
+    void thread_zext_ln858_fu_92_p1();
     void thread_ap_NS_fsm();
 };
 

@@ -1,0 +1,583 @@
+
+
+================================================================
+== Vivado HLS Report for 'QIO_int_s'
+================================================================
+* Date:           Thu Jan 28 09:59:27 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        QIO
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.256 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+----------+------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |   Interval   | Pipeline|
+    |   min   |   max   |    min    |    max   |  min |  max  |   Type  |
+    +---------+---------+-----------+----------+------+-------+---------+
+    |     1347|    22531| 13.470 us | 0.225 ms |  1347|  22531|   none  |
+    +---------+---------+-----------+----------+------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |              |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        |   Loop Name  |   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +--------------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- QIO_loop1   |       64|       64|         2|          1|          1|      64|    yes   |
+        |- QIO_loop2   |     1280|    22464| 20 ~ 351 |          -|          -|      64|    no    |
+        | + QIO_loop3  |        0|      331|        22|          5|          1| 0 ~ 63 |    yes   |
+        +--------------+---------+---------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+  * Pipeline-1: initiation interval (II) = 5, depth = 22
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 45
+* Pipeline : 2
+  Pipeline-0 : II = 1, D = 2, States = { 2 3 }
+  Pipeline-1 : II = 5, D = 22, States = { 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 4 3 
+3 --> 2 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 45 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 23 
+45 --> 5 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%current_val2 = alloca [64 x i32], align 16" [QIO/QIO.h:24]   --->   Operation 46 'alloca' 'current_val2' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_1 : Operation 47 [1/1] (1.76ns)   --->   "br label %1" [QIO/QIO.h:26]   --->   Operation 47 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 3.25>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%i_0 = phi i7 [ 0, %0 ], [ %i, %QIO_loop1 ]"   --->   Operation 48 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (1.48ns)   --->   "%icmp_ln26 = icmp eq i7 %i_0, -64" [QIO/QIO.h:26]   --->   Operation 49 'icmp' 'icmp_ln26' <Predicate = true> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"   --->   Operation 50 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (1.87ns)   --->   "%i = add i7 %i_0, 1" [QIO/QIO.h:26]   --->   Operation 51 'add' 'i' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "br i1 %icmp_ln26, label %.preheader.preheader, label %QIO_loop1" [QIO/QIO.h:26]   --->   Operation 52 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%zext_ln28 = zext i7 %i_0 to i64" [QIO/QIO.h:28]   --->   Operation 53 'zext' 'zext_ln28' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%current_val_addr = getelementptr [64 x i32]* %current_val, i64 0, i64 %zext_ln28" [QIO/QIO.h:28]   --->   Operation 54 'getelementptr' 'current_val_addr' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_2 : Operation 55 [2/2] (3.25ns)   --->   "%current_val_load = load i32* %current_val_addr, align 4" [QIO/QIO.h:28]   --->   Operation 55 'load' 'current_val_load' <Predicate = (!icmp_ln26)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 3 <SV = 2> <Delay = 6.50>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str8) nounwind" [QIO/QIO.h:26]   --->   Operation 56 'specloopname' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (0.00ns)   --->   "%tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str8)" [QIO/QIO.h:26]   --->   Operation 57 'specregionbegin' 'tmp_5' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [QIO/QIO.h:27]   --->   Operation 58 'specpipeline' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_3 : Operation 59 [1/2] (3.25ns)   --->   "%current_val_load = load i32* %current_val_addr, align 4" [QIO/QIO.h:28]   --->   Operation 59 'load' 'current_val_load' <Predicate = (!icmp_ln26)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%current_val2_addr = getelementptr inbounds [64 x i32]* %current_val2, i64 0, i64 %zext_ln28" [QIO/QIO.h:28]   --->   Operation 60 'getelementptr' 'current_val2_addr' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (3.25ns)   --->   "store i32 %current_val_load, i32* %current_val2_addr, align 4" [QIO/QIO.h:28]   --->   Operation 61 'store' <Predicate = (!icmp_ln26)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "%empty_42 = call i32 (...)* @_ssdm_op_SpecRegionEnd([10 x i8]* @p_str8, i32 %tmp_5)" [QIO/QIO.h:29]   --->   Operation 62 'specregionend' 'empty_42' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "br label %1" [QIO/QIO.h:26]   --->   Operation 63 'br' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 1.81>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "%cost_new_write_assig = alloca float"   --->   Operation 64 'alloca' 'cost_new_write_assig' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (1.81ns)   --->   "store float 0.000000e+00, float* %cost_new_write_assig" [QIO/QIO.h:31]   --->   Operation 65 'store' <Predicate = true> <Delay = 1.81>
+ST_4 : Operation 66 [1/1] (1.76ns)   --->   "br label %.preheader" [QIO/QIO.h:31]   --->   Operation 66 'br' <Predicate = true> <Delay = 1.76>
+
+State 5 <SV = 3> <Delay = 3.25>
+ST_5 : Operation 67 [1/1] (0.00ns)   --->   "%i1_0 = phi i7 [ %i_6, %QIO_loop2_end ], [ 0, %.preheader.preheader ]"   --->   Operation 67 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 68 [1/1] (1.48ns)   --->   "%icmp_ln31 = icmp eq i7 %i1_0, -64" [QIO/QIO.h:31]   --->   Operation 68 'icmp' 'icmp_ln31' <Predicate = true> <Delay = 1.48> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%empty_43 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"   --->   Operation 69 'speclooptripcount' 'empty_43' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 70 [1/1] (1.87ns)   --->   "%i_6 = add i7 %i1_0, 1" [QIO/QIO.h:31]   --->   Operation 70 'add' 'i_6' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "br i1 %icmp_ln31, label %3, label %QIO_loop2_begin" [QIO/QIO.h:31]   --->   Operation 71 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln32 = zext i7 %i1_0 to i64" [QIO/QIO.h:32]   --->   Operation 72 'zext' 'zext_ln32' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_5 : Operation 73 [1/1] (0.00ns)   --->   "%current_val_addr_3 = getelementptr [64 x i32]* %current_val, i64 0, i64 %zext_ln32" [QIO/QIO.h:32]   --->   Operation 73 'getelementptr' 'current_val_addr_3' <Predicate = (!icmp_ln31)> <Delay = 0.00>
+ST_5 : Operation 74 [2/2] (3.25ns)   --->   "%current_val_load_2 = load i32* %current_val_addr_3, align 4" [QIO/QIO.h:32]   --->   Operation 74 'load' 'current_val_load_2' <Predicate = (!icmp_ln31)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+ST_5 : Operation 75 [1/1] (0.00ns)   --->   "%cost_new_write_assig_3 = load float* %cost_new_write_assig" [QIO/QIO.h:40]   --->   Operation 75 'load' 'cost_new_write_assig_3' <Predicate = (icmp_ln31)> <Delay = 0.00>
+ST_5 : Operation 76 [1/1] (0.00ns)   --->   "ret float %cost_new_write_assig_3" [QIO/QIO.h:40]   --->   Operation 76 'ret' <Predicate = (icmp_ln31)> <Delay = 0.00>
+
+State 6 <SV = 4> <Delay = 3.25>
+ST_6 : Operation 77 [1/2] (3.25ns)   --->   "%current_val_load_2 = load i32* %current_val_addr_3, align 4" [QIO/QIO.h:32]   --->   Operation 77 'load' 'current_val_load_2' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 7 <SV = 5> <Delay = 6.41>
+ST_7 : Operation 78 [6/6] (6.41ns)   --->   "%tmp = sitofp i32 %current_val_load_2 to float" [QIO/QIO.h:32]   --->   Operation 78 'sitofp' 'tmp' <Predicate = true> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 8 <SV = 6> <Delay = 6.41>
+ST_8 : Operation 79 [5/6] (6.41ns)   --->   "%tmp = sitofp i32 %current_val_load_2 to float" [QIO/QIO.h:32]   --->   Operation 79 'sitofp' 'tmp' <Predicate = true> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 9 <SV = 7> <Delay = 6.41>
+ST_9 : Operation 80 [4/6] (6.41ns)   --->   "%tmp = sitofp i32 %current_val_load_2 to float" [QIO/QIO.h:32]   --->   Operation 80 'sitofp' 'tmp' <Predicate = true> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 10 <SV = 8> <Delay = 6.41>
+ST_10 : Operation 81 [3/6] (6.41ns)   --->   "%tmp = sitofp i32 %current_val_load_2 to float" [QIO/QIO.h:32]   --->   Operation 81 'sitofp' 'tmp' <Predicate = true> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 11 <SV = 9> <Delay = 6.41>
+ST_11 : Operation 82 [1/1] (0.00ns)   --->   "%zext_ln32_1 = zext i7 %i1_0 to i14" [QIO/QIO.h:32]   --->   Operation 82 'zext' 'zext_ln32_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 83 [1/1] (0.00ns)   --->   "%tmp_1 = call i13 @_ssdm_op_BitConcatenate.i13.i7.i6(i7 %i1_0, i6 0)" [QIO/QIO.h:32]   --->   Operation 83 'bitconcatenate' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 84 [1/1] (0.00ns)   --->   "%zext_ln32_2 = zext i13 %tmp_1 to i14" [QIO/QIO.h:32]   --->   Operation 84 'zext' 'zext_ln32_2' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 85 [1/1] (1.67ns)   --->   "%add_ln32 = add i14 %zext_ln32_1, %zext_ln32_2" [QIO/QIO.h:32]   --->   Operation 85 'add' 'add_ln32' <Predicate = true> <Delay = 1.67> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 86 [1/1] (0.00ns)   --->   "%zext_ln32_3 = zext i14 %add_ln32 to i64" [QIO/QIO.h:32]   --->   Operation 86 'zext' 'zext_ln32_3' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 87 [1/1] (0.00ns)   --->   "%coef_list_addr = getelementptr [4096 x float]* %coef_list, i64 0, i64 %zext_ln32_3" [QIO/QIO.h:32]   --->   Operation 87 'getelementptr' 'coef_list_addr' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 88 [2/6] (6.41ns)   --->   "%tmp = sitofp i32 %current_val_load_2 to float" [QIO/QIO.h:32]   --->   Operation 88 'sitofp' 'tmp' <Predicate = true> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 89 [2/2] (3.25ns)   --->   "%coef_list_load = load float* %coef_list_addr, align 4" [QIO/QIO.h:32]   --->   Operation 89 'load' 'coef_list_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 12 <SV = 10> <Delay = 6.41>
+ST_12 : Operation 90 [1/6] (6.41ns)   --->   "%tmp = sitofp i32 %current_val_load_2 to float" [QIO/QIO.h:32]   --->   Operation 90 'sitofp' 'tmp' <Predicate = true> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_12 : Operation 91 [1/2] (3.25ns)   --->   "%coef_list_load = load float* %coef_list_addr, align 4" [QIO/QIO.h:32]   --->   Operation 91 'load' 'coef_list_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 13 <SV = 11> <Delay = 5.70>
+ST_13 : Operation 92 [4/4] (5.70ns)   --->   "%tmp_s = fmul float %tmp, %coef_list_load" [QIO/QIO.h:32]   --->   Operation 92 'fmul' 'tmp_s' <Predicate = true> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 12> <Delay = 5.70>
+ST_14 : Operation 93 [3/4] (5.70ns)   --->   "%tmp_s = fmul float %tmp, %coef_list_load" [QIO/QIO.h:32]   --->   Operation 93 'fmul' 'tmp_s' <Predicate = true> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 13> <Delay = 5.70>
+ST_15 : Operation 94 [2/4] (5.70ns)   --->   "%tmp_s = fmul float %tmp, %coef_list_load" [QIO/QIO.h:32]   --->   Operation 94 'fmul' 'tmp_s' <Predicate = true> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 14> <Delay = 5.70>
+ST_16 : Operation 95 [1/4] (5.70ns)   --->   "%tmp_s = fmul float %tmp, %coef_list_load" [QIO/QIO.h:32]   --->   Operation 95 'fmul' 'tmp_s' <Predicate = true> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 15> <Delay = 7.25>
+ST_17 : Operation 96 [1/1] (0.00ns)   --->   "%cost_new_write_assig_1 = load float* %cost_new_write_assig" [QIO/QIO.h:32]   --->   Operation 96 'load' 'cost_new_write_assig_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 97 [5/5] (7.25ns)   --->   "%sum = fadd float %cost_new_write_assig_1, %tmp_s" [QIO/QIO.h:32]   --->   Operation 97 'fadd' 'sum' <Predicate = true> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 16> <Delay = 7.25>
+ST_18 : Operation 98 [4/5] (7.25ns)   --->   "%sum = fadd float %cost_new_write_assig_1, %tmp_s" [QIO/QIO.h:32]   --->   Operation 98 'fadd' 'sum' <Predicate = true> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 17> <Delay = 7.25>
+ST_19 : Operation 99 [3/5] (7.25ns)   --->   "%sum = fadd float %cost_new_write_assig_1, %tmp_s" [QIO/QIO.h:32]   --->   Operation 99 'fadd' 'sum' <Predicate = true> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 18> <Delay = 7.25>
+ST_20 : Operation 100 [2/5] (7.25ns)   --->   "%sum = fadd float %cost_new_write_assig_1, %tmp_s" [QIO/QIO.h:32]   --->   Operation 100 'fadd' 'sum' <Predicate = true> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 19> <Delay = 7.25>
+ST_21 : Operation 101 [1/5] (7.25ns)   --->   "%sum = fadd float %cost_new_write_assig_1, %tmp_s" [QIO/QIO.h:32]   --->   Operation 101 'fadd' 'sum' <Predicate = true> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 20> <Delay = 1.81>
+ST_22 : Operation 102 [1/1] (0.00ns)   --->   "%zext_ln31 = zext i7 %i1_0 to i32" [QIO/QIO.h:31]   --->   Operation 102 'zext' 'zext_ln31' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 103 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str9) nounwind" [QIO/QIO.h:31]   --->   Operation 103 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str9)" [QIO/QIO.h:31]   --->   Operation 104 'specregionbegin' 'tmp_6' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 105 [1/1] (1.81ns)   --->   "store float %sum, float* %cost_new_write_assig" [QIO/QIO.h:34]   --->   Operation 105 'store' <Predicate = true> <Delay = 1.81>
+ST_22 : Operation 106 [1/1] (1.76ns)   --->   "br label %2" [QIO/QIO.h:34]   --->   Operation 106 'br' <Predicate = true> <Delay = 1.76>
+
+State 23 <SV = 21> <Delay = 5.80>
+ST_23 : Operation 107 [1/1] (0.00ns)   --->   "%j_0_in = phi i32 [ %zext_ln31, %QIO_loop2_begin ], [ %j, %QIO_loop3 ]"   --->   Operation 107 'phi' 'j_0_in' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 108 [1/1] (2.47ns)   --->   "%icmp_ln34 = icmp eq i32 %j_0_in, 63" [QIO/QIO.h:34]   --->   Operation 108 'icmp' 'icmp_ln34' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 109 [1/1] (0.00ns)   --->   "%empty_44 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 63, i64 0)"   --->   Operation 109 'speclooptripcount' 'empty_44' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 110 [1/1] (0.00ns)   --->   "br i1 %icmp_ln34, label %QIO_loop2_end, label %QIO_loop3" [QIO/QIO.h:34]   --->   Operation 110 'br' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 111 [1/1] (2.55ns)   --->   "%j = add nsw i32 1, %j_0_in" [QIO/QIO.h:34]   --->   Operation 111 'add' 'j' <Predicate = (!icmp_ln34)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 112 [1/1] (0.00ns)   --->   "%sext_ln36 = sext i32 %j to i64" [QIO/QIO.h:36]   --->   Operation 112 'sext' 'sext_ln36' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_23 : Operation 113 [1/1] (0.00ns)   --->   "%trunc_ln36 = trunc i32 %j to i14" [QIO/QIO.h:36]   --->   Operation 113 'trunc' 'trunc_ln36' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_23 : Operation 114 [1/1] (1.81ns)   --->   "%add_ln36 = add i14 %zext_ln32_2, %trunc_ln36" [QIO/QIO.h:36]   --->   Operation 114 'add' 'add_ln36' <Predicate = (!icmp_ln34)> <Delay = 1.81> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.67> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 115 [1/1] (0.00ns)   --->   "%current_val2_addr_1 = getelementptr inbounds [64 x i32]* %current_val2, i64 0, i64 %sext_ln36" [QIO/QIO.h:36]   --->   Operation 115 'getelementptr' 'current_val2_addr_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_23 : Operation 116 [2/2] (3.25ns)   --->   "%current_val2_load = load i32* %current_val2_addr_1, align 4" [QIO/QIO.h:36]   --->   Operation 116 'load' 'current_val2_load' <Predicate = (!icmp_ln34)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 24 <SV = 22> <Delay = 3.25>
+ST_24 : Operation 117 [1/2] (3.25ns)   --->   "%current_val2_load = load i32* %current_val2_addr_1, align 4" [QIO/QIO.h:36]   --->   Operation 117 'load' 'current_val2_load' <Predicate = (!icmp_ln34)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 25 <SV = 23> <Delay = 6.41>
+ST_25 : Operation 118 [6/6] (6.41ns)   --->   "%tmp_2 = sitofp i32 %current_val2_load to float" [QIO/QIO.h:36]   --->   Operation 118 'sitofp' 'tmp_2' <Predicate = (!icmp_ln34)> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 26 <SV = 24> <Delay = 6.41>
+ST_26 : Operation 119 [5/6] (6.41ns)   --->   "%tmp_2 = sitofp i32 %current_val2_load to float" [QIO/QIO.h:36]   --->   Operation 119 'sitofp' 'tmp_2' <Predicate = (!icmp_ln34)> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 27 <SV = 25> <Delay = 6.41>
+ST_27 : Operation 120 [4/6] (6.41ns)   --->   "%tmp_2 = sitofp i32 %current_val2_load to float" [QIO/QIO.h:36]   --->   Operation 120 'sitofp' 'tmp_2' <Predicate = (!icmp_ln34)> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 28 <SV = 26> <Delay = 6.41>
+ST_28 : Operation 121 [3/6] (6.41ns)   --->   "%tmp_2 = sitofp i32 %current_val2_load to float" [QIO/QIO.h:36]   --->   Operation 121 'sitofp' 'tmp_2' <Predicate = (!icmp_ln34)> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 29 <SV = 27> <Delay = 6.41>
+ST_29 : Operation 122 [2/6] (6.41ns)   --->   "%tmp_2 = sitofp i32 %current_val2_load to float" [QIO/QIO.h:36]   --->   Operation 122 'sitofp' 'tmp_2' <Predicate = (!icmp_ln34)> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 30 <SV = 28> <Delay = 6.41>
+ST_30 : Operation 123 [1/6] (6.41ns)   --->   "%tmp_2 = sitofp i32 %current_val2_load to float" [QIO/QIO.h:36]   --->   Operation 123 'sitofp' 'tmp_2' <Predicate = (!icmp_ln34)> <Delay = 6.41> <Core = "Int2Float">   --->   Core 112 'Int2Float' <Latency = 5> <II = 1> <Delay = 6.41> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 31 <SV = 29> <Delay = 5.70>
+ST_31 : Operation 124 [4/4] (5.70ns)   --->   "%tmp_3 = fmul float %tmp, %tmp_2" [QIO/QIO.h:36]   --->   Operation 124 'fmul' 'tmp_3' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 30> <Delay = 5.70>
+ST_32 : Operation 125 [3/4] (5.70ns)   --->   "%tmp_3 = fmul float %tmp, %tmp_2" [QIO/QIO.h:36]   --->   Operation 125 'fmul' 'tmp_3' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 31> <Delay = 5.70>
+ST_33 : Operation 126 [1/1] (0.00ns)   --->   "%sext_ln36_1 = sext i14 %add_ln36 to i64" [QIO/QIO.h:36]   --->   Operation 126 'sext' 'sext_ln36_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_33 : Operation 127 [1/1] (0.00ns)   --->   "%coef_list_addr_1 = getelementptr [4096 x float]* %coef_list, i64 0, i64 %sext_ln36_1" [QIO/QIO.h:36]   --->   Operation 127 'getelementptr' 'coef_list_addr_1' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_33 : Operation 128 [2/4] (5.70ns)   --->   "%tmp_3 = fmul float %tmp, %tmp_2" [QIO/QIO.h:36]   --->   Operation 128 'fmul' 'tmp_3' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 129 [2/2] (3.25ns)   --->   "%coef_list_load_1 = load float* %coef_list_addr_1, align 4" [QIO/QIO.h:36]   --->   Operation 129 'load' 'coef_list_load_1' <Predicate = (!icmp_ln34)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 34 <SV = 32> <Delay = 5.70>
+ST_34 : Operation 130 [1/4] (5.70ns)   --->   "%tmp_3 = fmul float %tmp, %tmp_2" [QIO/QIO.h:36]   --->   Operation 130 'fmul' 'tmp_3' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 131 [1/2] (3.25ns)   --->   "%coef_list_load_1 = load float* %coef_list_addr_1, align 4" [QIO/QIO.h:36]   --->   Operation 131 'load' 'coef_list_load_1' <Predicate = (!icmp_ln34)> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4096> <RAM>
+
+State 35 <SV = 33> <Delay = 5.70>
+ST_35 : Operation 132 [4/4] (5.70ns)   --->   "%tmp_4 = fmul float %tmp_3, %coef_list_load_1" [QIO/QIO.h:36]   --->   Operation 132 'fmul' 'tmp_4' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 34> <Delay = 5.70>
+ST_36 : Operation 133 [3/4] (5.70ns)   --->   "%tmp_4 = fmul float %tmp_3, %coef_list_load_1" [QIO/QIO.h:36]   --->   Operation 133 'fmul' 'tmp_4' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 35> <Delay = 5.70>
+ST_37 : Operation 134 [2/4] (5.70ns)   --->   "%tmp_4 = fmul float %tmp_3, %coef_list_load_1" [QIO/QIO.h:36]   --->   Operation 134 'fmul' 'tmp_4' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 36> <Delay = 5.70>
+ST_38 : Operation 135 [1/4] (5.70ns)   --->   "%tmp_4 = fmul float %tmp_3, %coef_list_load_1" [QIO/QIO.h:36]   --->   Operation 135 'fmul' 'tmp_4' <Predicate = (!icmp_ln34)> <Delay = 5.70> <Core = "FMul">   --->   Core 106 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 37> <Delay = 7.25>
+ST_39 : Operation 136 [1/1] (0.00ns)   --->   "%cost_new_write_assig_2 = load float* %cost_new_write_assig" [QIO/QIO.h:36]   --->   Operation 136 'load' 'cost_new_write_assig_2' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_39 : Operation 137 [5/5] (7.25ns)   --->   "%sum_1 = fadd float %cost_new_write_assig_2, %tmp_4" [QIO/QIO.h:36]   --->   Operation 137 'fadd' 'sum_1' <Predicate = (!icmp_ln34)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 38> <Delay = 7.25>
+ST_40 : Operation 138 [4/5] (7.25ns)   --->   "%sum_1 = fadd float %cost_new_write_assig_2, %tmp_4" [QIO/QIO.h:36]   --->   Operation 138 'fadd' 'sum_1' <Predicate = (!icmp_ln34)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 39> <Delay = 7.25>
+ST_41 : Operation 139 [3/5] (7.25ns)   --->   "%sum_1 = fadd float %cost_new_write_assig_2, %tmp_4" [QIO/QIO.h:36]   --->   Operation 139 'fadd' 'sum_1' <Predicate = (!icmp_ln34)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 40> <Delay = 7.25>
+ST_42 : Operation 140 [2/5] (7.25ns)   --->   "%sum_1 = fadd float %cost_new_write_assig_2, %tmp_4" [QIO/QIO.h:36]   --->   Operation 140 'fadd' 'sum_1' <Predicate = (!icmp_ln34)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 43 <SV = 41> <Delay = 7.25>
+ST_43 : Operation 141 [1/5] (7.25ns)   --->   "%sum_1 = fadd float %cost_new_write_assig_2, %tmp_4" [QIO/QIO.h:36]   --->   Operation 141 'fadd' 'sum_1' <Predicate = (!icmp_ln34)> <Delay = 7.25> <Core = "FAddSub">   --->   Core 105 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 44 <SV = 42> <Delay = 1.81>
+ST_44 : Operation 142 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([10 x i8]* @p_str10) nounwind" [QIO/QIO.h:34]   --->   Operation 142 'specloopname' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_44 : Operation 143 [1/1] (0.00ns)   --->   "%tmp_7 = call i32 (...)* @_ssdm_op_SpecRegionBegin([10 x i8]* @p_str10)" [QIO/QIO.h:34]   --->   Operation 143 'specregionbegin' 'tmp_7' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_44 : Operation 144 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [QIO/QIO.h:35]   --->   Operation 144 'specpipeline' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_44 : Operation 145 [1/1] (0.00ns)   --->   "%empty_45 = call i32 (...)* @_ssdm_op_SpecRegionEnd([10 x i8]* @p_str10, i32 %tmp_7)" [QIO/QIO.h:37]   --->   Operation 145 'specregionend' 'empty_45' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+ST_44 : Operation 146 [1/1] (1.81ns)   --->   "store float %sum_1, float* %cost_new_write_assig" [QIO/QIO.h:34]   --->   Operation 146 'store' <Predicate = (!icmp_ln34)> <Delay = 1.81>
+ST_44 : Operation 147 [1/1] (0.00ns)   --->   "br label %2" [QIO/QIO.h:34]   --->   Operation 147 'br' <Predicate = (!icmp_ln34)> <Delay = 0.00>
+
+State 45 <SV = 22> <Delay = 0.00>
+ST_45 : Operation 148 [1/1] (0.00ns)   --->   "%empty_46 = call i32 (...)* @_ssdm_op_SpecRegionEnd([10 x i8]* @p_str9, i32 %tmp_6)" [QIO/QIO.h:38]   --->   Operation 148 'specregionend' 'empty_46' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 149 [1/1] (0.00ns)   --->   "br label %.preheader" [QIO/QIO.h:31]   --->   Operation 149 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', QIO/QIO.h:26) [6]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', QIO/QIO.h:26) [6]  (0 ns)
+	'getelementptr' operation ('current_val_addr', QIO/QIO.h:28) [16]  (0 ns)
+	'load' operation ('current_val_load', QIO/QIO.h:28) on array 'current_val' [17]  (3.25 ns)
+
+ <State 3>: 6.51ns
+The critical path consists of the following:
+	'load' operation ('current_val_load', QIO/QIO.h:28) on array 'current_val' [17]  (3.25 ns)
+	'store' operation ('store_ln28', QIO/QIO.h:28) of variable 'current_val_load', QIO/QIO.h:28 on array 'current_val2', QIO/QIO.h:24 [19]  (3.25 ns)
+
+ <State 4>: 1.81ns
+The critical path consists of the following:
+	'alloca' operation ('cost_new') [23]  (0 ns)
+	'store' operation ('store_ln31', QIO/QIO.h:31) of constant 0 on local variable 'cost_new' [24]  (1.81 ns)
+
+ <State 5>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', QIO/QIO.h:31) [27]  (0 ns)
+	'getelementptr' operation ('current_val_addr_3', QIO/QIO.h:32) [44]  (0 ns)
+	'load' operation ('current_val_load_2', QIO/QIO.h:32) on array 'current_val' [45]  (3.25 ns)
+
+ <State 6>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('current_val_load_2', QIO/QIO.h:32) on array 'current_val' [45]  (3.25 ns)
+
+ <State 7>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp', QIO/QIO.h:32) [46]  (6.41 ns)
+
+ <State 8>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp', QIO/QIO.h:32) [46]  (6.41 ns)
+
+ <State 9>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp', QIO/QIO.h:32) [46]  (6.41 ns)
+
+ <State 10>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp', QIO/QIO.h:32) [46]  (6.41 ns)
+
+ <State 11>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp', QIO/QIO.h:32) [46]  (6.41 ns)
+
+ <State 12>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp', QIO/QIO.h:32) [46]  (6.41 ns)
+
+ <State 13>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_s', QIO/QIO.h:32) [48]  (5.7 ns)
+
+ <State 14>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_s', QIO/QIO.h:32) [48]  (5.7 ns)
+
+ <State 15>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_s', QIO/QIO.h:32) [48]  (5.7 ns)
+
+ <State 16>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_s', QIO/QIO.h:32) [48]  (5.7 ns)
+
+ <State 17>: 7.26ns
+The critical path consists of the following:
+	'load' operation ('cost_new_write_assig_1', QIO/QIO.h:32) on local variable 'cost_new' [33]  (0 ns)
+	'fadd' operation ('sum', QIO/QIO.h:32) [49]  (7.26 ns)
+
+ <State 18>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:32) [49]  (7.26 ns)
+
+ <State 19>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:32) [49]  (7.26 ns)
+
+ <State 20>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:32) [49]  (7.26 ns)
+
+ <State 21>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:32) [49]  (7.26 ns)
+
+ <State 22>: 1.81ns
+The critical path consists of the following:
+	'store' operation ('store_ln34', QIO/QIO.h:34) of variable 'sum', QIO/QIO.h:32 on local variable 'cost_new' [50]  (1.81 ns)
+
+ <State 23>: 5.81ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('zext_ln31', QIO/QIO.h:31) ('j', QIO/QIO.h:34) [53]  (0 ns)
+	'add' operation ('j', QIO/QIO.h:34) [59]  (2.55 ns)
+	'getelementptr' operation ('current_val2_addr_1', QIO/QIO.h:36) [68]  (0 ns)
+	'load' operation ('current_val2_load', QIO/QIO.h:36) on array 'current_val2', QIO/QIO.h:24 [69]  (3.25 ns)
+
+ <State 24>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('current_val2_load', QIO/QIO.h:36) on array 'current_val2', QIO/QIO.h:24 [69]  (3.25 ns)
+
+ <State 25>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', QIO/QIO.h:36) [70]  (6.41 ns)
+
+ <State 26>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', QIO/QIO.h:36) [70]  (6.41 ns)
+
+ <State 27>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', QIO/QIO.h:36) [70]  (6.41 ns)
+
+ <State 28>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', QIO/QIO.h:36) [70]  (6.41 ns)
+
+ <State 29>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', QIO/QIO.h:36) [70]  (6.41 ns)
+
+ <State 30>: 6.41ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_2', QIO/QIO.h:36) [70]  (6.41 ns)
+
+ <State 31>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_3', QIO/QIO.h:36) [71]  (5.7 ns)
+
+ <State 32>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_3', QIO/QIO.h:36) [71]  (5.7 ns)
+
+ <State 33>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_3', QIO/QIO.h:36) [71]  (5.7 ns)
+
+ <State 34>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_3', QIO/QIO.h:36) [71]  (5.7 ns)
+
+ <State 35>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_4', QIO/QIO.h:36) [73]  (5.7 ns)
+
+ <State 36>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_4', QIO/QIO.h:36) [73]  (5.7 ns)
+
+ <State 37>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_4', QIO/QIO.h:36) [73]  (5.7 ns)
+
+ <State 38>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_4', QIO/QIO.h:36) [73]  (5.7 ns)
+
+ <State 39>: 7.26ns
+The critical path consists of the following:
+	'load' operation ('cost_new_write_assig_2', QIO/QIO.h:36) on local variable 'cost_new' [58]  (0 ns)
+	'fadd' operation ('sum', QIO/QIO.h:36) [74]  (7.26 ns)
+
+ <State 40>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:36) [74]  (7.26 ns)
+
+ <State 41>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:36) [74]  (7.26 ns)
+
+ <State 42>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:36) [74]  (7.26 ns)
+
+ <State 43>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('sum', QIO/QIO.h:36) [74]  (7.26 ns)
+
+ <State 44>: 1.81ns
+The critical path consists of the following:
+	'store' operation ('store_ln34', QIO/QIO.h:34) of variable 'sum', QIO/QIO.h:36 on local variable 'cost_new' [76]  (1.81 ns)
+
+ <State 45>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

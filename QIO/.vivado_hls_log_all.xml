@@ -6,24 +6,27 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:34:24.008-0800"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:32:17.015-0800"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:30:31.205-0800"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:28:51.473-0800"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:28:26.258-0800"/>
-        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:27:09.330-0800"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization." projectName="QIO" solutionName="solution1" date="2021-01-27T11:20:27.677-0800" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'guard_variable_for_G' is power-on initialization." projectName="QIO" solutionName="solution1" date="2021-01-27T11:20:27.654-0800" type="Warning"/>
-        <logs message="WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw&lt;int>' to 'QIO_accel_hw_int_s'." projectName="QIO" solutionName="solution1" date="2021-01-27T11:20:26.689-0800" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:3)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:20:25.597-0800" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:3)." projectName="QIO" solutionName="solution1" date="2021-01-27T11:20:25.123-0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'QIO_loop1' (QIO/QIO.h:26) because its parent loop or function is pipelined." projectName="QIO" solutionName="solution2" date="2021-01-28T10:48:48.196-0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:58)." projectName="QIO" solutionName="solution2" date="2021-01-28T10:48:48.107-0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:58)." projectName="QIO" solutionName="solution2" date="2021-01-28T10:48:47.891-0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:29.013-0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'guard_variable_for_v' is power-on initialization." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:28.999-0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] The II Violation in module 'QIO_int_s' (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 0)&#xD;&#xA;   between 'store' operation ('cost_new_write_assig_write_ln34', QIO/QIO.h:34) of variable 'sum', QIO/QIO.h:36 on local variable 'cost_new' and 'load' operation ('cost_new_write_assig_2', QIO/QIO.h:36) on local variable 'cost_new'." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:27.067-0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] The II Violation in module 'QIO_int_s' (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0)&#xD;&#xA;   between 'store' operation ('cost_new_write_assig_write_ln34', QIO/QIO.h:34) of variable 'sum', QIO/QIO.h:36 on local variable 'cost_new' and 'load' operation ('cost_new_write_assig_2', QIO/QIO.h:36) on local variable 'cost_new'." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:27.054-0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] The II Violation in module 'QIO_int_s' (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0)&#xD;&#xA;   between 'store' operation ('cost_new_write_assig_write_ln34', QIO/QIO.h:34) of variable 'sum', QIO/QIO.h:36 on local variable 'cost_new' and 'load' operation ('cost_new_write_assig_2', QIO/QIO.h:36) on local variable 'cost_new'." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:27.039-0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] The II Violation in module 'QIO_int_s' (Loop: QIO_loop3): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0)&#xD;&#xA;   between 'store' operation ('cost_new_write_assig_write_ln34', QIO/QIO.h:34) of variable 'sum', QIO/QIO.h:36 on local variable 'cost_new' and 'load' operation ('cost_new_write_assig_2', QIO/QIO.h:36) on local variable 'cost_new'." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:27.030-0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw&lt;int>' to 'QIO_accel_hw_int_s'." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:26.644-0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'QIO&lt;int>' to 'QIO_int_s'." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:26.631-0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'Galois_LFSR_32_33_hw&lt;unsigned int>' to 'Galois_LFSR_32_33_hw' (QIO/LFSR.h:12:34)" projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:26.313-0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-542] Cannot flatten a loop nest 'QIO_loop2' (QIO/QIO.h:31:26) in function 'QIO&lt;int>' : &#xD;&#xA;&#xD;&#xA;the outer loop is not a perfect loop." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:25.362-0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:55)." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:24.513-0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:55)." projectName="QIO" solutionName="solution1" date="2021-01-28T09:59:24.332-0800" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>
