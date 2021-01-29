@@ -7,7 +7,7 @@
 
 module QIO_accel_fadd_32cud
 #(parameter
-    ID         = 2,
+    ID         = 3,
     NUM_STAGE  = 5,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

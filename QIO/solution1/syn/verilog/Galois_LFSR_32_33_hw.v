@@ -15,6 +15,7 @@ module Galois_LFSR_32_33_hw (
         ap_idle,
         ap_ready,
         input_r,
+        seed_V,
         ap_return
 );
 
@@ -27,6 +28,7 @@ output   ap_done;
 output   ap_idle;
 output   ap_ready;
 input  [31:0] input_r;
+input  [31:0] seed_V;
 output  [31:0] ap_return;
 
 reg ap_done;
@@ -38,19 +40,20 @@ reg[31:0] ap_return;
 wire    ap_CS_fsm_state1;
 reg   [0:0] guard_variable_for_v;
 reg   [32:0] lfsr33_V;
-wire   [32:0] rhs_V_fu_102_p3;
-wire   [32:0] select_ln12_fu_38_p3;
-wire   [30:0] lfsr32_V_fu_54_p4;
-wire   [31:0] lfsr32_V_1_fu_64_p1;
-wire   [0:0] lsb32_V_fu_46_p1;
-wire   [31:0] lfsr32_V_2_fu_68_p2;
-wire   [31:0] lshr_ln_fu_82_p4;
-wire   [32:0] zext_ln858_fu_92_p1;
-wire   [0:0] lsb33_V_fu_50_p1;
-wire   [32:0] xor_ln719_fu_96_p2;
-wire   [31:0] trunc_ln1357_fu_110_p1;
-wire   [31:0] lfsr32_V_3_fu_74_p3;
-wire   [31:0] xor_ln23_fu_114_p2;
+wire   [32:0] rhs_V_fu_112_p3;
+wire   [32:0] seed_V_cast_fu_36_p1;
+wire   [32:0] select_ln12_fu_48_p3;
+wire   [30:0] lfsr32_V_fu_64_p4;
+wire   [31:0] lfsr32_V_1_fu_74_p1;
+wire   [0:0] lsb32_V_fu_56_p1;
+wire   [31:0] lfsr32_V_2_fu_78_p2;
+wire   [31:0] lshr_ln_fu_92_p4;
+wire   [32:0] zext_ln858_fu_102_p1;
+wire   [0:0] lsb33_V_fu_60_p1;
+wire   [32:0] xor_ln719_fu_106_p2;
+wire   [31:0] trunc_ln1357_fu_120_p1;
+wire   [31:0] lfsr32_V_3_fu_84_p3;
+wire   [31:0] xor_ln23_fu_124_p2;
 reg   [31:0] ap_return_preg;
 reg   [0:0] ap_NS_fsm;
 
@@ -75,14 +78,14 @@ always @ (posedge ap_clk) begin
         ap_return_preg <= 32'd0;
     end else begin
         if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-            ap_return_preg <= xor_ln23_fu_114_p2;
+            ap_return_preg <= xor_ln23_fu_124_p2;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        lfsr33_V <= rhs_V_fu_102_p3;
+        lfsr33_V <= rhs_V_fu_112_p3;
     end
 end
 
@@ -112,7 +115,7 @@ end
 
 always @ (*) begin
     if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_return = xor_ln23_fu_114_p2;
+        ap_return = xor_ln23_fu_124_p2;
     end else begin
         ap_return = ap_return_preg;
     end
@@ -131,30 +134,32 @@ end
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
-assign lfsr32_V_1_fu_64_p1 = lfsr32_V_fu_54_p4;
+assign lfsr32_V_1_fu_74_p1 = lfsr32_V_fu_64_p4;
 
-assign lfsr32_V_2_fu_68_p2 = (lfsr32_V_1_fu_64_p1 ^ 32'd2734686208);
+assign lfsr32_V_2_fu_78_p2 = (lfsr32_V_1_fu_74_p1 ^ 32'd2734686208);
 
-assign lfsr32_V_3_fu_74_p3 = ((lsb32_V_fu_46_p1[0:0] === 1'b1) ? lfsr32_V_2_fu_68_p2 : lfsr32_V_1_fu_64_p1);
+assign lfsr32_V_3_fu_84_p3 = ((lsb32_V_fu_56_p1[0:0] === 1'b1) ? lfsr32_V_2_fu_78_p2 : lfsr32_V_1_fu_74_p1);
 
-assign lfsr32_V_fu_54_p4 = {{input_r[31:1]}};
+assign lfsr32_V_fu_64_p4 = {{input_r[31:1]}};
 
-assign lsb32_V_fu_46_p1 = input_r[0:0];
+assign lsb32_V_fu_56_p1 = input_r[0:0];
 
-assign lsb33_V_fu_50_p1 = select_ln12_fu_38_p3[0:0];
+assign lsb33_V_fu_60_p1 = select_ln12_fu_48_p3[0:0];
 
-assign lshr_ln_fu_82_p4 = {{select_ln12_fu_38_p3[32:1]}};
+assign lshr_ln_fu_92_p4 = {{select_ln12_fu_48_p3[32:1]}};
 
-assign rhs_V_fu_102_p3 = ((lsb33_V_fu_50_p1[0:0] === 1'b1) ? xor_ln719_fu_96_p2 : zext_ln858_fu_92_p1);
+assign rhs_V_fu_112_p3 = ((lsb33_V_fu_60_p1[0:0] === 1'b1) ? xor_ln719_fu_106_p2 : zext_ln858_fu_102_p1);
 
-assign select_ln12_fu_38_p3 = ((guard_variable_for_v[0:0] === 1'b1) ? lfsr33_V : 33'd61680);
+assign seed_V_cast_fu_36_p1 = seed_V;
 
-assign trunc_ln1357_fu_110_p1 = rhs_V_fu_102_p3[31:0];
+assign select_ln12_fu_48_p3 = ((guard_variable_for_v[0:0] === 1'b1) ? lfsr33_V : seed_V_cast_fu_36_p1);
 
-assign xor_ln23_fu_114_p2 = (trunc_ln1357_fu_110_p1 ^ lfsr32_V_3_fu_74_p3);
+assign trunc_ln1357_fu_120_p1 = rhs_V_fu_112_p3[31:0];
 
-assign xor_ln719_fu_96_p2 = (zext_ln858_fu_92_p1 ^ 33'd6777995264);
+assign xor_ln23_fu_124_p2 = (trunc_ln1357_fu_120_p1 ^ lfsr32_V_3_fu_84_p3);
 
-assign zext_ln858_fu_92_p1 = lshr_ln_fu_82_p4;
+assign xor_ln719_fu_106_p2 = (zext_ln858_fu_102_p1 ^ 33'd6777995264);
+
+assign zext_ln858_fu_102_p1 = lshr_ln_fu_92_p4;
 
 endmodule //Galois_LFSR_32_33_hw

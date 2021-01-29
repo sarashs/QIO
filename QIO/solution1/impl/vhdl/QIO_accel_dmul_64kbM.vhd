@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity QIO_accel_dmul_64kbM is
     generic (
-        ID         : integer := 14;
+        ID         : integer := 33;
         NUM_STAGE  : integer := 6;
         din0_WIDTH : integer := 64;
         din1_WIDTH : integer := 64;

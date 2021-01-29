@@ -22,11 +22,15 @@ template <typename T> void Galois_LFSR_32_33_hw(unsigned int input, ap_uint<33> 
 		lfsr33 ^= 0x194000000;
 	*out = (T)(lfsr32 ^ lfsr33);
 }
-template <typename T> void uniform0_1_hw(unsigned int input, T *random){ //get's the unsigned int input and outputs a float random number between 0 and 1
+template <typename T> void uniform0_1_hw(unsigned int input, T *random){
+#pragma HLS INLINE
+ //get's the unsigned int input and outputs a float random number between 0 and 1
 *random = (T) ((double)input / UINT_MAX);
 }
 
-template <typename T> void pick_rnd_hw(T num_variables, unsigned int input, T *random){ //get's the unsigned int input and outputs another uint to pick a variable
+template <typename T> void pick_rnd_hw(T num_variables, unsigned int input, T *random){
+#pragma HLS INLINE
+ //get's the unsigned int input and outputs another uint to pick a variable
 *random = (T) (num_variables * (double)input / UINT_MAX);
 }
 #endif

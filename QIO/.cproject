@@ -57,8 +57,6 @@
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
-                                    <listOptionValue builtIn="false" value="C:/Users/User/PYNQ-HLS/QIO"/>
-                                    									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/win64/tools/auto_cc/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/win64/tools/systemc/include"/>
@@ -92,8 +90,6 @@
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/include/etc"/>
-                                    									
-                                    <listOptionValue builtIn="false" value="C:/Users/User/PYNQ-HLS/QIO"/>
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/win64/tools/auto_cc/include"/>
                                     									
@@ -193,7 +189,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="solution1|solution2|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                        <entry excluding="solution1|solution2|solution3|solution4|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
                         					
                     </sourceEntries>
                     				
@@ -259,8 +255,6 @@
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/include/etc"/>
                                     									
-                                    <listOptionValue builtIn="false" value="C:/Users/User/PYNQ-HLS/QIO"/>
-                                    									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/win64/tools/auto_cc/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/win64/tools/systemc/include"/>
@@ -284,8 +278,6 @@
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/include"/>
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/include/etc"/>
-                                    									
-                                    <listOptionValue builtIn="false" value="C:/Users/User/PYNQ-HLS/QIO"/>
                                     									
                                     <listOptionValue builtIn="false" value="C:/Xilinx/Vivado/2020.1/win64/tools/auto_cc/include"/>
                                     									
@@ -375,7 +367,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="solution1|solution2|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+                        <entry excluding="solution1|solution2|solution3|solution4|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
                         					
                     </sourceEntries>
                     				

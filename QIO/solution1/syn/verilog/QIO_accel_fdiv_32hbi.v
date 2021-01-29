@@ -7,7 +7,7 @@
 
 module QIO_accel_fdiv_32hbi
 #(parameter
-    ID         = 11,
+    ID         = 30,
     NUM_STAGE  = 16,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

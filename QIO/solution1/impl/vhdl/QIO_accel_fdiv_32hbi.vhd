@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity QIO_accel_fdiv_32hbi is
     generic (
-        ID         : integer := 11;
+        ID         : integer := 30;
         NUM_STAGE  : integer := 16;
         din0_WIDTH : integer := 32;
         din1_WIDTH : integer := 32;

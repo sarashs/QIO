@@ -7,7 +7,7 @@
 
 module QIO_accel_fcmp_32jbC
 #(parameter
-    ID         = 13,
+    ID         = 32,
     NUM_STAGE  = 2,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

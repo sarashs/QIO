@@ -5,9 +5,9 @@
 ############################################################
 open_project QIO
 set_top QIO_accel
-add_files QIO/lfsr.h
-add_files QIO/QIO_accel.cpp
 add_files QIO/QIO.h
+add_files QIO/QIO_accel.cpp
+add_files QIO/lfsr.h
 add_files -tb QIO/OIO_accel_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1"
 set_part {xc7z020-clg400-1}

@@ -84,6 +84,8 @@ u32 XQio_accel_IsReady(XQio_accel *InstancePtr);
 void XQio_accel_EnableAutoRestart(XQio_accel *InstancePtr);
 void XQio_accel_DisableAutoRestart(XQio_accel *InstancePtr);
 
+void XQio_accel_Set_seed(XQio_accel *InstancePtr, u32 Data);
+u32 XQio_accel_Get_seed(XQio_accel *InstancePtr);
 
 void XQio_accel_InterruptGlobalEnable(XQio_accel *InstancePtr);
 void XQio_accel_InterruptGlobalDisable(XQio_accel *InstancePtr);

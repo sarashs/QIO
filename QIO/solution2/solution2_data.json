@@ -13,7 +13,28 @@
     "Speed": "-1"
   },
   "HlsSolution": {
-    
+    "DirectiveTcl": [
+      "set_directive_interface QIO_accel ",
+      "set_directive_interface QIO_accel ",
+      "set_directive_interface QIO_accel ",
+      "set_directive_interface QIO_accel ",
+      "set_directive_interface QIO_accel ",
+      "set_directive_pipeline QIO_accel_hw\/QIO_hw_loop1 ",
+      "set_directive_array_partition QIO_accel ",
+      "set_directive_array_partition QIO_accel_hw ",
+      "set_directive_unroll QIO_accel_hw\/QIO_loop2 -factor 2"
+    ],
+    "DirectiveInfo": [
+      "interface QIO_accel {{axis positionBoolean0mode} {register positionBoolean1} {both positionBoolean0register_mode} {port positionBooleanTextRequiredinput}} {}",
+      "interface QIO_accel {{axis positionBoolean0mode} {register positionBoolean1} {both positionBoolean0register_mode} {port positionBooleanTextRequiredoutput}} {}",
+      "interface QIO_accel {{axis positionBoolean0mode} {register positionBoolean1} {both positionBoolean0register_mode} {port positionBooleanTextRequiredoutput}} {}",
+      "interface QIO_accel {{s_axilite positionBoolean0mode} {port positionBooleanTextRequiredseed}} {}",
+      "interface QIO_accel {{s_axilite positionBoolean0mode} {port positionBooleanTextRequiredreturn}} {}",
+      "pipeline QIO_accel_hw\/QIO_hw_loop1 {} {}",
+      "array_partition QIO_accel {{partition positionBooleanCmd} {variable positionBooleanTextRequiredcoef_list} {block positionBoolean0type} {factor 2} {dim 1}} {}",
+      "array_partition QIO_accel_hw {{partition positionBooleanCmd} {variable positionBooleanTextRequiredcurrent_val} {block positionBoolean0type} {factor 2} {dim 1}} {}",
+      "unroll QIO_accel_hw\/QIO_loop2 {{factor 2}} {}"
+    ]
   },
   "Args": {
     "input": {
@@ -91,7 +112,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "52207084",
+    "Latency": "8543716573",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -111,38 +132,38 @@
     "Vhdl": [
       "impl\/vhdl\/Galois_LFSR_32_33_hw.vhd",
       "impl\/vhdl\/QIO_accel_AXILiteS_s_axi.vhd",
-      "impl\/vhdl\/QIO_accel_coef_list.vhd",
+      "impl\/vhdl\/QIO_accel_coef_lincg.vhd",
       "impl\/vhdl\/QIO_accel_ddiv_64lbW.vhd",
       "impl\/vhdl\/QIO_accel_dmul_64kbM.vhd",
-      "impl\/vhdl\/QIO_accel_fadd_32cud.vhd",
+      "impl\/vhdl\/QIO_accel_fadd_32eOg.vhd",
       "impl\/vhdl\/QIO_accel_fcmp_32jbC.vhd",
-      "impl\/vhdl\/QIO_accel_fdiv_32hbi.vhd",
-      "impl\/vhdl\/QIO_accel_fmul_32dEe.vhd",
+      "impl\/vhdl\/QIO_accel_fdiv_32g8j.vhd",
+      "impl\/vhdl\/QIO_accel_fmul_32fYi.vhd",
       "impl\/vhdl\/QIO_accel_fptruncibs.vhd",
+      "impl\/vhdl\/QIO_accel_hw_int_bkb.vhd",
+      "impl\/vhdl\/QIO_accel_hw_int_dEe.vhd",
       "impl\/vhdl\/QIO_accel_hw_int_s.vhd",
-      "impl\/vhdl\/QIO_accel_sitofp_eOg.vhd",
+      "impl\/vhdl\/QIO_accel_sitofp_hbi.vhd",
       "impl\/vhdl\/QIO_accel_uitodp_mb6.vhd",
-      "impl\/vhdl\/QIO_int_s.vhd",
-      "impl\/vhdl\/QIO_int_s_currentbkb.vhd",
       "impl\/vhdl\/regslice_core.vhd",
       "impl\/vhdl\/QIO_accel.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/Galois_LFSR_32_33_hw.v",
       "impl\/verilog\/QIO_accel_AXILiteS_s_axi.v",
-      "impl\/verilog\/QIO_accel_coef_list.v",
+      "impl\/verilog\/QIO_accel_coef_lincg.v",
       "impl\/verilog\/QIO_accel_ddiv_64lbW.v",
       "impl\/verilog\/QIO_accel_dmul_64kbM.v",
-      "impl\/verilog\/QIO_accel_fadd_32cud.v",
+      "impl\/verilog\/QIO_accel_fadd_32eOg.v",
       "impl\/verilog\/QIO_accel_fcmp_32jbC.v",
-      "impl\/verilog\/QIO_accel_fdiv_32hbi.v",
-      "impl\/verilog\/QIO_accel_fmul_32dEe.v",
+      "impl\/verilog\/QIO_accel_fdiv_32g8j.v",
+      "impl\/verilog\/QIO_accel_fmul_32fYi.v",
       "impl\/verilog\/QIO_accel_fptruncibs.v",
+      "impl\/verilog\/QIO_accel_hw_int_bkb.v",
+      "impl\/verilog\/QIO_accel_hw_int_dEe.v",
       "impl\/verilog\/QIO_accel_hw_int_s.v",
-      "impl\/verilog\/QIO_accel_sitofp_eOg.v",
+      "impl\/verilog\/QIO_accel_sitofp_hbi.v",
       "impl\/verilog\/QIO_accel_uitodp_mb6.v",
-      "impl\/verilog\/QIO_int_s.v",
-      "impl\/verilog\/QIO_int_s_currentbkb.v",
       "impl\/verilog\/regslice_core.v",
       "impl\/verilog\/QIO_accel.v"
     ],
@@ -641,17 +662,11 @@
       "ModuleName": "QIO_accel",
       "Instances": [{
           "ModuleName": "QIO_accel_hw_int_s",
-          "InstanceName": "grp_QIO_accel_hw_int_s_fu_216",
-          "Instances": [
-            {
-              "ModuleName": "QIO_int_s",
-              "InstanceName": "grp_QIO_int_s_fu_252"
-            },
-            {
+          "InstanceName": "grp_QIO_accel_hw_int_s_fu_240",
+          "Instances": [{
               "ModuleName": "Galois_LFSR_32_33_hw",
-              "InstanceName": "grp_Galois_LFSR_32_33_hw_fu_259"
-            }
-          ]
+              "InstanceName": "grp_Galois_LFSR_32_33_hw_fu_477"
+            }]
         }]
     },
     "Info": {
@@ -661,13 +676,6 @@
         "isPipelined": "0",
         "isCombinational": "0",
         "isOneStateSeq": "1"
-      },
-      "QIO_int_s": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "0",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
       },
       "QIO_accel_hw_int_s": {
         "FunctionProtocol": "ap_ctrl_hs",
@@ -707,67 +715,12 @@
           "URAM": "0"
         }
       },
-      "QIO_int_s": {
-        "Latency": {
-          "LatencyBest": "5123",
-          "LatencyAvg": "",
-          "LatencyWorst": "1441283",
-          "PipelineIIMin": "5123",
-          "PipelineIIMax": "1441283",
-          "PipelineII": "5123 ~ 1441283",
-          "PipelineDepth": "",
-          "PipelineType": "none"
-        },
-        "Timing": {
-          "Target": "10.00",
-          "Uncertainty": "1.25",
-          "Estimate": "7.256"
-        },
-        "Loops": [
-          {
-            "Name": "QIO_loop1",
-            "TripCount": "256",
-            "Latency": "256",
-            "PipelineII": "1",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "QIO_loop2",
-            "TripCount": "256",
-            "LatencyMin": "4864",
-            "LatencyMax": "1441024",
-            "Latency": "4864 ~ 1441024",
-            "PipelineII": "",
-            "PipelineDepthMin": "19",
-            "PipelineDepthMax": "5629",
-            "PipelineDepth": "19 ~ 5629",
-            "Loops": [{
-                "Name": "QIO_loop3",
-                "TripCount": "",
-                "LatencyMin": "0",
-                "LatencyMax": "5610",
-                "Latency": "0 ~ 5610",
-                "PipelineII": "",
-                "PipelineDepth": "22"
-              }]
-          }
-        ],
-        "Area": {
-          "BRAM_18K": "1",
-          "DSP48E": "5",
-          "FF": "1126",
-          "LUT": "1766",
-          "URAM": "0"
-        }
-      },
       "QIO_accel_hw_int_s": {
         "Latency": {
-          "LatencyBest": "52141027",
-          "LatencyAvg": "",
-          "LatencyWorst": "14413741027",
-          "PipelineIIMin": "52141027",
-          "PipelineIIMax": "14413741027",
-          "PipelineII": "52141027 ~ 14413741027",
+          "LatencyBest": "8543650517",
+          "LatencyAvg": "8543650517",
+          "LatencyWorst": "8543650517",
+          "PipelineII": "8543650517",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -780,45 +733,53 @@
           {
             "Name": "QIO_hw_loop1",
             "TripCount": "256",
-            "Latency": "512",
-            "PipelineII": "",
+            "Latency": "256",
+            "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "QIO_hw_loop2",
             "TripCount": "10000",
-            "LatencyMin": "52140000",
-            "LatencyMax": "14413740000",
-            "Latency": "52140000 ~ 14413740000",
+            "Latency": "8543650000",
             "PipelineII": "",
-            "PipelineDepthMin": "5214",
-            "PipelineDepthMax": "1441374",
-            "PipelineDepth": "5214 ~ 1441374"
+            "PipelineDepth": "854365",
+            "Loops": [{
+                "Name": "QIO_loop1",
+                "TripCount": "256",
+                "Latency": "854272",
+                "PipelineII": "",
+                "PipelineDepth": "3337",
+                "Loops": [{
+                    "Name": "QIO_loop2",
+                    "TripCount": "128",
+                    "Latency": "3328",
+                    "PipelineII": "",
+                    "PipelineDepth": "26"
+                  }]
+              }]
           },
           {
             "Name": "QIO_hw_loop3",
             "TripCount": "256",
-            "Latency": "512",
-            "PipelineII": "",
+            "Latency": "256",
+            "PipelineII": "1",
             "PipelineDepth": "2"
           }
         ],
         "Area": {
-          "BRAM_18K": "3",
-          "DSP48E": "27",
-          "FF": "11259",
-          "LUT": "16285",
+          "BRAM_18K": "5",
+          "DSP48E": "30",
+          "FF": "11813",
+          "LUT": "17517",
           "URAM": "0"
         }
       },
       "QIO_accel": {
         "Latency": {
-          "LatencyBest": "52207084",
-          "LatencyAvg": "",
-          "LatencyWorst": "14413807084",
-          "PipelineIIMin": "52207085",
-          "PipelineIIMax": "14413807085",
-          "PipelineII": "52207085 ~ 14413807085",
+          "LatencyBest": "8543716573",
+          "LatencyAvg": "8543716573",
+          "LatencyWorst": "8543716573",
+          "PipelineII": "8543716574",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -851,10 +812,10 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "133",
-          "DSP48E": "27",
-          "FF": "11466",
-          "LUT": "16827",
+          "BRAM_18K": "135",
+          "DSP48E": "30",
+          "FF": "11987",
+          "LUT": "18120",
           "URAM": "0"
         }
       }
@@ -870,7 +831,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-01-28 10:44:59 -0800",
+    "Time": "2021-01-28 19:04:13 -0800",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

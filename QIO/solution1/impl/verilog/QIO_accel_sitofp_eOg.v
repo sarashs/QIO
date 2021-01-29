@@ -7,7 +7,7 @@
 
 module QIO_accel_sitofp_eOg
 #(parameter
-    ID         = 4,
+    ID         = 21,
     NUM_STAGE  = 6,
     din0_WIDTH = 32,
     dout_WIDTH = 32

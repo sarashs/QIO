@@ -25505,32 +25505,35 @@ struct axis_t {
   ap_int<1> last;
 };
 
-template <typename T> void axis2type(axis_t *input, T init_val[64], float coef_list[64][64]);
-template <typename T> void type2axis(T C[64], axis_t *output);
-template <typename T> void QIO(T current_val[64],float coef_list[64][64], float *cost_new);
-template <typename T> void QIO_accel_hw(T init_val[64],float coef_list[64][64], T final_val[64]);
+template <typename T> void axis2type(axis_t *input, T init_val[256], float coef_list[256][256]);
+template <typename T> void type2axis(T C[256], axis_t *output);
+template <typename T> void QIO(T current_val[256],float coef_list[256][256], float *cost_new);
+template <typename T> void QIO_accel_hw(T init_val[256],float coef_list[256][256], unsigned int num_iteration,unsigned int seed, T final_val[256]);
 
-template <typename T> void QIO(T current_val[64],float coef_list[64][64], float *cost_new){_ssdm_SpecArrayDimSize(current_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);
+template <typename T> void QIO(T current_val[256],float coef_list[256][256], float *cost_new){_ssdm_SpecArrayDimSize(current_val, 256);_ssdm_SpecArrayDimSize(coef_list, 256);
  float sum = 0;
- T current_val2[64];
+ float sum1 = 0;
+ T current_val2[256];
 QIO_loop1:
- for(int i=0; i<64; i++){
+ for(int i=0; i<256; i++){
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  current_val2[i] = current_val[i];
  }
 QIO_loop2:
- for(int i=0; i<64; i++){
-  sum += (float)current_val[i]*coef_list[i][i];
-QIO_loop3:
-  for(int j=i+1; j<64; j++){
+ for(int i=0; i<256; i++){
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- sum += (float)current_val[i]*(float)current_val2[j]*coef_list[i][j];
+ sum += (float)current_val[i]*coef_list[i][i];
+QIO_loop3:
+  for(int j=0; j<256; j++){
+   if(j>i){
+   sum1 += (float)current_val[i]*(float)current_val2[j]*coef_list[i][j];
+   }
   }
  }
- *cost_new = sum;
+ *cost_new = sum + sum1;
 }
 
-template <typename T> void axis2type(axis_t *input, T init_val[64], float coef_list[64][64]){_ssdm_SpecArrayDimSize(init_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);
+template <typename T> void axis2type(axis_t *input, T init_val[256], float coef_list[256][256]){_ssdm_SpecArrayDimSize(init_val, 256);_ssdm_SpecArrayDimSize(coef_list, 256);
 _ssdm_InlineSelf(0, "");
  union {
     unsigned int ival;
@@ -25541,35 +25544,35 @@ _ssdm_InlineSelf(0, "");
     float oval;
   } converter2;
 axis2type_loop1:
-  for (int i = 0; i < 64; i++) {
+  for (int i = 0; i < 256; i++) {
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
  converter.ival = input[i].data;
    init_val[i] = converter.oval;
   }
 axis2type_loop2:
-  for (int i = 0; i < 64; i++) {
+  for (int i = 0; i < 256; i++) {
 axis2type_loop3:
- for (int j = 0; j < 64; j++) {
+ for (int j = 0; j < 256; j++) {
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
- int k = (i + 1) * 64 + j;
+ int k = (i + 1) * 256 + j;
       converter2.ival = input[k].data;
       coef_list[i][j] = converter2.oval;
     }
   }
 }
 
-template <typename T> void type2axis(T C[64], axis_t *output) {_ssdm_SpecArrayDimSize(C, 64);
+template <typename T> void type2axis(T C[256], axis_t *output) {_ssdm_SpecArrayDimSize(C, 256);
 _ssdm_InlineSelf(0, "");
  union {
    unsigned int oval;
       T ival;
     } converter;
 type2axis_loop1:
-    for (int i = 0; i < 64; i++) {
+    for (int i = 0; i < 256; i++) {
 _ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
 _ssdm_SpecLoopFlatten(1, "");
  ap_uint<1> tmp = 0;
-        if (i == 64 - 1) {
+        if (i == 256 - 1) {
           tmp = 1;
         }
         output[i].last = tmp;
@@ -25579,35 +25582,37 @@ _ssdm_SpecLoopFlatten(1, "");
 }
 # 2 "QIO/QIO_accel.cpp" 2
 
-template <typename T> void QIO_accel_hw(T init_val[64],float coef_list[64][64], T final_val[64]){_ssdm_SpecArrayDimSize(init_val, 64);_ssdm_SpecArrayDimSize(coef_list, 64);_ssdm_SpecArrayDimSize(final_val, 64);
- T current_val[64];
- T new_val[64];
+template <typename T> void QIO_accel_hw(T init_val[256],float coef_list[256][256], unsigned int num_iteration,unsigned int seed, T final_val[256]){_ssdm_SpecArrayDimSize(init_val, 256);_ssdm_SpecArrayDimSize(coef_list, 256);_ssdm_SpecArrayDimSize(final_val, 256);
+ T current_val[256];
+ T new_val[256];
  float cost_new = 1000000000;
  float cost_old = cost_new;
  float random = 1;
- unsigned int rnd_input = 14;
+ unsigned int rnd_input = seed << 14;
  unsigned int rnd_out;
  unsigned int variable_pick = 0;
  T delta = 5;
  unsigned int move;
  unsigned int plus_or_minus;
- ap_uint<33> seed = 0xF0F0;
+
 QIO_hw_loop1:
- for(int i=0; i<64; i++){
-  current_val[i] = init_val[i];
+ for(int i=0; i<256; i++){
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ current_val[i] = init_val[i];
   new_val[i] = init_val[i];
  }
 QIO_hw_loop2:
- for(int i=0; i < 10; i++){
+ for(unsigned int i=0; i < num_iteration; i++){
 
-  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
-  pick_rnd_hw<unsigned int >((unsigned int)64, rnd_out, &variable_pick);
+_ssdm_op_SpecPipeline(0, 0, 0, 1, "");
+ Galois_LFSR_32_33_hw<unsigned int>(rnd_input, (ap_uint<33>) seed, &rnd_out);
+  pick_rnd_hw<unsigned int >((unsigned int)256, rnd_out, &variable_pick);
   rnd_input = rnd_out;
 
-  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
+  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, (ap_uint<33>) seed, &rnd_out);
   pick_rnd_hw<unsigned int >(delta, rnd_out, &move);
   rnd_input = rnd_out;
-  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
+  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, (ap_uint<33>) seed, &rnd_out);
   pick_rnd_hw<unsigned int >((unsigned int)2, rnd_out, &plus_or_minus);
   rnd_input = rnd_out;
   if (plus_or_minus == 0){
@@ -25618,7 +25623,7 @@ QIO_hw_loop2:
   }
 
   QIO<T>(new_val, coef_list, &cost_new);
-  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, seed, &rnd_out);
+  Galois_LFSR_32_33_hw<unsigned int>(rnd_input, (ap_uint<33>) seed, &rnd_out);
   uniform0_1_hw<float>(rnd_out, &random);
   rnd_input = rnd_out;
   if (random <= (cost_new/cost_old)){
@@ -25627,20 +25632,23 @@ QIO_hw_loop2:
   }
  }
 QIO_hw_loop3:
- for(int i=0; i<64; i++){
-  final_val[i] = current_val[i];
+ for(int i=0; i<256; i++){
+_ssdm_op_SpecPipeline(-1, 1, 1, 0, "");
+ final_val[i] = current_val[i];
  }
 }
-void QIO_accel(axis_t input[64 + (64 + 1)*64/2], axis_t output[64]){_ssdm_SpecArrayDimSize(input, 2144);_ssdm_SpecArrayDimSize(output, 64);
+void QIO_accel(axis_t input[256 + (256 + 1)*256/2], axis_t output[256], unsigned int *seed){_ssdm_SpecArrayDimSize(input, 33152);_ssdm_SpecArrayDimSize(output, 256);
+_ssdm_op_SpecInterface(seed, "s_axilite", 1, 1, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(output, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(input, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 _ssdm_op_SpecInterface(0, "s_axilite", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
 
- float coef_list[64][64];
+ float coef_list[256][256];
 
- int init_val[64];
- int final_val[64];
+ int init_val[256];
+ int final_val[256];
+ unsigned int num_iteration = 1000000;
  axis2type<int>(input, init_val, coef_list);
- QIO_accel_hw<int>(init_val, coef_list, final_val);
+ QIO_accel_hw<int>(init_val, coef_list, num_iteration, *seed, final_val);
  type2axis<int>(final_val, output);
 }

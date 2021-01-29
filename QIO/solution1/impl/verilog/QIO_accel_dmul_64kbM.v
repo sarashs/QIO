@@ -7,7 +7,7 @@
 
 module QIO_accel_dmul_64kbM
 #(parameter
-    ID         = 14,
+    ID         = 33,
     NUM_STAGE  = 6,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

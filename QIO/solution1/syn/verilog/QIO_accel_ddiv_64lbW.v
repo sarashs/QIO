@@ -7,7 +7,7 @@
 
 module QIO_accel_ddiv_64lbW
 #(parameter
-    ID         = 16,
+    ID         = 35,
     NUM_STAGE  = 31,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

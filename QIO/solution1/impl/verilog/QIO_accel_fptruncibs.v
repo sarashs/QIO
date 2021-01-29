@@ -7,7 +7,7 @@
 
 module QIO_accel_fptruncibs
 #(parameter
-    ID         = 12,
+    ID         = 31,
     NUM_STAGE  = 2,
     din0_WIDTH = 64,
     dout_WIDTH = 32

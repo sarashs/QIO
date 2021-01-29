@@ -19,20 +19,16 @@ template <typename T> void type2axis(T C[problem_size], axis_t *output);
 template <typename T> void QIO(T current_val[problem_size],float coef_list[problem_size][problem_size], float *cost_new);
 template <typename T> void QIO_accel_hw(T init_val[problem_size],float coef_list[problem_size][problem_size], unsigned int num_iteration,unsigned int seed, T final_val[problem_size]);
 
+
 template <typename T> void QIO(T current_val[problem_size],float coef_list[problem_size][problem_size], float *cost_new){
 	float sum = 0;
-	T current_val2[problem_size];
+	T current_val_cash;
 QIO_loop1:
 	for(int i=0; i<problem_size; i++){
-#pragma HLS PIPELINE
-		current_val2[i] = current_val[i];
-	}
+		current_val_cash = current_val[i];
 QIO_loop2:
-	for(int i=0; i<problem_size; i++){
-		sum += (float)current_val[i]*coef_list[i][i];
-QIO_loop3:
-		for(int j=i+1; j<problem_size; j++){
-			sum += (float)current_val[i]*(float)current_val2[j]*coef_list[i][j];
+		for(int j=0; j<problem_size; j++){
+			sum += (float)current_val_cash*(float)current_val[j]*coef_list[i][j];
 		}
 	}
 	*cost_new = sum;
@@ -75,7 +71,6 @@ template <typename T> void type2axis(T C[problem_size], axis_t *output) {
 type2axis_loop1:
     for (int i = 0; i < problem_size; i++) {
 #pragma HLS PIPELINE
-#pragma HLS LOOP_FLATTEN off
         ap_uint<1> tmp = 0;
         if (i == problem_size - 1) {
           tmp = 1;

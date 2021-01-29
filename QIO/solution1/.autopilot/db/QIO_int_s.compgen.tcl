@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 2
+set id 3
 set name QIO_accel_fadd_32cud
 set corename simcore_fadd
 set op fadd
@@ -91,7 +91,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 3
+set id 4
 set name QIO_accel_fmul_32dEe
 set corename simcore_fmul
 set op fmul
@@ -182,7 +182,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 }
 
 
-set id 4
+set id 21
 set name QIO_accel_sitofp_eOg
 set corename simcore_sitofp
 set op sitofp
@@ -265,14 +265,14 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_XILINX_FPV6::fpv6_gen, check your p
 
 
 # Memory (RAM/ROM)  definition:
-set ID 8
+set ID 27
 set hasByteEnable 0
 set MemName QIO_int_s_currentbkb
 set CoreName ap_simcore_mem
-set PortList { 2 3 }
+set PortList { 2 1 }
 set DataWd 32
-set AddrRange 64
-set AddrWd 6
+set AddrRange 256
+set AddrWd 8
 set impl_style block
 set TrueReset 0
 set HasInitializer 0
@@ -360,14 +360,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 9 \
+    id 28 \
     name current_val \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename current_val \
     op interface \
-    ports { current_val_address0 { O 6 vector } current_val_ce0 { O 1 bit } current_val_q0 { I 32 vector } } \
+    ports { current_val_address0 { O 8 vector } current_val_ce0 { O 1 bit } current_val_q0 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'current_val'"
@@ -379,14 +379,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 10 \
+    id 29 \
     name coef_list \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename coef_list \
     op interface \
-    ports { coef_list_address0 { O 12 vector } coef_list_ce0 { O 1 bit } coef_list_q0 { I 32 vector } } \
+    ports { coef_list_address0 { O 16 vector } coef_list_ce0 { O 1 bit } coef_list_q0 { I 32 vector } coef_list_address1 { O 16 vector } coef_list_ce1 { O 1 bit } coef_list_q1 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'coef_list'"

@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'Galois_LFSR_32_33_hw'
 ================================================================
-* Date:           Thu Jan 28 09:59:26 2021
+* Date:           Thu Jan 28 12:28:06 2021
 
 * Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
 * Project:        QIO
@@ -75,24 +75,26 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 2.79>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%input_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_r)" [QIO/LFSR.h:10]   --->   Operation 2 'read' 'input_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%guard_variable_for_v_1 = load i1* @guard_variable_for_v, align 1" [QIO/LFSR.h:12]   --->   Operation 3 'load' 'guard_variable_for_v_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%lfsr33_V_load = load i33* @lfsr33_V, align 8" [QIO/LFSR.h:16]   --->   Operation 4 'load' 'lfsr33_V_load' <Predicate = (guard_variable_for_v_1)> <Delay = 0.00>
-ST_1 : Operation 5 [1/1] (0.80ns)   --->   "%select_ln12 = select i1 %guard_variable_for_v_1, i33 %lfsr33_V_load, i33 61680" [QIO/LFSR.h:12]   --->   Operation 5 'select' 'select_ln12' <Predicate = true> <Delay = 0.80> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 6 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%lsb32_V = trunc i32 %input_read to i1" [QIO/LFSR.h:15]   --->   Operation 6 'trunc' 'lsb32_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 7 [1/1] (0.00ns) (grouped into LUT with out node rhs_V)   --->   "%lsb33_V = trunc i33 %select_ln12 to i1" [QIO/LFSR.h:16]   --->   Operation 7 'trunc' 'lsb33_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%lfsr32_V = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %input_read, i32 1, i32 31)" [QIO/LFSR.h:17]   --->   Operation 8 'partselect' 'lfsr32_V' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%lfsr32_V_1 = zext i31 %lfsr32_V to i32" [QIO/LFSR.h:17]   --->   Operation 9 'zext' 'lfsr32_V_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%lfsr32_V_2 = xor i32 %lfsr32_V_1, -1560281088" [QIO/LFSR.h:19]   --->   Operation 10 'xor' 'lfsr32_V_2' <Predicate = (lsb32_V)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 11 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%lfsr32_V_3 = select i1 %lsb32_V, i32 %lfsr32_V_2, i32 %lfsr32_V_1" [QIO/LFSR.h:18]   --->   Operation 11 'select' 'lfsr32_V_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%lshr_ln = call i32 @_ssdm_op_PartSelect.i32.i33.i32.i32(i33 %select_ln12, i32 1, i32 32)" [QIO/LFSR.h:20]   --->   Operation 12 'partselect' 'lshr_ln' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln858 = zext i32 %lshr_ln to i33" [QIO/LFSR.h:20]   --->   Operation 13 'zext' 'zext_ln858' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node rhs_V)   --->   "%xor_ln719 = xor i33 %zext_ln858, -1811939328" [QIO/LFSR.h:22]   --->   Operation 14 'xor' 'xor_ln719' <Predicate = (lsb33_V)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 15 [1/1] (0.99ns) (out node of the LUT)   --->   "%rhs_V = select i1 %lsb33_V, i33 %xor_ln719, i33 %zext_ln858" [QIO/LFSR.h:21]   --->   Operation 15 'select' 'rhs_V' <Predicate = true> <Delay = 0.99> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%trunc_ln1357 = trunc i33 %rhs_V to i32" [QIO/LFSR.h:23]   --->   Operation 16 'trunc' 'trunc_ln1357' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln23 = xor i32 %trunc_ln1357, %lfsr32_V_3" [QIO/LFSR.h:23]   --->   Operation 17 'xor' 'xor_ln23' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "store i33 %rhs_V, i33* @lfsr33_V, align 8" [QIO/LFSR.h:12]   --->   Operation 18 'store' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "ret i32 %xor_ln23" [QIO/LFSR.h:24]   --->   Operation 19 'ret' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%seed_V_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %seed_V)"   --->   Operation 2 'read' 'seed_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%input_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %input_r)"   --->   Operation 3 'read' 'input_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%seed_V_cast = zext i32 %seed_V_read to i33"   --->   Operation 4 'zext' 'seed_V_cast' <Predicate = (!guard_variable_for_v_1)> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%guard_variable_for_v_1 = load i1* @guard_variable_for_v, align 1" [QIO/LFSR.h:12]   --->   Operation 5 'load' 'guard_variable_for_v_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%lfsr33_V_load = load i33* @lfsr33_V, align 8" [QIO/LFSR.h:16]   --->   Operation 6 'load' 'lfsr33_V_load' <Predicate = (guard_variable_for_v_1)> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.80ns)   --->   "%select_ln12 = select i1 %guard_variable_for_v_1, i33 %lfsr33_V_load, i33 %seed_V_cast" [QIO/LFSR.h:12]   --->   Operation 7 'select' 'select_ln12' <Predicate = true> <Delay = 0.80> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%lsb32_V = trunc i32 %input_read to i1" [QIO/LFSR.h:15]   --->   Operation 8 'trunc' 'lsb32_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns) (grouped into LUT with out node rhs_V)   --->   "%lsb33_V = trunc i33 %select_ln12 to i1" [QIO/LFSR.h:16]   --->   Operation 9 'trunc' 'lsb33_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%lfsr32_V = call i31 @_ssdm_op_PartSelect.i31.i32.i32.i32(i32 %input_read, i32 1, i32 31)" [QIO/LFSR.h:17]   --->   Operation 10 'partselect' 'lfsr32_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%lfsr32_V_1 = zext i31 %lfsr32_V to i32" [QIO/LFSR.h:17]   --->   Operation 11 'zext' 'lfsr32_V_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%lfsr32_V_2 = xor i32 %lfsr32_V_1, -1560281088" [QIO/LFSR.h:19]   --->   Operation 12 'xor' 'lfsr32_V_2' <Predicate = (lsb32_V)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%lfsr32_V_3 = select i1 %lsb32_V, i32 %lfsr32_V_2, i32 %lfsr32_V_1" [QIO/LFSR.h:18]   --->   Operation 13 'select' 'lfsr32_V_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%lshr_ln = call i32 @_ssdm_op_PartSelect.i32.i33.i32.i32(i33 %select_ln12, i32 1, i32 32)" [QIO/LFSR.h:20]   --->   Operation 14 'partselect' 'lshr_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln858 = zext i32 %lshr_ln to i33" [QIO/LFSR.h:20]   --->   Operation 15 'zext' 'zext_ln858' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns) (grouped into LUT with out node rhs_V)   --->   "%xor_ln719 = xor i33 %zext_ln858, -1811939328" [QIO/LFSR.h:22]   --->   Operation 16 'xor' 'xor_ln719' <Predicate = (lsb33_V)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.99ns) (out node of the LUT)   --->   "%rhs_V = select i1 %lsb33_V, i33 %xor_ln719, i33 %zext_ln858" [QIO/LFSR.h:21]   --->   Operation 17 'select' 'rhs_V' <Predicate = true> <Delay = 0.99> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns) (grouped into LUT with out node xor_ln23)   --->   "%trunc_ln1357 = trunc i33 %rhs_V to i32" [QIO/LFSR.h:23]   --->   Operation 18 'trunc' 'trunc_ln1357' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.99ns) (out node of the LUT)   --->   "%xor_ln23 = xor i32 %trunc_ln1357, %lfsr32_V_3" [QIO/LFSR.h:23]   --->   Operation 19 'xor' 'xor_ln23' <Predicate = true> <Delay = 0.99> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "store i33 %rhs_V, i33* @lfsr33_V, align 8" [QIO/LFSR.h:12]   --->   Operation 20 'store' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "ret i32 %xor_ln23" [QIO/LFSR.h:24]   --->   Operation 21 'ret' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -102,10 +104,10 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 2.79ns
 The critical path consists of the following:
-	'load' operation ('guard_variable_for_v_1', QIO/LFSR.h:12) on static variable 'guard_variable_for_v' [7]  (0 ns)
-	'select' operation ('select_ln12', QIO/LFSR.h:12) [9]  (0.806 ns)
-	'select' operation ('rhs.V', QIO/LFSR.h:21) [19]  (0.993 ns)
-	'xor' operation ('out', QIO/LFSR.h:23) [21]  (0.993 ns)
+	wire read on port 'seed_V' [7]  (0 ns)
+	'select' operation ('select_ln12', QIO/LFSR.h:12) [12]  (0.806 ns)
+	'select' operation ('rhs.V', QIO/LFSR.h:21) [22]  (0.993 ns)
+	'xor' operation ('out', QIO/LFSR.h:23) [24]  (0.993 ns)
 
 
 ============================================================

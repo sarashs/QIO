@@ -24,7 +24,7 @@
           "array"
         ],
         "dataType": "axis_t",
-        "arraySizes": ["2144"],
+        "arraySizes": ["33152"],
         "structImpl": "flat-interface",
         "fields": {
           "data": {
@@ -52,7 +52,7 @@
           "array"
         ],
         "dataType": "axis_t",
-        "arraySizes": ["64"],
+        "arraySizes": ["256"],
         "structImpl": "flat-interface",
         "fields": {
           "data": {
@@ -71,6 +71,16 @@
           }
         }
       }
+    },
+    "seed": {
+      "index": "2",
+      "type": {
+        "kinds": ["pointer"],
+        "dataType": "unsigned",
+        "dataWidth": "32",
+        "interfaceRef": "s_axi_AXILiteS",
+        "registerRefs": ["seed"]
+      }
     }
   },
   "Return": {
@@ -81,7 +91,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "18871",
+    "Latency": "330984066574",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -109,6 +119,7 @@
       "impl\/vhdl\/QIO_accel_fdiv_32hbi.vhd",
       "impl\/vhdl\/QIO_accel_fmul_32dEe.vhd",
       "impl\/vhdl\/QIO_accel_fptruncibs.vhd",
+      "impl\/vhdl\/QIO_accel_hw_int_fYi.vhd",
       "impl\/vhdl\/QIO_accel_hw_int_s.vhd",
       "impl\/vhdl\/QIO_accel_sitofp_eOg.vhd",
       "impl\/vhdl\/QIO_accel_uitodp_mb6.vhd",
@@ -128,6 +139,7 @@
       "impl\/verilog\/QIO_accel_fdiv_32hbi.v",
       "impl\/verilog\/QIO_accel_fmul_32dEe.v",
       "impl\/verilog\/QIO_accel_fptruncibs.v",
+      "impl\/verilog\/QIO_accel_hw_int_fYi.v",
       "impl\/verilog\/QIO_accel_hw_int_s.v",
       "impl\/verilog\/QIO_accel_sitofp_eOg.v",
       "impl\/verilog\/QIO_accel_uitodp_mb6.v",
@@ -285,7 +297,7 @@
       "mode": "slave",
       "port_prefix": "s_axi_AXILiteS",
       "param_prefix": "C_S_AXI_AXILITES",
-      "addr_bits": "4",
+      "addr_bits": "5",
       "registers": [
         {
           "offset": "0x00",
@@ -442,6 +454,21 @@
               "description": "Reserved.  0s on read."
             }
           ]
+        },
+        {
+          "offset": "0x10",
+          "name": "seed",
+          "access": "W",
+          "reset_value": "0x0",
+          "description": "Data signal of seed",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "seed",
+              "access": "W",
+              "reset_value": "0",
+              "description": "Bit 31 to 0 Data signal of seed"
+            }]
         }
       ],
       "ctype": {
@@ -465,10 +492,10 @@
         },
         "AWADDR": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "5"
         },
         "WDATA": {
-          "Type": "null",
+          "Type": "integer unsigned",
           "Width": "32"
         },
         "WSTRB": {
@@ -477,17 +504,17 @@
         },
         "ARADDR": {
           "Type": "integer unsigned",
-          "Width": "4"
+          "Width": "5"
         },
         "RDATA": {
-          "Type": "null",
+          "Type": "integer unsigned",
           "Width": "32"
         }
       },
       "data_width": "32",
       "port_width": {
-        "ARADDR": "4",
-        "AWADDR": "4",
+        "ARADDR": "5",
+        "AWADDR": "5",
         "RDATA": "32",
         "WDATA": "32",
         "WSTRB": "4"
@@ -505,7 +532,7 @@
     },
     "s_axi_AXILiteS_AWADDR": {
       "dir": "in",
-      "width": "4"
+      "width": "5"
     },
     "s_axi_AXILiteS_WVALID": {
       "dir": "in",
@@ -533,7 +560,7 @@
     },
     "s_axi_AXILiteS_ARADDR": {
       "dir": "in",
-      "width": "4"
+      "width": "5"
     },
     "s_axi_AXILiteS_RVALID": {
       "dir": "out",
@@ -616,15 +643,15 @@
       "ModuleName": "QIO_accel",
       "Instances": [{
           "ModuleName": "QIO_accel_hw_int_s",
-          "InstanceName": "grp_QIO_accel_hw_int_s_fu_206",
+          "InstanceName": "grp_QIO_accel_hw_int_s_fu_216",
           "Instances": [
             {
               "ModuleName": "QIO_int_s",
-              "InstanceName": "grp_QIO_int_s_fu_244"
+              "InstanceName": "grp_QIO_int_s_fu_262"
             },
             {
               "ModuleName": "Galois_LFSR_32_33_hw",
-              "InstanceName": "grp_Galois_LFSR_32_33_hw_fu_251"
+              "InstanceName": "grp_Galois_LFSR_32_33_hw_fu_269"
             }
           ]
         }]
@@ -684,152 +711,129 @@
       },
       "QIO_int_s": {
         "Latency": {
-          "LatencyBest": "1347",
-          "LatencyAvg": "",
-          "LatencyWorst": "22531",
-          "PipelineIIMin": "1347",
-          "PipelineIIMax": "22531",
-          "PipelineII": "1347 ~ 22531",
+          "LatencyBest": "330893",
+          "LatencyAvg": "330893",
+          "LatencyWorst": "330893",
+          "PipelineII": "330893",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "7.256"
+          "Estimate": "8.897"
         },
         "Loops": [
           {
             "Name": "QIO_loop1",
-            "TripCount": "64",
-            "Latency": "64",
+            "TripCount": "256",
+            "Latency": "256",
             "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "QIO_loop2",
-            "TripCount": "64",
-            "LatencyMin": "1280",
-            "LatencyMax": "22464",
-            "Latency": "1280 ~ 22464",
+            "TripCount": "256",
+            "Latency": "330496",
             "PipelineII": "",
-            "PipelineDepthMin": "20",
-            "PipelineDepthMax": "351",
-            "PipelineDepth": "20 ~ 351",
-            "Loops": [{
-                "Name": "QIO_loop3",
-                "TripCount": "",
-                "LatencyMin": "0",
-                "LatencyMax": "331",
-                "Latency": "0 ~ 331",
-                "PipelineII": "5",
-                "PipelineDepth": "22"
-              }]
+            "PipelineDepth": "1291"
           }
         ],
         "Area": {
-          "BRAM_18K": "1",
-          "DSP48E": "5",
-          "FF": "1203",
-          "LUT": "1777",
+          "BRAM_18K": "2",
+          "DSP48E": "53",
+          "FF": "23864",
+          "LUT": "30584",
           "URAM": "0"
         }
       },
       "QIO_accel_hw_int_s": {
         "Latency": {
-          "LatencyBest": "14639",
-          "LatencyAvg": "",
-          "LatencyWorst": "226479",
-          "PipelineIIMin": "14639",
-          "PipelineIIMax": "226479",
-          "PipelineII": "14639 ~ 226479",
+          "LatencyBest": "330984000517",
+          "LatencyAvg": "330984000517",
+          "LatencyWorst": "330984000517",
+          "PipelineII": "330984000517",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.621"
+          "Estimate": "8.897"
         },
         "Loops": [
           {
             "Name": "QIO_hw_loop1",
-            "TripCount": "64",
-            "Latency": "128",
-            "PipelineII": "",
+            "TripCount": "256",
+            "Latency": "256",
+            "PipelineII": "1",
             "PipelineDepth": "2"
           },
           {
             "Name": "QIO_hw_loop2",
-            "TripCount": "10",
-            "LatencyMin": "14380",
-            "LatencyMax": "226220",
-            "Latency": "14380 ~ 226220",
+            "TripCount": "1000000",
+            "Latency": "330984000000",
             "PipelineII": "",
-            "PipelineDepthMin": "1438",
-            "PipelineDepthMax": "22622",
-            "PipelineDepth": "1438 ~ 22622"
+            "PipelineDepth": "330984"
           },
           {
             "Name": "QIO_hw_loop3",
-            "TripCount": "64",
-            "Latency": "128",
-            "PipelineII": "",
+            "TripCount": "256",
+            "Latency": "256",
+            "PipelineII": "1",
             "PipelineDepth": "2"
           }
         ],
         "Area": {
-          "BRAM_18K": "3",
-          "DSP48E": "27",
-          "FF": "11284",
-          "LUT": "16282",
+          "BRAM_18K": "4",
+          "DSP48E": "75",
+          "FF": "33997",
+          "LUT": "45154",
           "URAM": "0"
         }
       },
       "QIO_accel": {
         "Latency": {
-          "LatencyBest": "18871",
-          "LatencyAvg": "",
-          "LatencyWorst": "230711",
-          "PipelineIIMin": "18872",
-          "PipelineIIMax": "230712",
-          "PipelineII": "18872 ~ 230712",
+          "LatencyBest": "330984066574",
+          "LatencyAvg": "330984066574",
+          "LatencyWorst": "330984066574",
+          "PipelineII": "330984066575",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.621"
+          "Estimate": "8.897"
         },
         "Loops": [
           {
             "Name": "axis2type_loop1",
-            "TripCount": "64",
-            "Latency": "64",
+            "TripCount": "256",
+            "Latency": "256",
             "PipelineII": "1",
             "PipelineDepth": "1"
           },
           {
             "Name": "axis2type_loop2_axis2type_loop3",
-            "TripCount": "4096",
-            "Latency": "4096",
+            "TripCount": "65536",
+            "Latency": "65536",
             "PipelineII": "1",
             "PipelineDepth": "1"
           },
           {
             "Name": "type2axis_loop1",
-            "TripCount": "64",
-            "Latency": "65",
+            "TripCount": "256",
+            "Latency": "257",
             "PipelineII": "1",
             "PipelineDepth": "3"
           }
         ],
         "Area": {
-          "BRAM_18K": "13",
-          "DSP48E": "27",
-          "FF": "11376",
-          "LUT": "16727",
+          "BRAM_18K": "134",
+          "DSP48E": "75",
+          "FF": "34204",
+          "LUT": "45705",
           "URAM": "0"
         }
       }
@@ -845,7 +849,7 @@
   },
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-01-28 09:59:33 -0800",
+    "Time": "2021-01-28 12:29:06 -0800",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+  <sourceFile>
+    <directive functionName="QIO_accel" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="axis" value="" positionalBoolean="mode"/>
+        <option name="register" value="" positionalBoolean="1"/>
+        <option name="both" value="" positionalBoolean="register_mode"/>
+        <option name="port" value="input" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="QIO_accel" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="axis" value="" positionalBoolean="mode"/>
+        <option name="register" value="" positionalBoolean="1"/>
+        <option name="both" value="" positionalBoolean="register_mode"/>
+        <option name="port" value="output" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="QIO_accel" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="axis" value="" positionalBoolean="mode"/>
+        <option name="register" value="" positionalBoolean="1"/>
+        <option name="both" value="" positionalBoolean="register_mode"/>
+        <option name="port" value="output" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="QIO_accel" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value="" positionalBoolean="mode"/>
+        <option name="port" value="seed" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="QIO_accel" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value="" positionalBoolean="mode"/>
+        <option name="port" value="return" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="QIO_accel_hw" label="QIO_hw_loop1" functionLabel="">
+      <pragma name="PIPELINE"/>
+    </directive>
+    <directive functionName="QIO_accel" label="" functionLabel="">
+      <pragma name="ARRAY_PARTITION">
+        <option name="variable" value="coef_list" positionalBoolean="4"/>
+        <option name="block" value=" " positionalBoolean="type"/>
+        <option name="factor" value="8"/>
+        <option name="dim" value="1"/>
+      </pragma>
+    </directive>
+    <directive functionName="QIO_accel_hw" label="" functionLabel="">
+      <pragma name="ARRAY_PARTITION">
+        <option name="variable" value="current_val" positionalBoolean="4"/>
+        <option name="block" value=" " positionalBoolean="type"/>
+        <option name="factor" value="8"/>
+        <option name="dim" value="1"/>
+      </pragma>
+    </directive>
+    <directive functionName="QIO_accel_hw" label="QIO_loop2" functionLabel="">
+      <pragma name="UNROLL">
+        <option name="factor" value="8"/>
+      </pragma>
+    </directive>
+  </sourceFile>
+</AutoPilot:ProjectResources>

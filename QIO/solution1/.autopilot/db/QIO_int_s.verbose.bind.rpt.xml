@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'QIO_int_s'" level="0">
-<item name = "Date">Thu Jan 28 09:59:27 2021
+<item name = "Date">Thu Jan 28 12:28:30 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">QIO</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.256 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.897 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">1347, 22531, 13.470 us, 0.225 ms, 1347, 22531, none</column>
+<column name="">330893, 330893, 3.309 ms, 3.309 ms, 330893, 330893, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,9 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- QIO_loop1">64, 64, 2, 1, 1, 64, yes</column>
-<column name="- QIO_loop2">1280, 22464, 20 ~ 351, -, -, 64, no</column>
-<column name=" + QIO_loop3">0, 331, 22, 5, 1, 0 ~ 63, yes</column>
+<column name="- QIO_loop1">256, 256, 2, 1, 1, 256, yes</column>
+<column name="- QIO_loop2">330496, 330496, 1291, -, -, 256, no</column>
 </table>
 </item>
 </section>

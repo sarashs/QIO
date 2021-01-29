@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'QIO_accel'" level="0">
-<item name = "Date">Thu Jan 28 09:59:28 2021
+<item name = "Date">Thu Jan 28 12:28:40 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">QIO</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 8.621 ns, 1.25 ns</column>
+<column name="ap_clk">10.00 ns, 8.897 ns, 1.25 ns</column>
 </table>
 </item>
 </section>
@@ -24,21 +24,21 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">18871, 230711, 0.189 ms, 2.307 ms, 18871, 230711, none</column>
+<column name="">330984066574, 330984066574, 3.3e+03 sec, 3.3e+03 sec, 330984066574, 330984066574, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_QIO_accel_hw_int_s_fu_206">QIO_accel_hw_int_s, 14639, 226479, 0.146 ms, 2.265 ms, 14639, 226479, none</column>
+<column name="grp_QIO_accel_hw_int_s_fu_216">QIO_accel_hw_int_s, 330984000517, 330984000517, 3.3e+03 sec, 3.3e+03 sec, 330984000517, 330984000517, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- axis2type_loop1">64, 64, 1, 1, 1, 64, yes</column>
-<column name="- axis2type_loop2_axis2type_loop3">4096, 4096, 1, 1, 1, 4096, yes</column>
-<column name="- type2axis_loop1">65, 65, 3, 1, 1, 64, yes</column>
+<column name="- axis2type_loop1">256, 256, 1, 1, 1, 256, yes</column>
+<column name="- axis2type_loop2_axis2type_loop3">65536, 65536, 1, 1, 1, 65536, yes</column>
+<column name="- type2axis_loop1">257, 257, 3, 1, 1, 256, yes</column>
 </table>
 </item>
 </section>

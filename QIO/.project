@@ -47,6 +47,16 @@
 			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution2/.tcls</location>
 		</link>
 		<link>
+			<name>solution3/constraints</name>
+			<type>2</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution3/.tcls</location>
+		</link>
+		<link>
+			<name>solution4/constraints</name>
+			<type>2</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution4/.tcls</location>
+		</link>
+		<link>
 			<name>source/QIO.h</name>
 			<type>1</type>
 			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/QIO.h</location>
@@ -95,6 +105,36 @@
 			<name>solution2/constraints/script.tcl</name>
 			<type>1</type>
 			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution2/script.tcl</location>
+		</link>
+		<link>
+			<name>solution3/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution3/solution3.directive</location>
+		</link>
+		<link>
+			<name>solution3/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution3/directives.tcl</location>
+		</link>
+		<link>
+			<name>solution3/constraints/script.tcl</name>
+			<type>1</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution3/script.tcl</location>
+		</link>
+		<link>
+			<name>solution4/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution4/solution4.directive</location>
+		</link>
+		<link>
+			<name>solution4/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution4/directives.tcl</location>
+		</link>
+		<link>
+			<name>solution4/constraints/script.tcl</name>
+			<type>1</type>
+			<location>C:/Users/User/PYNQ-HLS/QIO/QIO/solution4/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

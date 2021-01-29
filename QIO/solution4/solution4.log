@@ -1,0 +1,1219 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'QIO/QIO_accel.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:43 . Memory (MB): peak = 889.316 ; gain = 796.215
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:43 . Memory (MB): peak = 889.316 ; gain = 796.215
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'axis2type<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:75).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:34).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:31).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:27).
+INFO: [XFORM 203-603] Inlining function 'uniform0_1_hw<float>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:56).
+INFO: [XFORM 203-603] Inlining function 'type2axis<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:77).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:23 ; elapsed = 00:01:02 . Memory (MB): peak = 889.316 ; gain = 796.215
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:37 ; elapsed = 00:01:17 . Memory (MB): peak = 889.316 ; gain = 796.215
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:70).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:70).
+INFO: [XFORM 203-501] Unrolling loop 'QIO_loop2' (QIO/QIO_accel.cpp:50) in function 'QIO_accel_hw<int>' partially with a factor of 8.
+INFO: [XFORM 203-101] Partitioning array 'coef_list' (QIO/QIO_accel.cpp:73) in dimension 1 with a block factor 8.
+INFO: [XFORM 203-101] Partitioning array 'current_val' (QIO/QIO_accel.cpp:4) in dimension 1 with a block factor 8.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptoui_double_i32' into 'QIO_accel_hw<int>' (QIO/LFSR.h:34->QIO/QIO_accel.cpp:27) automatically.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[0]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[1]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[2]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[3]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[4]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[5]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[6]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[7]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:58 ; elapsed = 00:01:39 . Memory (MB): peak = 889.316 ; gain = 796.215
+INFO: [XFORM 203-541] Flattening a loop nest 'axis2type_loop2' (QIO/QIO.h:54:34) in function 'QIO_accel'.
+WARNING: [XFORM 203-631] Renaming function 'Galois_LFSR_32_33_hw<unsigned int>' to 'Galois_LFSR_32_33_hw' (QIO/LFSR.h:12:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:19:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:37:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:40:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'final_val' (QIO/QIO_accel.cpp:66:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:60:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:18:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'init_val' (QIO/QIO.h:51:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'coef_list[0]' (QIO/QIO.h:60:7)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:02 ; elapsed = 00:01:44 . Memory (MB): peak = 889.316 ; gain = 796.215
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'QIO_accel' ...
+WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw<int>' to 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 104.506 seconds; current allocated memory: 349.460 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.252 seconds; current allocated memory: 349.554 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.15 seconds; current allocated memory: 351.688 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.91 seconds; current allocated memory: 354.452 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop2_axis2type_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'type2axis_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.053 seconds; current allocated memory: 354.904 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.468 seconds; current allocated memory: 355.287 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_v' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Galois_LFSR_32_33_hw'.
+INFO: [HLS 200-111]  Elapsed time: 0.728 seconds; current allocated memory: 355.618 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_0' to 'QIO_accel_hw_int_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_1' to 'QIO_accel_hw_int_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_2' to 'QIO_accel_hw_int_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_3' to 'QIO_accel_hw_int_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_4' to 'QIO_accel_hw_int_fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_5' to 'QIO_accel_hw_int_g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_6' to 'QIO_accel_hw_int_hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_7' to 'QIO_accel_hw_int_ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_new_val' to 'QIO_accel_hw_int_jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fadd_32ns_32ns_32_5_full_dsp_1' to 'QIO_accel_fadd_32kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fmul_32ns_32ns_32_4_max_dsp_1' to 'QIO_accel_fmul_32lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fdiv_32ns_32ns_32_16_1' to 'QIO_accel_fdiv_32mb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_sitofp_32ns_32_6_1' to 'QIO_accel_sitofp_ncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fptrunc_64ns_32_2_1' to 'QIO_accel_fptruncocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fcmp_32ns_32ns_1_2_1' to 'QIO_accel_fcmp_32pcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_dmul_64ns_64ns_64_6_max_dsp_1' to 'QIO_accel_dmul_64qcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_ddiv_64ns_64ns_64_31_1' to 'QIO_accel_ddiv_64rcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_uitodp_32ns_64_6_1' to 'QIO_accel_uitodp_sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_mux_832_32_1_1' to 'QIO_accel_mux_832tde' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_ddiv_64rcU': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_dmul_64qcK': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fadd_32kbM': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fcmp_32pcA': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fdiv_32mb6': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fmul_32lbW': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fptruncocq': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_mux_832tde': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_sitofp_ncg': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_uitodp_sc4': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-111]  Elapsed time: 1.267 seconds; current allocated memory: 359.793 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/seed' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'QIO_accel' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' and 'seed' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_0' to 'QIO_accel_coef_liudo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_1' to 'QIO_accel_coef_livdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_2' to 'QIO_accel_coef_liwdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_3' to 'QIO_accel_coef_lixdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_4' to 'QIO_accel_coef_liyd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_5' to 'QIO_accel_coef_lizec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_6' to 'QIO_accel_coef_liAem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_7' to 'QIO_accel_coef_liBew' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel'.
+INFO: [HLS 200-111]  Elapsed time: 4.09 seconds; current allocated memory: 368.909 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.00 MHz
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_bkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_jbC_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_coef_liudo_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:13 ; elapsed = 00:02:04 . Memory (MB): peak = 889.316 ; gain = 796.215
+INFO: [VHDL 208-304] Generating VHDL RTL for QIO_accel.
+INFO: [VLOG 209-307] Generating Verilog RTL for QIO_accel.
+INFO: [HLS 200-112] Total elapsed time: 124.569 seconds; peak allocated memory: 368.909 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'QIO/QIO_accel.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:08 ; elapsed = 00:00:52 . Memory (MB): peak = 888.508 ; gain = 794.504
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:08 ; elapsed = 00:00:52 . Memory (MB): peak = 888.508 ; gain = 794.504
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'axis2type<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:75).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:34).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:31).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:27).
+INFO: [XFORM 203-603] Inlining function 'uniform0_1_hw<float>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:56).
+INFO: [XFORM 203-603] Inlining function 'type2axis<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:77).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:25 ; elapsed = 00:01:12 . Memory (MB): peak = 888.508 ; gain = 794.504
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:46 ; elapsed = 00:01:33 . Memory (MB): peak = 888.508 ; gain = 794.504
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:70).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:70).
+INFO: [XFORM 203-501] Unrolling loop 'QIO_loop2' (QIO/QIO_accel.cpp:50) in function 'QIO_accel_hw<int>' partially with a factor of 16.
+INFO: [XFORM 203-101] Partitioning array 'coef_list' (QIO/QIO_accel.cpp:73) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-101] Partitioning array 'current_val' (QIO/QIO_accel.cpp:4) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptoui_double_i32' into 'QIO_accel_hw<int>' (QIO/LFSR.h:34->QIO/QIO_accel.cpp:27) automatically.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[0]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[1]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[2]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[3]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[4]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[5]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[6]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[7]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[8]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[9]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[10]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[11]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[12]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[13]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[14]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[15]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:10 ; elapsed = 00:01:59 . Memory (MB): peak = 888.508 ; gain = 794.504
+INFO: [XFORM 203-541] Flattening a loop nest 'axis2type_loop2' (QIO/QIO.h:54:34) in function 'QIO_accel'.
+WARNING: [XFORM 203-631] Renaming function 'Galois_LFSR_32_33_hw<unsigned int>' to 'Galois_LFSR_32_33_hw' (QIO/LFSR.h:12:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:19:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:37:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:40:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'final_val' (QIO/QIO_accel.cpp:66:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:60:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:18:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'init_val' (QIO/QIO.h:51:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'coef_list[0]' (QIO/QIO.h:60:7)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:19 ; elapsed = 00:02:08 . Memory (MB): peak = 888.508 ; gain = 794.504
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'QIO_accel' ...
+WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw<int>' to 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 128.813 seconds; current allocated memory: 355.599 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.35 seconds; current allocated memory: 355.693 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.517 seconds; current allocated memory: 360.279 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 5.727 seconds; current allocated memory: 367.104 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop2_axis2type_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'type2axis_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.458 seconds; current allocated memory: 367.737 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.876 seconds; current allocated memory: 368.324 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_v' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Galois_LFSR_32_33_hw'.
+INFO: [HLS 200-111]  Elapsed time: 1.526 seconds; current allocated memory: 368.670 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_0' to 'QIO_accel_hw_int_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_1' to 'QIO_accel_hw_int_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_2' to 'QIO_accel_hw_int_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_3' to 'QIO_accel_hw_int_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_4' to 'QIO_accel_hw_int_fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_5' to 'QIO_accel_hw_int_g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_6' to 'QIO_accel_hw_int_hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_7' to 'QIO_accel_hw_int_ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_8' to 'QIO_accel_hw_int_jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_9' to 'QIO_accel_hw_int_kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_10' to 'QIO_accel_hw_int_lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_11' to 'QIO_accel_hw_int_mb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_12' to 'QIO_accel_hw_int_ncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_13' to 'QIO_accel_hw_int_ocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_14' to 'QIO_accel_hw_int_pcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_15' to 'QIO_accel_hw_int_qcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_new_val' to 'QIO_accel_hw_int_rcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fadd_32ns_32ns_32_5_full_dsp_1' to 'QIO_accel_fadd_32sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fmul_32ns_32ns_32_4_max_dsp_1' to 'QIO_accel_fmul_32tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fdiv_32ns_32ns_32_16_1' to 'QIO_accel_fdiv_32udo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_sitofp_32ns_32_6_1' to 'QIO_accel_sitofp_vdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fptrunc_64ns_32_2_1' to 'QIO_accel_fptruncwdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fcmp_32ns_32ns_1_2_1' to 'QIO_accel_fcmp_32xdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_dmul_64ns_64ns_64_6_max_dsp_1' to 'QIO_accel_dmul_64yd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_ddiv_64ns_64ns_64_31_1' to 'QIO_accel_ddiv_64zec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_uitodp_32ns_64_6_1' to 'QIO_accel_uitodp_Aem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_mux_1632_32_1_1' to 'QIO_accel_mux_163Bew' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_ddiv_64zec': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_dmul_64yd2': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fadd_32sc4': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fcmp_32xdS': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fdiv_32udo': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fmul_32tde': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fptruncwdI': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_mux_163Bew': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_sitofp_vdy': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_uitodp_Aem': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-111]  Elapsed time: 2.614 seconds; current allocated memory: 377.084 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/seed' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'QIO_accel' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' and 'seed' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_0' to 'QIO_accel_coef_liCeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_1' to 'QIO_accel_coef_liDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_2' to 'QIO_accel_coef_liEe0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_3' to 'QIO_accel_coef_liFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_4' to 'QIO_accel_coef_liGfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_5' to 'QIO_accel_coef_liHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_6' to 'QIO_accel_coef_liIfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_7' to 'QIO_accel_coef_liJfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_8' to 'QIO_accel_coef_liKfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_9' to 'QIO_accel_coef_liLf8' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_10' to 'QIO_accel_coef_liMgi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_11' to 'QIO_accel_coef_liNgs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_12' to 'QIO_accel_coef_liOgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_13' to 'QIO_accel_coef_liPgM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_14' to 'QIO_accel_coef_liQgW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_15' to 'QIO_accel_coef_liRg6' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel'.
+INFO: [HLS 200-111]  Elapsed time: 12.495 seconds; current allocated memory: 397.712 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.00 MHz
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_bkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_rcU_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_coef_liCeG_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:47 ; elapsed = 00:02:52 . Memory (MB): peak = 888.508 ; gain = 794.504
+INFO: [VHDL 208-304] Generating VHDL RTL for QIO_accel.
+INFO: [VLOG 209-307] Generating Verilog RTL for QIO_accel.
+INFO: [HLS 200-112] Total elapsed time: 172.31 seconds; peak allocated memory: 397.712 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'QIO/QIO_accel.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:08 ; elapsed = 00:00:52 . Memory (MB): peak = 888.203 ; gain = 794.773
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:08 ; elapsed = 00:00:52 . Memory (MB): peak = 888.203 ; gain = 794.773
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'axis2type<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:75).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:34).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:31).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:27).
+INFO: [XFORM 203-603] Inlining function 'uniform0_1_hw<float>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:56).
+INFO: [XFORM 203-603] Inlining function 'type2axis<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:77).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:23 ; elapsed = 00:01:12 . Memory (MB): peak = 888.203 ; gain = 794.773
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:43 ; elapsed = 00:01:32 . Memory (MB): peak = 888.203 ; gain = 794.773
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:70).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:70).
+INFO: [XFORM 203-501] Unrolling loop 'QIO_loop2' (QIO/QIO_accel.cpp:50) in function 'QIO_accel_hw<int>' partially with a factor of 32.
+INFO: [XFORM 203-101] Partitioning array 'coef_list' (QIO/QIO_accel.cpp:73) in dimension 1 with a block factor 32.
+INFO: [XFORM 203-101] Partitioning array 'current_val' (QIO/QIO_accel.cpp:4) in dimension 1 with a block factor 32.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptoui_double_i32' into 'QIO_accel_hw<int>' (QIO/LFSR.h:34->QIO/QIO_accel.cpp:27) automatically.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[0]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[1]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[2]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[3]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[4]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[5]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[6]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[7]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[8]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[9]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[10]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[11]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[12]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[13]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[14]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[15]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[16]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[17]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[18]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[19]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[20]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[21]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[22]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[23]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[24]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[25]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[26]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[27]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[28]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[29]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[30]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[31]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:05 ; elapsed = 00:01:56 . Memory (MB): peak = 888.203 ; gain = 794.773
+INFO: [XFORM 203-541] Flattening a loop nest 'axis2type_loop2' (QIO/QIO.h:54:34) in function 'QIO_accel'.
+WARNING: [XFORM 203-631] Renaming function 'Galois_LFSR_32_33_hw<unsigned int>' to 'Galois_LFSR_32_33_hw' (QIO/LFSR.h:12:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:19:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:37:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:40:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'final_val' (QIO/QIO_accel.cpp:66:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:60:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:18:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'init_val' (QIO/QIO.h:51:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'coef_list[0]' (QIO/QIO.h:60:7)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:15 ; elapsed = 00:02:06 . Memory (MB): peak = 888.203 ; gain = 794.773
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'QIO_accel' ...
+WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw<int>' to 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 126.373 seconds; current allocated memory: 369.483 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.328 seconds; current allocated memory: 369.578 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.868 seconds; current allocated memory: 379.018 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 9.863 seconds; current allocated memory: 394.259 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop2_axis2type_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'type2axis_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 8.269 seconds; current allocated memory: 395.147 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.04 seconds; current allocated memory: 395.984 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_v' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Galois_LFSR_32_33_hw'.
+INFO: [HLS 200-111]  Elapsed time: 1.601 seconds; current allocated memory: 396.345 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_0' to 'QIO_accel_hw_int_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_1' to 'QIO_accel_hw_int_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_2' to 'QIO_accel_hw_int_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_3' to 'QIO_accel_hw_int_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_4' to 'QIO_accel_hw_int_fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_5' to 'QIO_accel_hw_int_g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_6' to 'QIO_accel_hw_int_hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_7' to 'QIO_accel_hw_int_ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_8' to 'QIO_accel_hw_int_jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_9' to 'QIO_accel_hw_int_kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_10' to 'QIO_accel_hw_int_lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_11' to 'QIO_accel_hw_int_mb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_12' to 'QIO_accel_hw_int_ncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_13' to 'QIO_accel_hw_int_ocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_14' to 'QIO_accel_hw_int_pcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_15' to 'QIO_accel_hw_int_qcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_16' to 'QIO_accel_hw_int_rcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_17' to 'QIO_accel_hw_int_sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_18' to 'QIO_accel_hw_int_tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_19' to 'QIO_accel_hw_int_udo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_20' to 'QIO_accel_hw_int_vdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_21' to 'QIO_accel_hw_int_wdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_22' to 'QIO_accel_hw_int_xdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_23' to 'QIO_accel_hw_int_yd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_24' to 'QIO_accel_hw_int_zec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_25' to 'QIO_accel_hw_int_Aem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_26' to 'QIO_accel_hw_int_Bew' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_27' to 'QIO_accel_hw_int_CeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_28' to 'QIO_accel_hw_int_DeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_29' to 'QIO_accel_hw_int_Ee0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_30' to 'QIO_accel_hw_int_Ffa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_31' to 'QIO_accel_hw_int_Gfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_new_val' to 'QIO_accel_hw_int_Hfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fadd_32ns_32ns_32_5_full_dsp_1' to 'QIO_accel_fadd_32IfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fmul_32ns_32ns_32_4_max_dsp_1' to 'QIO_accel_fmul_32JfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fdiv_32ns_32ns_32_16_1' to 'QIO_accel_fdiv_32KfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_sitofp_32ns_32_6_1' to 'QIO_accel_sitofp_Lf8' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fptrunc_64ns_32_2_1' to 'QIO_accel_fptruncMgi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fcmp_32ns_32ns_1_2_1' to 'QIO_accel_fcmp_32Ngs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_dmul_64ns_64ns_64_6_max_dsp_1' to 'QIO_accel_dmul_64OgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_ddiv_64ns_64ns_64_31_1' to 'QIO_accel_ddiv_64PgM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_uitodp_32ns_64_6_1' to 'QIO_accel_uitodp_QgW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_mux_3232_32_1_1' to 'QIO_accel_mux_323Rg6' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_ddiv_64PgM': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_dmul_64OgC': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fadd_32IfE': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fcmp_32Ngs': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fdiv_32KfY': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fmul_32JfO': 32 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fptruncMgi': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_mux_323Rg6': 37 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_sitofp_Lf8': 32 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_uitodp_QgW': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-111]  Elapsed time: 3.541 seconds; current allocated memory: 413.184 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/seed' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'QIO_accel' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' and 'seed' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_0' to 'QIO_accel_coef_liShg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_1' to 'QIO_accel_coef_liThq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_2' to 'QIO_accel_coef_liUhA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_3' to 'QIO_accel_coef_liVhK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_4' to 'QIO_accel_coef_liWhU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_5' to 'QIO_accel_coef_liXh4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_6' to 'QIO_accel_coef_liYie' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_7' to 'QIO_accel_coef_liZio' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_8' to 'QIO_accel_coef_li0iy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_9' to 'QIO_accel_coef_li1iI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_10' to 'QIO_accel_coef_li2iS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_11' to 'QIO_accel_coef_li3i2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_12' to 'QIO_accel_coef_li4jc' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_13' to 'QIO_accel_coef_li5jm' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_14' to 'QIO_accel_coef_li6jw' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_15' to 'QIO_accel_coef_li7jG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_16' to 'QIO_accel_coef_li8jQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_17' to 'QIO_accel_coef_li9j0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_18' to 'QIO_accel_coef_libak' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_19' to 'QIO_accel_coef_libbk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_20' to 'QIO_accel_coef_libck' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_21' to 'QIO_accel_coef_libdk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_22' to 'QIO_accel_coef_libek' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_23' to 'QIO_accel_coef_libfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_24' to 'QIO_accel_coef_libgk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_25' to 'QIO_accel_coef_libhl' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_26' to 'QIO_accel_coef_libil' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_27' to 'QIO_accel_coef_libjl' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_28' to 'QIO_accel_coef_libkl' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_29' to 'QIO_accel_coef_libll' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_30' to 'QIO_accel_coef_libml' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_31' to 'QIO_accel_coef_libnm' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel'.
+INFO: [HLS 200-111]  Elapsed time: 18.156 seconds; current allocated memory: 456.543 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.00 MHz
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_bkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_Hfu_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_coef_liShg_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:54 ; elapsed = 00:03:06 . Memory (MB): peak = 888.203 ; gain = 794.773
+INFO: [VHDL 208-304] Generating VHDL RTL for QIO_accel.
+INFO: [VLOG 209-307] Generating Verilog RTL for QIO_accel.
+INFO: [HLS 200-112] Total elapsed time: 186.089 seconds; peak allocated memory: 456.543 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'QIO/QIO_accel.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:50 . Memory (MB): peak = 888.500 ; gain = 794.715
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:50 . Memory (MB): peak = 888.500 ; gain = 794.715
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'axis2type<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:75).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:34).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:31).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:27).
+INFO: [XFORM 203-603] Inlining function 'uniform0_1_hw<float>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:56).
+INFO: [XFORM 203-603] Inlining function 'type2axis<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:77).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:23 ; elapsed = 00:01:12 . Memory (MB): peak = 888.500 ; gain = 794.715
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:45 ; elapsed = 00:01:34 . Memory (MB): peak = 888.500 ; gain = 794.715
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:70).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:70).
+INFO: [XFORM 203-501] Unrolling loop 'QIO_loop2' (QIO/QIO_accel.cpp:50) in function 'QIO_accel_hw<int>' partially with a factor of 16.
+INFO: [XFORM 203-101] Partitioning array 'coef_list' (QIO/QIO_accel.cpp:73) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-101] Partitioning array 'current_val' (QIO/QIO_accel.cpp:4) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptoui_double_i32' into 'QIO_accel_hw<int>' (QIO/LFSR.h:34->QIO/QIO_accel.cpp:27) automatically.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[0]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[1]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[2]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[3]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[4]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[5]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[6]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[7]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[8]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[9]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[10]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[11]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[12]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[13]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[14]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[15]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:10 ; elapsed = 00:02:00 . Memory (MB): peak = 888.500 ; gain = 794.715
+INFO: [XFORM 203-541] Flattening a loop nest 'axis2type_loop2' (QIO/QIO.h:54:34) in function 'QIO_accel'.
+WARNING: [XFORM 203-631] Renaming function 'Galois_LFSR_32_33_hw<unsigned int>' to 'Galois_LFSR_32_33_hw' (QIO/LFSR.h:12:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:19:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:37:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:40:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'final_val' (QIO/QIO_accel.cpp:66:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:60:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:18:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'init_val' (QIO/QIO.h:51:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'coef_list[0]' (QIO/QIO.h:60:7)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:20 ; elapsed = 00:02:10 . Memory (MB): peak = 888.500 ; gain = 794.715
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'QIO_accel' ...
+WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw<int>' to 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 130.186 seconds; current allocated memory: 355.599 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.369 seconds; current allocated memory: 355.693 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.262 seconds; current allocated memory: 360.279 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 5.882 seconds; current allocated memory: 367.104 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop2_axis2type_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'type2axis_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.914 seconds; current allocated memory: 367.737 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.01 seconds; current allocated memory: 368.324 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_v' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Galois_LFSR_32_33_hw'.
+INFO: [HLS 200-111]  Elapsed time: 1.543 seconds; current allocated memory: 368.670 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_0' to 'QIO_accel_hw_int_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_1' to 'QIO_accel_hw_int_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_2' to 'QIO_accel_hw_int_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_3' to 'QIO_accel_hw_int_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_4' to 'QIO_accel_hw_int_fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_5' to 'QIO_accel_hw_int_g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_6' to 'QIO_accel_hw_int_hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_7' to 'QIO_accel_hw_int_ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_8' to 'QIO_accel_hw_int_jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_9' to 'QIO_accel_hw_int_kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_10' to 'QIO_accel_hw_int_lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_11' to 'QIO_accel_hw_int_mb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_12' to 'QIO_accel_hw_int_ncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_13' to 'QIO_accel_hw_int_ocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_14' to 'QIO_accel_hw_int_pcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_15' to 'QIO_accel_hw_int_qcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_new_val' to 'QIO_accel_hw_int_rcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fadd_32ns_32ns_32_5_full_dsp_1' to 'QIO_accel_fadd_32sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fmul_32ns_32ns_32_4_max_dsp_1' to 'QIO_accel_fmul_32tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fdiv_32ns_32ns_32_16_1' to 'QIO_accel_fdiv_32udo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_sitofp_32ns_32_6_1' to 'QIO_accel_sitofp_vdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fptrunc_64ns_32_2_1' to 'QIO_accel_fptruncwdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fcmp_32ns_32ns_1_2_1' to 'QIO_accel_fcmp_32xdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_dmul_64ns_64ns_64_6_max_dsp_1' to 'QIO_accel_dmul_64yd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_ddiv_64ns_64ns_64_31_1' to 'QIO_accel_ddiv_64zec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_uitodp_32ns_64_6_1' to 'QIO_accel_uitodp_Aem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_mux_1632_32_1_1' to 'QIO_accel_mux_163Bew' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_ddiv_64zec': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_dmul_64yd2': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fadd_32sc4': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fcmp_32xdS': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fdiv_32udo': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fmul_32tde': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fptruncwdI': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_mux_163Bew': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_sitofp_vdy': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_uitodp_Aem': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-111]  Elapsed time: 2.668 seconds; current allocated memory: 377.084 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/seed' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'QIO_accel' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' and 'seed' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_0' to 'QIO_accel_coef_liCeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_1' to 'QIO_accel_coef_liDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_2' to 'QIO_accel_coef_liEe0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_3' to 'QIO_accel_coef_liFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_4' to 'QIO_accel_coef_liGfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_5' to 'QIO_accel_coef_liHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_6' to 'QIO_accel_coef_liIfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_7' to 'QIO_accel_coef_liJfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_8' to 'QIO_accel_coef_liKfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_9' to 'QIO_accel_coef_liLf8' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_10' to 'QIO_accel_coef_liMgi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_11' to 'QIO_accel_coef_liNgs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_12' to 'QIO_accel_coef_liOgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_13' to 'QIO_accel_coef_liPgM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_14' to 'QIO_accel_coef_liQgW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_15' to 'QIO_accel_coef_liRg6' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel'.
+INFO: [HLS 200-111]  Elapsed time: 13.235 seconds; current allocated memory: 397.712 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.00 MHz
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_bkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_rcU_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_coef_liCeG_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:49 ; elapsed = 00:02:56 . Memory (MB): peak = 888.500 ; gain = 794.715
+INFO: [VHDL 208-304] Generating VHDL RTL for QIO_accel.
+INFO: [VLOG 209-307] Generating Verilog RTL for QIO_accel.
+INFO: [HLS 200-112] Total elapsed time: 176.385 seconds; peak allocated memory: 397.712 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'QIO/QIO_accel.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:46 . Memory (MB): peak = 888.203 ; gain = 794.465
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:46 . Memory (MB): peak = 888.203 ; gain = 794.465
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'axis2type<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:75).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:34).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:31).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:27).
+INFO: [XFORM 203-603] Inlining function 'uniform0_1_hw<float>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:56).
+INFO: [XFORM 203-603] Inlining function 'type2axis<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:77).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:22 ; elapsed = 00:01:07 . Memory (MB): peak = 888.203 ; gain = 794.465
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:44 ; elapsed = 00:01:29 . Memory (MB): peak = 888.203 ; gain = 794.465
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:70).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:70).
+INFO: [XFORM 203-501] Unrolling loop 'QIO_loop2' (QIO/QIO_accel.cpp:50) in function 'QIO_accel_hw<int>' partially with a factor of 16.
+INFO: [XFORM 203-101] Partitioning array 'coef_list' (QIO/QIO_accel.cpp:73) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-101] Partitioning array 'current_val' (QIO/QIO_accel.cpp:4) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptoui_double_i32' into 'QIO_accel_hw<int>' (QIO/LFSR.h:34->QIO/QIO_accel.cpp:27) automatically.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[0]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[1]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[2]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[3]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[4]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[5]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[6]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[7]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[8]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[9]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[10]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[11]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[12]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[13]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[14]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[15]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:09 ; elapsed = 00:01:55 . Memory (MB): peak = 888.203 ; gain = 794.465
+INFO: [XFORM 203-541] Flattening a loop nest 'axis2type_loop2' (QIO/QIO.h:54:34) in function 'QIO_accel'.
+WARNING: [XFORM 203-631] Renaming function 'Galois_LFSR_32_33_hw<unsigned int>' to 'Galois_LFSR_32_33_hw' (QIO/LFSR.h:12:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:19:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:37:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:40:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'final_val' (QIO/QIO_accel.cpp:66:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:60:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:18:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'init_val' (QIO/QIO.h:51:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'coef_list[0]' (QIO/QIO.h:60:7)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:18 ; elapsed = 00:02:05 . Memory (MB): peak = 888.203 ; gain = 794.465
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'QIO_accel' ...
+WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw<int>' to 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 125.847 seconds; current allocated memory: 355.602 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.374 seconds; current allocated memory: 355.696 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.727 seconds; current allocated memory: 360.282 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 5.624 seconds; current allocated memory: 367.107 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop2_axis2type_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'type2axis_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.958 seconds; current allocated memory: 367.740 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.063 seconds; current allocated memory: 368.327 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_v' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Galois_LFSR_32_33_hw'.
+INFO: [HLS 200-111]  Elapsed time: 1.319 seconds; current allocated memory: 368.673 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_0' to 'QIO_accel_hw_int_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_1' to 'QIO_accel_hw_int_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_2' to 'QIO_accel_hw_int_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_3' to 'QIO_accel_hw_int_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_4' to 'QIO_accel_hw_int_fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_5' to 'QIO_accel_hw_int_g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_6' to 'QIO_accel_hw_int_hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_7' to 'QIO_accel_hw_int_ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_8' to 'QIO_accel_hw_int_jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_9' to 'QIO_accel_hw_int_kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_10' to 'QIO_accel_hw_int_lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_11' to 'QIO_accel_hw_int_mb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_12' to 'QIO_accel_hw_int_ncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_13' to 'QIO_accel_hw_int_ocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_14' to 'QIO_accel_hw_int_pcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_15' to 'QIO_accel_hw_int_qcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_new_val' to 'QIO_accel_hw_int_rcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fadd_32ns_32ns_32_5_full_dsp_1' to 'QIO_accel_fadd_32sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fmul_32ns_32ns_32_4_max_dsp_1' to 'QIO_accel_fmul_32tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fdiv_32ns_32ns_32_16_1' to 'QIO_accel_fdiv_32udo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_sitofp_32ns_32_6_1' to 'QIO_accel_sitofp_vdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fptrunc_64ns_32_2_1' to 'QIO_accel_fptruncwdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fcmp_32ns_32ns_1_2_1' to 'QIO_accel_fcmp_32xdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_dmul_64ns_64ns_64_6_max_dsp_1' to 'QIO_accel_dmul_64yd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_ddiv_64ns_64ns_64_31_1' to 'QIO_accel_ddiv_64zec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_uitodp_32ns_64_6_1' to 'QIO_accel_uitodp_Aem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_mux_1632_32_1_1' to 'QIO_accel_mux_163Bew' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_ddiv_64zec': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_dmul_64yd2': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fadd_32sc4': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fcmp_32xdS': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fdiv_32udo': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fmul_32tde': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fptruncwdI': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_mux_163Bew': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_sitofp_vdy': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_uitodp_Aem': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-111]  Elapsed time: 2.621 seconds; current allocated memory: 377.087 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/seed' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'QIO_accel' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' and 'seed' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_0' to 'QIO_accel_coef_liCeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_1' to 'QIO_accel_coef_liDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_2' to 'QIO_accel_coef_liEe0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_3' to 'QIO_accel_coef_liFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_4' to 'QIO_accel_coef_liGfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_5' to 'QIO_accel_coef_liHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_6' to 'QIO_accel_coef_liIfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_7' to 'QIO_accel_coef_liJfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_8' to 'QIO_accel_coef_liKfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_9' to 'QIO_accel_coef_liLf8' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_10' to 'QIO_accel_coef_liMgi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_11' to 'QIO_accel_coef_liNgs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_12' to 'QIO_accel_coef_liOgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_13' to 'QIO_accel_coef_liPgM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_14' to 'QIO_accel_coef_liQgW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_15' to 'QIO_accel_coef_liRg6' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel'.
+INFO: [HLS 200-111]  Elapsed time: 13.083 seconds; current allocated memory: 397.715 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.00 MHz
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_bkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_rcU_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_coef_liCeG_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:47 ; elapsed = 00:02:51 . Memory (MB): peak = 888.203 ; gain = 794.465
+INFO: [VHDL 208-304] Generating VHDL RTL for QIO_accel.
+INFO: [VLOG 209-307] Generating Verilog RTL for QIO_accel.
+INFO: [HLS 200-112] Total elapsed time: 171.126 seconds; peak allocated memory: 397.715 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'QIO/QIO_accel.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:08 ; elapsed = 00:00:55 . Memory (MB): peak = 888.469 ; gain = 794.660
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:08 ; elapsed = 00:00:55 . Memory (MB): peak = 888.469 ; gain = 794.660
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'axis2type<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:75).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:34).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:31).
+INFO: [XFORM 203-603] Inlining function 'pick_rnd_hw<unsigned int>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:27).
+INFO: [XFORM 203-603] Inlining function 'uniform0_1_hw<float>' into 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:56).
+INFO: [XFORM 203-603] Inlining function 'type2axis<int>' into 'QIO_accel' (QIO/QIO_accel.cpp:77).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:27 ; elapsed = 00:01:18 . Memory (MB): peak = 888.469 ; gain = 794.660
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:91) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:49 ; elapsed = 00:01:41 . Memory (MB): peak = 888.469 ; gain = 794.660
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'output.data.V' (QIO/QIO_accel.cpp:70).
+WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'input.data.V' (QIO/QIO_accel.cpp:70).
+INFO: [XFORM 203-501] Unrolling loop 'QIO_loop2' (QIO/QIO_accel.cpp:50) in function 'QIO_accel_hw<int>' partially with a factor of 16.
+INFO: [XFORM 203-101] Partitioning array 'coef_list' (QIO/QIO_accel.cpp:73) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-101] Partitioning array 'current_val' (QIO/QIO_accel.cpp:4) in dimension 1 with a block factor 16.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:68) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:71) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<unsigned int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<unsigned int, double>' into '__hls_fptoui_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptoui_double_i32' into 'QIO_accel_hw<int>' (QIO/LFSR.h:34->QIO/QIO_accel.cpp:27) automatically.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[0]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[1]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[2]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[3]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[4]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[5]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[6]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[7]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[8]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[9]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[10]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[11]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[12]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[13]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[14]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'current_val[15]' in function 'QIO_accel_hw<int>' (QIO/QIO_accel.cpp:18:3).
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:07 ; elapsed = 00:01:59 . Memory (MB): peak = 888.469 ; gain = 794.660
+INFO: [XFORM 203-541] Flattening a loop nest 'axis2type_loop2' (QIO/QIO.h:54:34) in function 'QIO_accel'.
+WARNING: [XFORM 203-631] Renaming function 'Galois_LFSR_32_33_hw<unsigned int>' to 'Galois_LFSR_32_33_hw' (QIO/LFSR.h:12:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:19:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:37:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'new_val' (QIO/QIO_accel.cpp:40:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'final_val' (QIO/QIO_accel.cpp:66:2)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:60:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'current_val[0]' (QIO/QIO_accel.cpp:18:3)
+INFO: [HLS 200-472] Inferring partial write operation for 'init_val' (QIO/QIO.h:51:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'coef_list[0]' (QIO/QIO.h:60:7)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:15 ; elapsed = 00:02:08 . Memory (MB): peak = 888.469 ; gain = 794.660
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'QIO_accel' ...
+WARNING: [SYN 201-103] Legalizing function name 'QIO_accel_hw<int>' to 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 128.992 seconds; current allocated memory: 355.602 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.477 seconds; current allocated memory: 355.696 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'QIO_hw_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.927 seconds; current allocated memory: 360.282 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 6.289 seconds; current allocated memory: 367.107 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'axis2type_loop2_axis2type_loop3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'type2axis_loop1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.801 seconds; current allocated memory: 367.740 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.924 seconds; current allocated memory: 368.327 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Galois_LFSR_32_33_hw' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'guard_variable_for_v' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lfsr33_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Galois_LFSR_32_33_hw'.
+INFO: [HLS 200-111]  Elapsed time: 1.665 seconds; current allocated memory: 368.673 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel_hw_int_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_0' to 'QIO_accel_hw_int_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_1' to 'QIO_accel_hw_int_cud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_2' to 'QIO_accel_hw_int_dEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_3' to 'QIO_accel_hw_int_eOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_4' to 'QIO_accel_hw_int_fYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_5' to 'QIO_accel_hw_int_g8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_6' to 'QIO_accel_hw_int_hbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_7' to 'QIO_accel_hw_int_ibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_8' to 'QIO_accel_hw_int_jbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_9' to 'QIO_accel_hw_int_kbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_10' to 'QIO_accel_hw_int_lbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_11' to 'QIO_accel_hw_int_mb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_12' to 'QIO_accel_hw_int_ncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_13' to 'QIO_accel_hw_int_ocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_14' to 'QIO_accel_hw_int_pcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_current_val_15' to 'QIO_accel_hw_int_qcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_hw_int_s_new_val' to 'QIO_accel_hw_int_rcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fadd_32ns_32ns_32_5_full_dsp_1' to 'QIO_accel_fadd_32sc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fmul_32ns_32ns_32_4_max_dsp_1' to 'QIO_accel_fmul_32tde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fdiv_32ns_32ns_32_16_1' to 'QIO_accel_fdiv_32udo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_sitofp_32ns_32_6_1' to 'QIO_accel_sitofp_vdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fptrunc_64ns_32_2_1' to 'QIO_accel_fptruncwdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_fcmp_32ns_32ns_1_2_1' to 'QIO_accel_fcmp_32xdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_dmul_64ns_64ns_64_6_max_dsp_1' to 'QIO_accel_dmul_64yd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_ddiv_64ns_64ns_64_31_1' to 'QIO_accel_ddiv_64zec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_uitodp_32ns_64_6_1' to 'QIO_accel_uitodp_Aem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_mux_1632_32_1_1' to 'QIO_accel_mux_163Bew' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_ddiv_64zec': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_dmul_64yd2': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fadd_32sc4': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fcmp_32xdS': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fdiv_32udo': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fmul_32tde': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_fptruncwdI': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_mux_163Bew': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_sitofp_vdy': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'QIO_accel_uitodp_Aem': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel_hw_int_s'.
+INFO: [HLS 200-111]  Elapsed time: 2.69 seconds; current allocated memory: 377.087 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'QIO_accel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/input_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/output_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'QIO_accel/seed' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'QIO_accel' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return' and 'seed' to AXI-Lite port AXILiteS.
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_0' to 'QIO_accel_coef_liCeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_1' to 'QIO_accel_coef_liDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_2' to 'QIO_accel_coef_liEe0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_3' to 'QIO_accel_coef_liFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_4' to 'QIO_accel_coef_liGfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_5' to 'QIO_accel_coef_liHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_6' to 'QIO_accel_coef_liIfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_7' to 'QIO_accel_coef_liJfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_8' to 'QIO_accel_coef_liKfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_9' to 'QIO_accel_coef_liLf8' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_10' to 'QIO_accel_coef_liMgi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_11' to 'QIO_accel_coef_liNgs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_12' to 'QIO_accel_coef_liOgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_13' to 'QIO_accel_coef_liPgM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_14' to 'QIO_accel_coef_liQgW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'QIO_accel_coef_list_15' to 'QIO_accel_coef_liRg6' due to the length limit 20
+INFO: [RTGEN 206-100] Finished creating RTL model for 'QIO_accel'.
+INFO: [HLS 200-111]  Elapsed time: 13.459 seconds; current allocated memory: 397.715 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 116.00 MHz
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_bkb_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_hw_int_rcU_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'QIO_accel_coef_liCeG_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:45 ; elapsed = 00:02:55 . Memory (MB): peak = 888.469 ; gain = 794.660
+INFO: [VHDL 208-304] Generating VHDL RTL for QIO_accel.
+INFO: [VLOG 209-307] Generating Verilog RTL for QIO_accel.
+INFO: [HLS 200-112] Total elapsed time: 175.825 seconds; peak allocated memory: 397.715 MB.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.

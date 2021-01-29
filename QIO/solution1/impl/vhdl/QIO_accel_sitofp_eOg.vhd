@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity QIO_accel_sitofp_eOg is
     generic (
-        ID         : integer := 4;
+        ID         : integer := 21;
         NUM_STAGE  : integer := 6;
         din0_WIDTH : integer := 32;
         dout_WIDTH : integer := 32

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'Galois_LFSR_32_33_hw'" level="0">
-<item name = "Date">Thu Jan 28 09:59:29 2021
+<item name = "Date">Thu Jan 28 12:28:41 2021
 </item>
 <item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
 <item name = "Project">QIO</item>
@@ -77,12 +77,12 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="lfsr32_V_3_fu_74_p3">select, 0, 0, 32, 1, 32</column>
-<column name="rhs_V_fu_102_p3">select, 0, 0, 33, 1, 33</column>
-<column name="select_ln12_fu_38_p3">select, 0, 0, 33, 1, 33</column>
-<column name="lfsr32_V_2_fu_68_p2">xor, 0, 0, 32, 32, 32</column>
-<column name="xor_ln23_fu_114_p2">xor, 0, 0, 32, 32, 32</column>
-<column name="xor_ln719_fu_96_p2">xor, 0, 0, 33, 33, 32</column>
+<column name="lfsr32_V_3_fu_84_p3">select, 0, 0, 32, 1, 32</column>
+<column name="rhs_V_fu_112_p3">select, 0, 0, 33, 1, 33</column>
+<column name="select_ln12_fu_48_p3">select, 0, 0, 33, 1, 33</column>
+<column name="lfsr32_V_2_fu_78_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln23_fu_124_p2">xor, 0, 0, 32, 32, 32</column>
+<column name="xor_ln719_fu_106_p2">xor, 0, 0, 33, 33, 32</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -113,6 +113,7 @@
 <column name="ap_ready">out, 1, ap_ctrl_hs, Galois_LFSR_32_33_hw, return value</column>
 <column name="ap_return">out, 32, ap_ctrl_hs, Galois_LFSR_32_33_hw, return value</column>
 <column name="input_r">in, 32, ap_none, input_r, scalar</column>
+<column name="seed_V">in, 32, ap_none, seed_V, scalar</column>
 </table>
 </item>
 </section>

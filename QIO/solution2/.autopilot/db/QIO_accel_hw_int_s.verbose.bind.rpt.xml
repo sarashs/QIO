@@ -1,0 +1,51 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'QIO_accel_hw_int_s'" level="0">
+<item name = "Date">Thu Jan 28 19:04:06 2021
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">QIO</item>
+<item name = "Solution">solution2</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.621 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">8543650517, 8543650517, 85.437 sec, 85.437 sec, 8543650517, 8543650517, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_Galois_LFSR_32_33_hw_fu_477">Galois_LFSR_32_33_hw, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- QIO_hw_loop1">256, 256, 2, 1, 1, 256, yes</column>
+<column name="- QIO_hw_loop2">8543650000, 8543650000, 854365, -, -, 10000, no</column>
+<column name=" + QIO_loop1">854272, 854272, 3337, -, -, 256, no</column>
+<column name="  ++ QIO_loop2">3328, 3328, 26, -, -, 128, no</column>
+<column name="- QIO_hw_loop3">256, 256, 2, 1, 1, 256, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

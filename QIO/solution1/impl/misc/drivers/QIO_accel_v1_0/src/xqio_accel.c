@@ -73,6 +73,23 @@ void XQio_accel_DisableAutoRestart(XQio_accel *InstancePtr) {
     XQio_accel_WriteReg(InstancePtr->Axilites_BaseAddress, XQIO_ACCEL_AXILITES_ADDR_AP_CTRL, 0);
 }
 
+void XQio_accel_Set_seed(XQio_accel *InstancePtr, u32 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XQio_accel_WriteReg(InstancePtr->Axilites_BaseAddress, XQIO_ACCEL_AXILITES_ADDR_SEED_DATA, Data);
+}
+
+u32 XQio_accel_Get_seed(XQio_accel *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XQio_accel_ReadReg(InstancePtr->Axilites_BaseAddress, XQIO_ACCEL_AXILITES_ADDR_SEED_DATA);
+    return Data;
+}
+
 void XQio_accel_InterruptGlobalEnable(XQio_accel *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

@@ -8,6 +8,7 @@ QIO_accel_fcmp_32jbC
 QIO_accel_dmul_64kbM
 QIO_accel_ddiv_64lbW
 QIO_accel_uitodp_mb6
+QIO_accel_hw_int_fYi
 QIO_accel_coef_list
 QIO_accel_AXILiteS_s_axi
 regslice_core

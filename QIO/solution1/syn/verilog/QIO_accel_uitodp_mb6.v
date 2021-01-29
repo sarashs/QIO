@@ -7,7 +7,7 @@
 
 module QIO_accel_uitodp_mb6
 #(parameter
-    ID         = 18,
+    ID         = 37,
     NUM_STAGE  = 6,
     din0_WIDTH = 32,
     dout_WIDTH = 64

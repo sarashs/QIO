@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity QIO_accel_fptruncibs is
     generic (
-        ID         : integer := 12;
+        ID         : integer := 31;
         NUM_STAGE  : integer := 2;
         din0_WIDTH : integer := 64;
         dout_WIDTH : integer := 32
